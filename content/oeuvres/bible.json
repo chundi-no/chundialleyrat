@@ -1,0 +1,29 @@
+{
+  "artist": "Auteurs multiples",
+  "work": "La Bible",
+  "date": "Antiquité",
+  "y": -1000,
+  "type": "Texte fondateur",
+  "themes": [
+    "Texte fondateur",
+    "Quête spirituelle",
+    "Rédemption"
+  ],
+  "disc": [
+    "Religions",
+    "Philosophie",
+    "Littérature",
+    "Histoire et géopolitique"
+  ],
+  "avis": "Un texte fondateur d’un courant de pensée civilisationnel et spirituel.",
+  "resume": {
+    "ctx": "Rédigée sur plus d’un millénaire, en hébreu, en araméen et en grec, elle rassemble la Bible hébraïque, reprise par les chrétiens comme Ancien Testament, et le Nouveau Testament.",
+    "recap": "Récits des origines, lois, poèmes et prophéties, puis vie et enseignement de Jésus : un {texte fondateur|Texte fondateur} de la civilisation occidentale, traversé par la {quête spirituelle|Quête spirituelle} d’un peuple et par l’idée de {rédemption|Rédemption}."
+  },
+  "citation": "Au commencement, Dieu créa les cieux et la terre.",
+  "citationSrc": "Genèse 1, 1 — trad. Louis Segond",
+  "pourquoi": "",
+  "avisDate": "novembre 2026",
+  "by": "",
+  "ordre": 2
+}

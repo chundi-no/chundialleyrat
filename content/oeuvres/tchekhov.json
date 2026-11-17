@@ -1,0 +1,27 @@
+{
+  "artist": "Anton Tchékhov",
+  "work": "Les Méfaits du tabac",
+  "date": "1886",
+  "y": 1886,
+  "type": "Théâtre",
+  "themes": [
+    "Humour",
+    "Absurde",
+    "Satire"
+  ],
+  "disc": [
+    "Théâtre",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Tchékhov écrit ce monologue en 1886 et le réécrit plusieurs fois jusqu’en 1902.",
+    "recap": "Un mari soumis donne, à la demande de sa femme, une conférence sur les dangers du tabac, et dérive vers la confession de sa vie ratée. Une {satire|Satire} pleine d’{humour|Humour}, qui glisse vers l’{absurde|Absurde} et la mélancolie."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 22
+}

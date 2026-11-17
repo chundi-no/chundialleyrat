@@ -1,0 +1,28 @@
+{
+  "artist": "Manufacture horlogère",
+  "work": "Jaeger-LeCoultre",
+  "date": "Fondée en 1833",
+  "y": 1833,
+  "type": "Maison",
+  "themes": [
+    "Patrimoine",
+    "Aura",
+    "Image de marque"
+  ],
+  "disc": [
+    "Horlogerie",
+    "Histoire de l’art",
+    "Marketing"
+  ],
+  "avis": "Son patrimoine et son aura.",
+  "resume": {
+    "ctx": "Antoine LeCoultre fonde son atelier en 1833 au Sentier, dans la Vallée de Joux, en Suisse ; l’association avec l’horloger Edmond Jaeger, au début du XXe siècle, donne son nom à la maison.",
+    "recap": "Une manufacture qui conçoit et fabrique ses propres mouvements, connue pour la Reverso (1931), montre au boîtier réversible imaginée pour les joueurs de polo. Son {patrimoine|Patrimoine} technique nourrit une {aura|Aura} de maison d’horlogers et une {image de marque|Image de marque} discrète."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "novembre 2026",
+  "by": "",
+  "ordre": 6
+}

@@ -1,0 +1,28 @@
+{
+  "artist": "Antoine de Saint-Exupéry",
+  "work": "Le Petit Prince",
+  "date": "1943",
+  "y": 1943,
+  "type": "Conte",
+  "themes": [
+    "Enfance",
+    "Innocence",
+    "Sagesse"
+  ],
+  "disc": [
+    "Littérature",
+    "Philosophie",
+    "Développement humain"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Saint-Exupéry écrit et illustre le conte à New York, pendant son exil américain ; il paraît en 1943.",
+    "recap": "Un aviateur en panne dans le Sahara rencontre un petit prince venu d’un astéroïde, qui lui raconte ses voyages de planète en planète. Un conte sur l’{enfance|Enfance} et l’{innocence|Innocence} face au monde des adultes, porteur d’une {sagesse|Sagesse} simple : « On ne voit bien qu’avec le cœur. »"
+  },
+  "citation": "On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.",
+  "citationSrc": "Antoine de Saint-Exupéry, Le Petit Prince",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 27
+}

@@ -1,0 +1,26 @@
+{
+  "artist": "Albert Camus",
+  "work": "L’Étranger",
+  "date": "1942",
+  "y": 1942,
+  "type": "Roman",
+  "themes": [
+    "Absurde",
+    "Aliénation"
+  ],
+  "disc": [
+    "Littérature",
+    "Philosophie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Albert Camus publie le roman en 1942 chez Gallimard, sous l’Occupation ; il forme avec Le Mythe de Sisyphe et Caligula son « cycle de l’absurde ».",
+    "recap": "À Alger, Meursault, employé indifférent, tue un homme sur une plage. Son procès juge moins son crime que son refus de jouer le jeu social, à commencer par son absence de larmes à l’enterrement de sa mère. Le roman fondateur de l’{absurde|Absurde} et un portrait de l’{aliénation|Aliénation}."
+  },
+  "citation": "Aujourd’hui, maman est morte.",
+  "citationSrc": "Albert Camus, L’Étranger, incipit",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 25
+}

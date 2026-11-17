@@ -1,0 +1,28 @@
+{
+  "artist": "Sigmund Freud",
+  "work": "Cinq leçons sur la psychanalyse",
+  "date": "1910",
+  "y": 1910,
+  "type": "Essai",
+  "themes": [
+    "Inconscient",
+    "Âme humaine",
+    "Vulgarisation"
+  ],
+  "disc": [
+    "Psychologie",
+    "Philosophie",
+    "Technologie et science"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "En 1909, Freud donne cinq conférences à la Clark University, aux États-Unis, à l’invitation du psychologue Stanley Hall ; le texte paraît en 1910.",
+    "recap": "Il y présente la psychanalyse à un public non spécialiste : l’hystérie, le refoulement, l’interprétation des rêves, la sexualité infantile, le transfert. Une {vulgarisation|Vulgarisation} par son fondateur de la théorie de l’{inconscient|Inconscient}, qui change la manière de lire l’{âme humaine|Âme humaine}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 11
+}

@@ -1,0 +1,28 @@
+{
+  "artist": "Marque japonaise",
+  "work": "Uniqlo",
+  "date": "Fondée en 1984",
+  "y": 1984,
+  "type": "Marque",
+  "themes": [
+    "Qualité perçue",
+    "Capitalisme",
+    "Minimalisme"
+  ],
+  "disc": [
+    "Marketing",
+    "Économie",
+    "Écologie et consommation"
+  ],
+  "avis": "Sa stratégie commerciale et sa conquête par la qualité perçue.",
+  "resume": {
+    "ctx": "Tadashi Yanai ouvre le premier magasin Uniqlo en 1984 à Hiroshima, à partir de l’entreprise de vêtements familiale ; la marque appartient aujourd’hui au groupe Fast Retailing.",
+    "recap": "Des basiques sans logo, des textiles techniques et des prix stables : Uniqlo vend moins une mode qu’une {qualité perçue|Qualité perçue}. Une stratégie du {capitalisme|Capitalisme} de masse, servie par un {minimalisme|Minimalisme} japonais dans les produits comme dans les magasins."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "novembre 2026",
+  "by": "",
+  "ordre": 5
+}

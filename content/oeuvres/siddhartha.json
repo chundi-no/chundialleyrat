@@ -1,0 +1,30 @@
+{
+  "artist": "Hermann Hesse",
+  "work": "Siddhartha",
+  "date": "1922",
+  "y": 1922,
+  "type": "Roman",
+  "themes": [
+    "Initiation",
+    "Quête spirituelle",
+    "Pensée orientale",
+    "Sagesse"
+  ],
+  "disc": [
+    "Littérature",
+    "Philosophie",
+    "Religions",
+    "Développement humain"
+  ],
+  "avis": "Un roman d’initiation, un texte fondateur pour approcher la manière de penser bouddhiste et asiatique.",
+  "resume": {
+    "ctx": "Hermann Hesse publie ce court roman en 1922, après un voyage en Asie en 1911 et une longue fréquentation des textes indiens, dans une Europe meurtrie par la Première Guerre mondiale.",
+    "recap": "Fils de brahmane, Siddhartha quitte sa famille, essaie l’ascèse, rencontre le Bouddha, puis se perd dans les plaisirs et les affaires avant de revenir au fleuve, auprès d’un passeur. Un récit d’{initiation|Initiation} où la {quête spirituelle|Quête spirituelle} passe par l’expérience plutôt que par l’enseignement, et une porte d’entrée vers la {pensée orientale|Pensée orientale} et sa {sagesse|Sagesse}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "novembre 2026",
+  "by": "",
+  "ordre": 0
+}

@@ -1,0 +1,27 @@
+{
+  "artist": "Alain",
+  "work": "Propos sur le bonheur",
+  "date": "1925",
+  "y": 1925,
+  "type": "Essai",
+  "themes": [
+    "Bonheur",
+    "Sagesse"
+  ],
+  "disc": [
+    "Philosophie",
+    "Développement humain",
+    "Psychologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Émile Chartier, dit Alain, professeur de philosophie, publie dès 1906 de courts « propos » dans la presse ; ceux consacrés au bonheur sont réunis en 1925.",
+    "recap": "En textes de quelques paragraphes, Alain défend un {bonheur|Bonheur} qui se construit : il tient à la volonté, à l’attention au corps et à la politesse envers les autres. Une {sagesse|Sagesse} pratique, résumée par sa formule : « Le pessimisme est d’humeur ; l’optimisme est de volonté. »"
+  },
+  "citation": "Le pessimisme est d’humeur ; l’optimisme est de volonté.",
+  "citationSrc": "Alain, Propos sur le bonheur",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 15
+}

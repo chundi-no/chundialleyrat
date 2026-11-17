@@ -1,0 +1,30 @@
+{
+  "artist": "Victor Hugo",
+  "work": "Les Misérables",
+  "date": "1862",
+  "y": 1862,
+  "type": "Roman",
+  "themes": [
+    "Âme humaine",
+    "Justice sociale",
+    "Rédemption"
+  ],
+  "disc": [
+    "Littérature",
+    "Histoire et géopolitique",
+    "Politique",
+    "Sociologie",
+    "Psychologie"
+  ],
+  "avis": "Un roman historique, particulièrement universel dans son approche de l’âme humaine, sa compréhension et son questionnement.",
+  "resume": {
+    "ctx": "Victor Hugo commence le roman dans les années 1840 et l’achève en exil à Guernesey ; sa parution en 1862 est un événement dans toute l’Europe.",
+    "recap": "Ancien forçat, Jean Valjean se transforme grâce à la bonté d’un évêque, recueille Cosette et échappe sans cesse à l’inspecteur Javert, jusqu’aux barricades de 1832. Un roman de la {rédemption|Rédemption} et de la {justice sociale|Justice sociale}, qui sonde l’{âme humaine|Âme humaine} jusque dans ses contradictions."
+  },
+  "citation": "Il n’y a ni mauvaises herbes ni mauvais hommes. Il n’y a que de mauvais cultivateurs.",
+  "citationSrc": "Victor Hugo, Les Misérables",
+  "pourquoi": "",
+  "avisDate": "novembre 2026",
+  "by": "",
+  "ordre": 3
+}

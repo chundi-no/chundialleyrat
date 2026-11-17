@@ -1,0 +1,29 @@
+{
+  "artist": "Jacques Attali",
+  "work": "Le monde, modes d’emploi",
+  "date": "2024",
+  "y": 2024,
+  "type": "Essai",
+  "themes": [
+    "Mondialisation",
+    "Pouvoir",
+    "Vulgarisation"
+  ],
+  "disc": [
+    "Économie",
+    "Politique",
+    "Histoire et géopolitique",
+    "Technologie et science"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Économiste et essayiste, ancien conseiller spécial de François Mitterrand, Jacques Attali signe cet essai au sous-titre programmatique : comprendre, prévoir, agir, protéger.",
+    "recap": "Un panorama des grandes forces qui façonnent le monde contemporain et des moyens d’y faire face. Une {vulgarisation|Vulgarisation} des enjeux de la {mondialisation|Mondialisation} et des rapports de {pouvoir|Pouvoir} entre États."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 16
+}

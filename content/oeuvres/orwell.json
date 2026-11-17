@@ -1,0 +1,28 @@
+{
+  "artist": "George Orwell",
+  "work": "La Ferme des animaux",
+  "date": "1945",
+  "y": 1945,
+  "type": "Fable",
+  "themes": [
+    "Pouvoir",
+    "Satire",
+    "Justice sociale"
+  ],
+  "disc": [
+    "Littérature",
+    "Politique",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Écrite en 1943-1944, la fable paraît en août 1945, après plusieurs refus d’éditeurs réticents à critiquer l’URSS, alors alliée du Royaume-Uni.",
+    "recap": "Les animaux d’une ferme chassent leur propriétaire, mais les cochons confisquent peu à peu la révolution : « Tous les animaux sont égaux, mais certains sont plus égaux que d’autres. » Une {satire|Satire} du stalinisme sur la confiscation du {pouvoir|Pouvoir} et la trahison de la {justice sociale|Justice sociale}."
+  },
+  "citation": "Tous les animaux sont égaux, mais certains sont plus égaux que d’autres.",
+  "citationSrc": "George Orwell, La Ferme des animaux",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 14
+}

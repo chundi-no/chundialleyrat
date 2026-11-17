@@ -1,0 +1,28 @@
+{
+  "artist": "Franz Kafka",
+  "work": "La Métamorphose",
+  "date": "1915",
+  "y": 1915,
+  "type": "Nouvelle",
+  "themes": [
+    "Absurde",
+    "Aliénation",
+    "Onirisme"
+  ],
+  "disc": [
+    "Littérature",
+    "Psychologie",
+    "Philosophie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Franz Kafka écrit la nouvelle à Prague, fin 1912, et la publie en 1915.",
+    "recap": "Un matin, Gregor Samsa, représentant de commerce, se réveille transformé en insecte ; sa famille, qui vivait de son salaire, finit par le rejeter. Un récit à la logique de cauchemar, entre {onirisme|Onirisme}, {absurde|Absurde} et {aliénation|Aliénation} par le travail et la famille."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 26
+}

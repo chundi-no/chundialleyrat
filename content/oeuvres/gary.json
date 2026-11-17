@@ -1,0 +1,30 @@
+{
+  "artist": "Romain Gary",
+  "work": "La Promesse de l’aube",
+  "date": "1960",
+  "y": 1960,
+  "type": "Roman",
+  "fav": true,
+  "themes": [
+    "Relation mère-fils",
+    "Enfance",
+    "Destin",
+    "Exil"
+  ],
+  "disc": [
+    "Littérature",
+    "Psychologie",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Romain Gary publie ce récit autobiographique en 1960, alors qu’il est consul général de France à Los Angeles.",
+    "recap": "De Vilnius à Nice, l’auteur raconte une {enfance|Enfance} marquée par l’{exil|Exil} et par une mère qui lui promet un {destin|Destin} exceptionnel, jusqu’à la guerre dans l’aviation de la France libre. Le livre fait de la {relation mère-fils|Relation mère-fils} un amour démesuré, drôle et bouleversant."
+  },
+  "citation": "Avec l’amour maternel, la vie vous fait, à l’aube, une promesse qu’elle ne tient jamais.",
+  "citationSrc": "Romain Gary, La Promesse de l’aube",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 23
+}
