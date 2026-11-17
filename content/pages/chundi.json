@@ -1,0 +1,88 @@
+{
+  "bonjour": [
+    "Moi, c’est Chundi. J’ai appris à fabriquer des espaces avant d’apprendre à les vendre : d’abord la scénographie et l’événementiel au DN MADE de Maximilien Vox, avec un détour d’un an par Bucarest, puis le management des industries culturelles à ICN Business School, où je suis aujourd’hui.",
+    "Entre-temps, j’ai dessiné des vitrines pour le luxe, réglé de la lumière et pris en main la communication d’un pianiste. Le reste du temps, je restaure des montres anciennes, je joue de la flûte, je monte en montagne, et je lis beaucoup trop de choses à la fois."
+  ],
+  "sections": [
+    {
+      "titre": "Études",
+      "lignes": [
+        {
+          "quand": "2026 – aujourd’hui",
+          "quoi": "Programme Grande École, ICN Business School : spécialisation Management des industries culturelles et créatives, admission parallèle en deuxième année."
+        },
+        {
+          "quand": "[années]",
+          "quoi": "DN MADE mention Événementiel et Espace, Lycée Maximilien Vox, Paris. Mémoire et projet de diplôme *Mécène en scène*, sur la relation entre mécénat et événementiel."
+        },
+        {
+          "quand": "2024 – 2025",
+          "quoi": "Erasmus en scénographie, Université nationale des arts (UNARTE), Bucarest."
+        }
+      ]
+    },
+    {
+      "titre": "Expériences",
+      "lignes": [
+        {
+          "quand": "2026 – aujourd’hui",
+          "quoi": "Manager du pianiste-compositeur Florian Caulier : création de son site, communication, organisation."
+        },
+        {
+          "quand": "2025",
+          "quoi": "Au Vieux Campeur, Paris : designer opérationnel, stage."
+        },
+        {
+          "quand": "[année]",
+          "quoi": "Malherbe Paris, agence de design d’espaces commerciaux pour le luxe : stage."
+        },
+        {
+          "quand": "[année]",
+          "quoi": "Archiluminal, conception lumière architecturale : stage."
+        }
+      ]
+    },
+    {
+      "titre": "Engagements et pratiques",
+      "lignes": [
+        {
+          "quand": "[années]",
+          "quoi": "Scouts et Guides de France, dont un projet solidaire de purification de l’eau au Cambodge."
+        },
+        {
+          "quand": "Depuis l’enfance",
+          "quoi": "Flûte traversière, en orchestre ; théâtre."
+        },
+        {
+          "quand": "En ce moment",
+          "quoi": "Restauration de montres anciennes, en autodidacte ; alpinisme."
+        }
+      ]
+    },
+    {
+      "titre": "Langues et certificats",
+      "lignes": [
+        {
+          "quand": "Langues",
+          "quoi": "Français, langue maternelle ; anglais professionnel, cursus suivi en anglais."
+        },
+        {
+          "quand": "Certificats",
+          "quoi": "Permis B ; PSC1, premiers secours."
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "ville": "Paris",
+    "email": "",
+    "telephone": "",
+    "liens": [
+      {
+        "nom": "LinkedIn",
+        "url": ""
+      }
+    ],
+    "disponibilite": "Disponible pour une alternance en communication, en événementiel ou dans la culture."
+  }
+}

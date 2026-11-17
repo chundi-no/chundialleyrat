@@ -1,0 +1,14 @@
+{
+  "titre": "Bibliothèque",
+  "titreItalique": "personnelle",
+  "intro": "Ce site est ma bibliothèque. J’y range ce qui m’a appris à regarder : des livres, des films, des spectacles, des marques, des objets. Ce n’est pas un palmarès, plutôt une carte de mes curiosités, qui grandira avec moi.",
+  "presentation": "{oeuvres} œuvres, de la Bible aux Misérables du Châtelet (2024) : romans, essais, bandes dessinées, opéras, marques et artistes. Elles sont rangées en {familles} grandes disciplines ({liste_familles}) et reliées par {themes} thèmes.",
+  "invitation": "Si vous tombez sur une référence commune, on a déjà un sujet de conversation. Et s’il en manque une, proposez-la-moi depuis la bibliothèque.",
+  "sousTitreBibliotheque": "Romans, essais, BD, opéras, marques : de la Bible à Stromae.",
+  "sousTitreExplorer": "Sagesse, pouvoir, capitalisme, onirisme, humour, initiation…",
+  "sousTitreInspirations": "Outils, liens, projets, sons et vidéos YouTube.",
+  "sousTitreProjets": "Scénographie, événementiel, communication.",
+  "etiquetteChundi": "DN MADE · ICN",
+  "sousTitreChundi": "Présentation, CV en PDF, contact.",
+  "piedDePage": "Bibliothèque personnelle, accrochage en cours"
+}
