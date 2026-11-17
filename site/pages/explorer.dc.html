@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Explorer — Chundi Alleyrat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{--fond:#1428D8;--papier:#FFFFFF;--accent:#FFF04A;--encre:#0B1040;--pale:#E3E6FB;--pale2:#F1F2FD;--trait:#C9CCE0;--doux:#55598A;--surfond:#FFFFFF}
+:root:has(#page[data-theme="sombre"]){--fond:#08080B;--papier:#16171D;--accent:#6A45F5;--encre:#F1EFE8;--pale:#25272F;--pale2:#1D1F26;--trait:#3A3D48;--doux:#A6AAB8;--surfond:#F1EFE8}
+:root:has(#page[data-theme="girly"]){--fond:#FF5FA8;--papier:#FFF6FA;--accent:#C9B1FF;--encre:#4A0D33;--pale:#FFE1EF;--pale2:#FFEFF6;--trait:#F2C3D9;--doux:#8E4A72;--surfond:#FFFFFF}
+:root:has(#page[data-theme="noel"]){--fond:#B3121F;--papier:#FFFCF3;--accent:#F2C14E;--encre:#0E3B23;--pale:#E8F0E6;--pale2:#F3F7F1;--trait:#CFDCCB;--doux:#4F6B57;--surfond:#FFF6DC}
+:root:has(#page[data-theme="retro"]){--fond:#008080;--papier:#C0C0C0;--accent:#FFFF00;--encre:#000000;--pale:#DFDFDF;--pale2:#D4D0C8;--trait:#808080;--doux:#3A3A3A;--surfond:#FFFFFF}
+body{margin:0;background:var(--fond)}
+sc-for,sc-if{display:contents}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+::selection{background:var(--accent);color:var(--encre)}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+#page{font-kerning:normal;hanging-punctuation:first}
+#page h1,#page h2{text-wrap:balance}
+#page p{text-wrap:pretty}
+:focus-visible{outline:3px solid var(--accent)!important;outline-offset:0!important;box-shadow:0 0 0 5px var(--encre)!important}
+#page input:focus-visible,#page select:focus-visible,#page textarea:focus-visible{outline:2px solid var(--encre)!important;outline-offset:-2px!important;box-shadow:0 0 0 3px var(--accent)!important}
+#page ::placeholder{color:var(--doux);opacity:1}
+#page button[style*="border: 1px solid var(--encre)"]:not([disabled]):hover,#page a[style*="border: 1px solid var(--encre)"]:hover,#page summary:hover{background:var(--accent)!important;color:var(--encre)!important}
+#page button[style*="background: var(--encre)"]:not([disabled]):hover,#page a[style*="background: var(--encre)"]:hover{background:var(--accent)!important;color:var(--encre)!important;box-shadow:inset 0 0 0 2px var(--encre)}
+#page button[disabled],#page input[disabled]{opacity:.35;cursor:not-allowed}
+#page input[type=checkbox]{accent-color:var(--encre)}
+html,body,#page{cursor:url(/img/fleche-retro.png) 0 0, default}
+#page a,#page button,#page summary,#page label,#page select,#page [role=tab],#page input[type=checkbox],#page input[type=range],#page input[type=file],#page .entree{cursor:url(/img/main-retro.png) 11 1, pointer!important}
+#page input[type=text],#page input[type=search],#page input[type=url],#page input:not([type]),#page textarea{cursor:text!important}
+#page button[disabled]{cursor:not-allowed!important}
+#bandeau .reglages button,#bandeau nav a,#bandeau nav button{display:inline-flex;align-items:center;min-height:30px;padding:0 9px!important;box-sizing:border-box}
+#bandeau .reglages button:hover,#bandeau nav a:hover,#bandeau nav button:hover{background:var(--accent);color:var(--encre)!important;opacity:1!important}
+#bandeau nav a[aria-current=page]{background:var(--encre);color:var(--accent)!important}
+#bandeau .nom:hover{background:var(--accent)}
+#bandeau .nom{order:-2;min-height:30px!important;font-size:19px!important}
+#bandeau .reglages{order:-1;flex:1 1 auto;justify-content:flex-end;margin:-2px 0 0;font-size:12px}
+#bandeau nav{flex:1 1 100%;margin-left:0!important;padding-top:6px;border-top:1px solid var(--trait)}
+#bandeau nav a{flex:1 1 0;justify-content:center;min-height:38px!important;font-size:14px}
+
+.mur article{transition:none}
+.mur article:hover{box-shadow:inset 0 0 0 2px var(--encre)}
+
+input::placeholder{color:var(--doux);opacity:1}
+.mini:hover{background:var(--accent)}
+.depart:hover{background:var(--accent)}
+.theme:hover{background:var(--papier)}
+.defil{animation:defil 32s linear infinite}
+@keyframes defil{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.defil{animation:none}}
+</style>
+</helmet>
+<div id="page" data-theme="{{theme}}" tabIndex="-1" onKeyDown="{{onKey}}" style="outline: none; background: var(--fond); color: var(--encre); font-family: Archivo, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.4; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; gap: 12px">
+
+<div id="bandeau" style="position: sticky; top: 0; z-index: 30; margin: -12px -12px 0; padding: 12px 12px 0; background: var(--fond)">
+<header style="background: var(--papier); box-sizing: border-box; padding: 8px 10px 8px 8px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">
+<a class="nom" href="/chundi-alleyrat" style="color: inherit; text-decoration: none; display: flex; align-items: center; min-height: 34px; padding: 0 8px; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: 0.01em">
+<span>[Chundi Alleyrat]</span>
+</a>
+<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 2px; margin-left: auto">
+<a href="/" style="color: inherit; text-decoration: none">[Accueil]</a>
+<a href="/bibliotheque" style="color: inherit; text-decoration: none">[Bibliothèque]</a>
+<a href="/explorer" aria-current="page" style="color: inherit; text-decoration: none">[Explorer]</a>
+<a href="/inspirations" style="color: inherit; text-decoration: none">[Inspirations]</a>
+<a href="/projets" style="color: inherit; text-decoration: none">[Projets]</a>
+</nav>
+<div class="reglages" role="group" aria-label="Son et langue" style="display: flex; align-items: center; gap: 2px; margin-left: auto">
+<sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{sonBascule}}" aria-pressed="{{sonOn}}" title="{{sonTitre}}" style="min-height: 28px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; opacity: {{sonOp}}">{{sonLabel}}</button>
+</sc-if>
+<sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
+<audio id="son-accueil" src="{{sonSrc}}" loop="{{sonBoucle}}" preload="auto" onPlay="{{sonJoue}}" onEnded="{{sonSuivant}}" onTimeUpdate="{{sonTemps}}"></audio>
+</sc-if>
+<span aria-label="Langue : français (anglais à venir)" style="display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; "><b style="font-weight: 500">FR</b>&#160;/&#160;<span style="color: var(--doux)">EN</span></span>
+</div>
+<div aria-label="Actualité" style="flex: 1 1 100%; min-width: 0; margin: 0 -10px -8px -8px; border-top: 1px solid var(--encre); overflow: hidden; background: var(--pale); padding: 8px 0; white-space: nowrap; font-size: 12px">
+<div class="defil" style="display: inline-flex">
+<span style="padding-right: 32px">En recherche d’alternance · communication, événementiel, culture ◆ Paris ◆ Bibliothèque mise à jour en continu ◆</span>
+<span aria-hidden="true" style="padding-right: 32px">En recherche d’alternance · communication, événementiel, culture ◆ Paris ◆ Bibliothèque mise à jour en continu ◆</span>
+</div>
+</div>
+</header>
+</div>
+
+<sc-if value="{{showDeparts}}" hint-placeholder-val="{{ true }}">
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 12px">
+<div style="background: var(--papier); box-sizing: border-box; padding: 16px">
+<h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.16em; font-size: clamp(44px, 7.4vw, 112px); line-height: 0.94">
+<span style="font-stretch: 62%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.012em">Explorer</span>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.025em">de thème en thème</span>
+</h1>
+</div>
+<p style="margin: 0; background: var(--papier); box-sizing: border-box; padding: 16px; font-size: 19px; line-height: 1.32; font-weight: 500; display: flex; align-items: flex-end">Choisissez une œuvre de départ, puis suivez les flèches : chacune porte le thème qui relie deux œuvres. Cliquez sur un thème pour garder son chemin surligné. La recherche couvre tout le site : œuvres, thèmes, disciplines, résumés et inspirations. Clavier : / pour chercher, ← → pour reculer ou avancer dans votre cheminement, Échap pour libérer le chemin.</p>
+</div>
+
+<div style="background: var(--papier); box-sizing: border-box; padding: 8px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px">
+<input id="recherche-explorer" type="search" aria-label="Rechercher un point de départ (raccourci : /)" title="Raccourci : /" placeholder="Rechercher dans tout le site : œuvre, artiste, thème, mot…" value="{{q}}" onChange="{{search}}" style="width: min(460px, 100%); box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid var(--encre); border-radius: 0; background: transparent; color: inherit; font: inherit">
+</div>
+</sc-if>
+
+<sc-if value="{{showDeparts}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Choisir un point de départ" style="background: var(--papier); box-sizing: border-box; padding: 10px 16px 14px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
+<h2 style="margin: 0; font: inherit">Choisir un point de départ</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px">
+<button onClick="{{toggleFav}}" aria-pressed="{{favOnly}}" style="min-height: 36px; padding: 0 10px; border: 1px solid var(--encre); background: {{favBg}}; color: {{favFg}}; font: inherit; cursor: pointer; display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 7px; height: 7px; background: var(--fond); outline: 1px solid var(--papier)"></span>Favoris</button>
+<span>{{departLabel}}</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{departs}}" as="d" hint-placeholder-count="11">
+<button class="depart" onClick="{{d.pick}}" aria-pressed="{{d.on}}" aria-label="{{d.aria}}" style="position: relative; min-height: 44px; padding: 4px 14px 4px 10px; border: 1px solid var(--encre); background: {{d.bg}}; color: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1px; text-align: left; white-space: nowrap">
+<sc-if value="{{d.fav}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 7px; height: 7px; background: var(--fond)"></span></sc-if>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: {{d.ts}}; line-height: 1.15">{{d.title}}</span>
+<span style="font-stretch: 62%; font-weight: 700; font-size: {{d.as}}; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.02em">{{d.artist}}</span>
+</button>
+</sc-for>
+</div>
+<sc-if value="{{hasTags}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--trait); padding-top: 8px">
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Thèmes et disciplines · voir les œuvres dans la bibliothèque</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{tags}}" as="t" hint-placeholder-count="4">
+<a class="depart" href="/bibliotheque" onClick="{{t.go}}" style="display: inline-flex; align-items: baseline; gap: 6px; min-height: 32px; padding: 4px 10px; box-sizing: border-box; border: 1px solid var(--encre); color: var(--encre); text-decoration: none; font-size: 15px; font-stretch: 75%; font-weight: 600">{{t.label}} <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-stretch: 100%; font-weight: 400">{{t.count}}</span></a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{hasInsp}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--trait); padding-top: 8px">
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Inspirations</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{insp}}" as="i" hint-placeholder-count="2">
+<a class="depart" href="/inspirations" onClick="{{i.go}}" style="display: inline-flex; flex-direction: column; min-height: 44px; padding: 4px 10px; box-sizing: border-box; border: 1px solid var(--encre); color: var(--encre); text-decoration: none"><span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 10px; text-transform: uppercase">{{i.typeLabel}}</span><span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 15px">{{i.title}}</span></a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{hasStart}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{closeDeparts}}" style="align-self: flex-start; min-height: 36px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; cursor: pointer">Revenir à l’arborescence</button>
+</sc-if>
+</section>
+</sc-if>
+
+<sc-if value="{{hasStart}}" hint-placeholder-val="{{ true }}">
+<section id="arbre" aria-label="Arborescence par thèmes" style="scroll-margin-top: 96px; display: flex; flex-direction: column">
+
+<article id="cartel-choisi" aria-label="Cartel de l’œuvre sélectionnée" style="width: 100%; max-width: 820px; margin: 0 auto; box-sizing: border-box; padding: 14px 18px 16px; background: var(--accent); display: flex; flex-direction: column; gap: 12px">
+<nav aria-label="Votre cheminement" style="box-sizing: border-box; padding: 0 0 8px; border-bottom: 1px solid var(--encre); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px">
+<span>Votre cheminement :</span>
+<sc-for list="{{crumbs}}" as="c" hint-placeholder-count="1">
+<sc-if value="{{c.notFirst}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true">→</span></sc-if>
+<button onClick="{{c.pick}}" aria-current="{{c.current}}" style="min-height: 36px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; font-weight: {{c.weight}}; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap">{{c.label}}</button>
+</sc-for>
+</div>
+<button onClick="{{openDeparts}}" style="min-height: 36px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font: inherit; cursor: pointer">Changer de point de départ</button>
+</nav>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
+<span style="font-size: 18px; line-height: 1.2">{{cur.date}}</span>
+<span style="display: flex; align-items: center; gap: 8px">
+<sc-if value="{{cur.fav}}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 7px; background: var(--encre); color: var(--accent)">Favori</span></sc-if>
+<span>{{cur.type}}</span>
+</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 class="fit" style="margin: 0; white-space: nowrap; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: {{cur.ts}}; line-height: 1.08; letter-spacing: -0.01em">{{cur.title}}</h2>
+<p class="fit" style="margin: 0; white-space: nowrap; font-stretch: 62%; font-weight: 800; font-size: {{cur.as}}; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.02em">{{cur.artist}}</p>
+</div>
+
+<section aria-label="Résumé" style="border-top: 1px solid var(--encre); padding-top: 10px; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Contexte</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.45; text-wrap: pretty"><sc-for list="{{cur.ctx}}" as="t" hint-placeholder-count="3"><sc-if value="{{t.isTheme}}" hint-placeholder-val="{{ false }}"><button class="theme" onClick="{{t.pick}}" style="display: inline; padding: 0; border: 0; background: {{t.bg}}; color: inherit; font: inherit; line-height: inherit; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; cursor: pointer">{{t.txt}}</button></sc-if><sc-if value="{{t.isText}}" hint-placeholder-val="{{ true }}"><span>{{t.txt}}</span></sc-if></sc-for></p>
+<h3 style="margin: 4px 0 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">L’œuvre</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.45; text-wrap: pretty"><sc-for list="{{cur.recap}}" as="t" hint-placeholder-count="5"><sc-if value="{{t.isTheme}}" hint-placeholder-val="{{ false }}"><button class="theme" onClick="{{t.pick}}" style="display: inline; padding: 0; border: 0; background: {{t.bg}}; color: inherit; font: inherit; line-height: inherit; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; cursor: pointer">{{t.txt}}</button></sc-if><sc-if value="{{t.isText}}" hint-placeholder-val="{{ true }}"><span>{{t.txt}}</span></sc-if></sc-for></p>
+</section>
+
+<section aria-label="Pourquoi c’est ici" style="border-top: 1px solid var(--encre); padding-top: 10px; display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Pourquoi c’est ici</h3>
+<sc-if value="{{cur.hasCitation}}" hint-placeholder-val="{{ false }}">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 3px">
+<blockquote style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.28; text-wrap: pretty">« {{cur.citation}} »</blockquote>
+<figcaption style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px">{{cur.citationSrc}}</figcaption>
+</figure>
+</sc-if>
+<p style="margin: 0; font-size: 15px; line-height: 1.4">{{cur.pourquoi}}</p>
+<sc-if value="{{cur.hasBy}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Proposé par {{cur.by}}</p>
+</sc-if>
+</section>
+
+<section aria-label="Avis personnel" style="display: flex; flex-direction: column">
+<h3 style="margin: 0; display: flex; justify-content: space-between; gap: 8px; padding: 6px 12px; background: var(--encre); color: var(--accent); font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em"><span>Avis personnel</span><span>{{cur.avisLabel}}</span></h3>
+<sc-if value="{{cur.hasAvis}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 10px 12px 12px; background: var(--pale); font-family: Archivo, Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.45; text-wrap: pretty; font-size: 18px">{{cur.avis}}</p>
+</sc-if>
+<sc-if value="{{cur.noAvis}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 15px">À écrire.</p>
+</sc-if>
+</section>
+
+<dl style="margin: 0; border-top: 1px solid var(--encre); padding-top: 10px; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 12px; font-size: 14px">
+<dt style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; padding-top: 1px">Disciplines</dt><dd class="fit" style="margin: 0; white-space: nowrap; font-size: {{cur.discSize}}">{{cur.discList}}</dd>
+</dl>
+</article>
+
+<div style="position: relative; width: {{treeW}}; height: {{treeH}}; margin: 0 auto">
+
+<sc-for list="{{segs}}" as="s" hint-placeholder-count="12">
+<span aria-hidden="true" style="position: absolute; left: {{s.x}}; top: {{s.y}}; width: {{s.w}}; height: {{s.h}}; background: var(--surfond); opacity: {{lineOp}}"></span>
+</sc-for>
+<sc-for list="{{arrows}}" as="a" hint-placeholder-count="8">
+<span aria-hidden="true" style="position: absolute; left: {{a.x}}; top: {{a.y}}; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 10px solid var(--surfond); opacity: {{lineOp}}"></span>
+</sc-for>
+<sc-for list="{{hlSegs}}" as="s" hint-placeholder-count="0">
+<span aria-hidden="true" style="position: absolute; left: {{s.x}}; top: {{s.y}}; width: {{s.w}}; height: {{s.h}}; background: var(--accent)"></span>
+</sc-for>
+<sc-for list="{{hlArrows}}" as="a" hint-placeholder-count="0">
+<span aria-hidden="true" style="position: absolute; left: {{a.x}}; top: {{a.y}}; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 11px solid var(--accent)"></span>
+</sc-for>
+<sc-for list="{{edges}}" as="e" hint-placeholder-count="8">
+<button onClick="{{e.pick}}" aria-pressed="{{e.pressed}}" title="{{e.hint}}" style="position: absolute; left: {{e.x}}; top: {{e.y}}; transform: translate(-50%, -50%); box-sizing: border-box; padding: 2px 8px; border: {{e.border}}; background: {{e.bg}}; color: var(--encre); font-family: Archivo, 'Arial Narrow', sans-serif; font-stretch: 62%; font-weight: 700; font-size: 12px; line-height: 1.2; white-space: nowrap; cursor: pointer; opacity: {{e.op}}">{{e.text}}</button>
+</sc-for>
+
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="6">
+<div id="{{g.id}}" onMouseEnter="{{g.enter}}" onMouseLeave="{{leaveG}}" onFocus="{{g.enter}}" onBlur="{{leaveG}}" style="position: absolute; left: {{g.x}}; top: {{g.y}}; width: {{g.w}}; height: {{g.h}}; box-sizing: border-box; background: var(--pale); outline: {{g.outline}}; outline-offset: 2px; opacity: {{g.op}}; scroll-margin: 120px">
+<sc-for list="{{g.items}}" as="it" hint-placeholder-count="2">
+<button class="mini" onClick="{{it.pick}}" aria-label="{{it.aria}}" title="{{it.aria}}" style="position: absolute; left: {{it.x}}; top: {{it.y}}; width: {{it.w}}; height: 42px; box-sizing: border-box; padding: 4px 7px; border: 1px solid var(--encre); background: var(--papier); color: inherit; cursor: pointer; text-align: left; display: flex; flex-direction: column; justify-content: center; gap: 1px; white-space: nowrap; overflow: hidden">
+<sc-if value="{{it.fav}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 6px; height: 6px; background: var(--fond)"></span></sc-if>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: {{it.ts}}; line-height: 1.15">{{it.title}}</span>
+<span style="font-stretch: 62%; font-weight: 700; font-size: {{it.as}}; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.02em">{{it.artist}}</span>
+</button>
+</sc-for>
+<sc-if value="{{g.hasExtra}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{g.showAll}}" style="position: absolute; left: 5px; top: {{g.extraY}}; min-height: 14px; padding: 0; border: 0; background: transparent; color: inherit; font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; white-space: nowrap">{{g.extraLabel}}</button>
+</sc-if>
+</div>
+</sc-for>
+
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{noBranches}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 auto; max-width: 560px; background: var(--papier); box-sizing: border-box; padding: 14px 16px; font-size: 17px; text-align: center">Aucun lien pour l’instant : les thèmes de cette œuvre restent à écrire, ou aucune autre œuvre ne les partage encore.</p>
+</sc-if>
+
+<sc-if value="{{isLocked}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{unlock}}" style="position: fixed; right: 24px; bottom: 24px; z-index: 40; min-height: 44px; padding: 0 16px; border: 0; background: var(--accent); color: var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase; cursor: pointer; box-shadow: 0 0 0 2px var(--encre)">[Libérer le chemin]</button>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"cartelsTest":{"editor":"range","default":0,"min":0,"max":300,"step":10},"$preview":{"width":1440,"height":2200}}'>
+const DISC = ["Philosophie","Religions","Développement humain","Psychologie","Sociologie","Politique","Histoire et géopolitique","Économie","Finance","Marketing","Publicité","Écologie et consommation","Technologie et science","Littérature","Théâtre","Cinéma","Musique","Histoire de l’art","Design","Scénographie","Événementiel","Architecture","Rénovation","Bricolage","Immobilier","Horlogerie"];
+const CITED = [{"id":"siddhartha","artist":"Hermann Hesse","work":"Siddhartha","date":"1922","y":1922,"type":"Roman","themes":["Initiation","Quête spirituelle","Pensée orientale","Sagesse"],"disc":["Littérature","Philosophie","Religions","Développement humain"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"tao","artist":"Lao Tseu","work":"Tao Te King","date":"Antiquité","y":-350,"type":"Texte fondateur","themes":["Texte fondateur","Quête spirituelle","Pensée orientale","Sagesse"],"disc":["Philosophie","Religions"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"bible","artist":"Auteurs multiples","work":"La Bible","date":"Antiquité","y":-1000,"type":"Texte fondateur","themes":["Texte fondateur","Quête spirituelle","Rédemption"],"disc":["Religions","Philosophie","Littérature","Histoire et géopolitique"],"avisDate":"novembre 2026","citation":"Au commencement, Dieu créa les cieux et la terre.","citationSrc":"Genèse 1, 1 — trad. Louis Segond","pourquoi":"","by":""},{"id":"miserables","artist":"Victor Hugo","work":"Les Misérables","date":"1862","y":1862,"type":"Roman","themes":["Âme humaine","Justice sociale","Rédemption"],"disc":["Littérature","Histoire et géopolitique","Politique","Sociologie","Psychologie"],"avisDate":"novembre 2026","citation":"Il n’y a ni mauvaises herbes ni mauvais hommes. Il n’y a que de mauvais cultivateurs.","citationSrc":"Victor Hugo, Les Misérables","pourquoi":"","by":""},{"id":"azur","artist":"Michel Ocelot","work":"Azur & Asmar","date":"2006","y":2006,"type":"Film d’animation","themes":["Innocence","Initiation","Altérité","Onirisme"],"disc":["Cinéma","Sociologie"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"uniqlo","artist":"Marque japonaise","work":"Uniqlo","date":"Fondée en 1984","y":1984,"type":"Marque","themes":["Qualité perçue","Capitalisme","Minimalisme"],"disc":["Marketing","Économie","Écologie et consommation"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"jlc","artist":"Manufacture horlogère","work":"Jaeger-LeCoultre","date":"Fondée en 1833","y":1833,"type":"Maison","themes":["Patrimoine","Aura","Image de marque"],"disc":["Horlogerie","Histoire de l’art","Marketing"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"wilson","artist":"Œuvre phare : Einstein on the Beach","work":"Robert Wilson","date":"1976","y":1976,"type":"Metteur en scène","themes":["Lumière","Onirisme","Minimalisme"],"disc":["Théâtre","Scénographie","Histoire de l’art"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"evora","artist":"Œuvre phare : Miss Perfumado","work":"Cesária Évora","date":"1992","y":1992,"type":"Chanteuse","themes":["Exil","Mélancolie"],"disc":["Musique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"stromae","artist":"Œuvre phare : Racine carrée","work":"Stromae","date":"2013","y":2013,"type":"Auteur-compositeur-interprète","themes":["Vision artistique","Image de marque","Humour"],"disc":["Musique","Design","Marketing"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"economix","artist":"Michael Goodwin, Dan E. Burr","work":"Economix","date":"2012","y":2012,"type":"Bande dessinée","themes":["Vulgarisation","Humour","Capitalisme"],"disc":["Économie","Politique","Histoire et géopolitique"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"freud","artist":"Sigmund Freud","work":"Cinq leçons sur la psychanalyse","date":"1910","y":1910,"type":"Essai","themes":["Inconscient","Âme humaine","Vulgarisation"],"disc":["Psychologie","Philosophie","Technologie et science"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"grimley","artist":"Chris Grimley, Mimi Love","work":"L’architecture d’intérieur","date":"2013","y":2013.1,"type":"Guide pratique","themes":["Aménagement de l’espace","Lumière"],"disc":["Architecture","Design","Rénovation","Bricolage"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"marron","artist":"Donald Marron","work":"3 minutes pour comprendre 50 notions fondamentales de la finance","date":"2020","y":2020,"type":"Essai illustré","themes":["Vulgarisation","Capitalisme"],"disc":["Finance","Économie"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"orwell","artist":"George Orwell","work":"La Ferme des animaux","date":"1945","y":1945,"type":"Fable","themes":["Pouvoir","Satire","Justice sociale"],"disc":["Littérature","Politique","Histoire et géopolitique"],"avisDate":"","citation":"Tous les animaux sont égaux, mais certains sont plus égaux que d’autres.","citationSrc":"George Orwell, La Ferme des animaux","pourquoi":"","by":""},{"id":"alain","artist":"Alain","work":"Propos sur le bonheur","date":"1925","y":1925,"type":"Essai","themes":["Bonheur","Sagesse"],"disc":["Philosophie","Développement humain","Psychologie"],"avisDate":"","citation":"Le pessimisme est d’humeur ; l’optimisme est de volonté.","citationSrc":"Alain, Propos sur le bonheur","pourquoi":"","by":""},{"id":"attali","artist":"Jacques Attali","work":"Le monde, modes d’emploi","date":"2024","y":2024,"type":"Essai","themes":["Mondialisation","Pouvoir","Vulgarisation"],"disc":["Économie","Politique","Histoire et géopolitique","Technologie et science"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"boniface","artist":"Pascal Boniface, Tommy","work":"Géostratégix, vol. 2","date":"2023","y":2023.5,"type":"Bande dessinée","themes":["Mondialisation","Pouvoir","Vulgarisation","Humour"],"disc":["Histoire et géopolitique","Politique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"cigares","artist":"Hergé","work":"Les Cigares du pharaon","date":"1934","y":1934,"type":"Bande dessinée","themes":["Aventure","Altérité"],"disc":["Littérature","Histoire et géopolitique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"lotus","artist":"Hergé","work":"Le Lotus bleu","date":"1936","y":1936,"type":"Bande dessinée","themes":["Aventure","Altérité","Pouvoir"],"disc":["Littérature","Histoire et géopolitique","Politique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"debord","artist":"Guy Debord","work":"La Société du spectacle","date":"1967","y":1967,"type":"Essai","themes":["Société de consommation","Capitalisme","Aliénation"],"disc":["Philosophie","Sociologie","Politique","Publicité"],"avisDate":"","citation":"Le spectacle n’est pas un ensemble d’images, mais un rapport social entre des personnes, médiatisé par des images.","citationSrc":"Guy Debord, La Société du spectacle, thèse 4","pourquoi":"","by":""},{"id":"pouchkine","artist":"Alexandre Pouchkine","work":"Le Coup de pistolet","date":"1831","y":1831,"type":"Nouvelles","themes":["Destin","Honneur"],"disc":["Littérature"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"tchekhov","artist":"Anton Tchékhov","work":"Les Méfaits du tabac","date":"1886","y":1886,"type":"Théâtre","themes":["Humour","Absurde","Satire"],"disc":["Théâtre","Littérature"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"gary","artist":"Romain Gary","work":"La Promesse de l’aube","date":"1960","y":1960,"type":"Roman","fav":true,"themes":["Relation mère-fils","Enfance","Destin","Exil"],"disc":["Littérature","Psychologie","Histoire et géopolitique"],"avisDate":"","citation":"Avec l’amour maternel, la vie vous fait, à l’aube, une promesse qu’elle ne tient jamais.","citationSrc":"Romain Gary, La Promesse de l’aube","pourquoi":"","by":""},{"id":"larousse","artist":"Larousse","work":"L’économie en 101 infographies","date":"2024","y":2024.2,"type":"Guide illustré","themes":["Vulgarisation","Capitalisme"],"disc":["Économie","Design"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"camus","artist":"Albert Camus","work":"L’Étranger","date":"1942","y":1942,"type":"Roman","themes":["Absurde","Aliénation"],"disc":["Littérature","Philosophie"],"avisDate":"","citation":"Aujourd’hui, maman est morte.","citationSrc":"Albert Camus, L’Étranger, incipit","pourquoi":"","by":""},{"id":"kafka","artist":"Franz Kafka","work":"La Métamorphose","date":"1915","y":1915,"type":"Nouvelle","themes":["Absurde","Aliénation","Onirisme"],"disc":["Littérature","Psychologie","Philosophie"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"petitprince","artist":"Antoine de Saint-Exupéry","work":"Le Petit Prince","date":"1943","y":1943,"type":"Conte","themes":["Enfance","Innocence","Sagesse"],"disc":["Littérature","Philosophie","Développement humain"],"avisDate":"","citation":"On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.","citationSrc":"Antoine de Saint-Exupéry, Le Petit Prince","pourquoi":"","by":""},{"id":"klapisch","artist":"Cédric Klapisch, d’après Mozart","work":"La Flûte enchantée","date":"2023","y":2023,"type":"Opéra, mise en scène","themes":["Initiation","Lumière","Onirisme"],"disc":["Musique","Théâtre","Scénographie"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"chollat","artist":"Ladislas Chollat, Théâtre du Châtelet","work":"Les Misérables","date":"2024","y":2024.8,"type":"Comédie musicale","themes":["Âme humaine","Justice sociale","Rédemption"],"disc":["Musique","Théâtre","Scénographie","Littérature"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""}];
+const AVIS = {"siddhartha":"Un roman d’initiation, un texte fondateur pour approcher la manière de penser bouddhiste et asiatique.","tao":"Un texte fondateur d’un courant de pensée civilisationnel et spirituel.","bible":"Un texte fondateur d’un courant de pensée civilisationnel et spirituel.","miserables":"Un roman historique, particulièrement universel dans son approche de l’âme humaine, sa compréhension et son questionnement.","azur":"Une approche innocente mais juste, sans avoir peur des clichés.","uniqlo":"Sa stratégie commerciale et sa conquête par la qualité perçue.","jlc":"Son patrimoine et son aura.","wilson":"Son travail sur la lumière et les ambiances oniriques et minimalistes.","stromae":"Sa vision artistique, musicale et hors musicale.","economix":"Une vulgarisation en BD, avec humour et consistance."};
+const RESUMES = {"siddhartha":{"ctx":"Hermann Hesse publie ce court roman en 1922, après un voyage en Asie en 1911 et une longue fréquentation des textes indiens, dans une Europe meurtrie par la Première Guerre mondiale.","recap":"Fils de brahmane, Siddhartha quitte sa famille, essaie l’ascèse, rencontre le Bouddha, puis se perd dans les plaisirs et les affaires avant de revenir au fleuve, auprès d’un passeur. Un récit d’{initiation|Initiation} où la {quête spirituelle|Quête spirituelle} passe par l’expérience plutôt que par l’enseignement, et une porte d’entrée vers la {pensée orientale|Pensée orientale} et sa {sagesse|Sagesse}."},"tao":{"ctx":"Attribué à Lao Tseu, sage chinois dont l’existence reste incertaine, le texte a sans doute été compilé entre le VIe et le IIIe siècle avant notre ère.","recap":"En 81 courts chapitres, il décrit la Voie (Tao) et la vertu (Te) : le non-agir, la souplesse de l’eau, l’humilité du sage. {Texte fondateur|Texte fondateur} du taoïsme, il nourrit la {pensée orientale|Pensée orientale} et une {quête spirituelle|Quête spirituelle} fondée sur la {sagesse|Sagesse} plutôt que sur la règle."},"bible":{"ctx":"Rédigée sur plus d’un millénaire, en hébreu, en araméen et en grec, elle rassemble la Bible hébraïque, reprise par les chrétiens comme Ancien Testament, et le Nouveau Testament.","recap":"Récits des origines, lois, poèmes et prophéties, puis vie et enseignement de Jésus : un {texte fondateur|Texte fondateur} de la civilisation occidentale, traversé par la {quête spirituelle|Quête spirituelle} d’un peuple et par l’idée de {rédemption|Rédemption}."},"miserables":{"ctx":"Victor Hugo commence le roman dans les années 1840 et l’achève en exil à Guernesey ; sa parution en 1862 est un événement dans toute l’Europe.","recap":"Ancien forçat, Jean Valjean se transforme grâce à la bonté d’un évêque, recueille Cosette et échappe sans cesse à l’inspecteur Javert, jusqu’aux barricades de 1832. Un roman de la {rédemption|Rédemption} et de la {justice sociale|Justice sociale}, qui sonde l’{âme humaine|Âme humaine} jusque dans ses contradictions."},"azur":{"ctx":"Michel Ocelot, le réalisateur de Kirikou et la Sorcière, signe ce film en 2006, en animation numérique nourrie des arts de l’Islam médiéval. Une partie des dialogues, en arabe, n’est volontairement pas sous-titrée.","recap":"Azur, fils de seigneur, et Asmar, fils de sa nourrice, sont élevés comme frères puis séparés ; adultes, ils traversent la mer pour délivrer la fée des Djinns. Le film interroge le regard porté sur l’{altérité|Altérité}, avec l’{innocence|Innocence} d’un conte, la structure d’un récit d’{initiation|Initiation} et un {onirisme|Onirisme} d’enluminure."},"uniqlo":{"ctx":"Tadashi Yanai ouvre le premier magasin Uniqlo en 1984 à Hiroshima, à partir de l’entreprise de vêtements familiale ; la marque appartient aujourd’hui au groupe Fast Retailing.","recap":"Des basiques sans logo, des textiles techniques et des prix stables : Uniqlo vend moins une mode qu’une {qualité perçue|Qualité perçue}. Une stratégie du {capitalisme|Capitalisme} de masse, servie par un {minimalisme|Minimalisme} japonais dans les produits comme dans les magasins."},"jlc":{"ctx":"Antoine LeCoultre fonde son atelier en 1833 au Sentier, dans la Vallée de Joux, en Suisse ; l’association avec l’horloger Edmond Jaeger, au début du XXe siècle, donne son nom à la maison.","recap":"Une manufacture qui conçoit et fabrique ses propres mouvements, connue pour la Reverso (1931), montre au boîtier réversible imaginée pour les joueurs de polo. Son {patrimoine|Patrimoine} technique nourrit une {aura|Aura} de maison d’horlogers et une {image de marque|Image de marque} discrète."},"wilson":{"ctx":"Robert Wilson crée Einstein on the Beach en 1976 au Festival d’Avignon, avec le compositeur Philip Glass.","recap":"Un opéra d’environ cinq heures, sans intrigue, construit sur des images répétées : un train, un procès, un vaisseau spatial ; le public peut entrer et sortir librement. La {lumière|Lumière} y sculpte l’espace, dans un {onirisme|Onirisme} lent et un {minimalisme|Minimalisme} musical et visuel."},"evora":{"ctx":"Chanteuse cap-verdienne de morna, Cesária Évora publie Miss Perfumado en 1992 chez Lusafrica ; l’album lui ouvre une carrière internationale, passé cinquante ans.","recap":"Porté par la chanson « Sodade », l’album chante l’{exil|Exil} des Cap-Verdiens partis travailler loin des îles, dans une {mélancolie|Mélancolie} douce, sans effet ni démonstration."},"stromae":{"ctx":"Deuxième album du chanteur belge, sorti en 2013 après le succès d’« Alors on danse » ; Stromae en conçoit l’univers visuel avec son collectif Mosaert.","recap":"Des rythmes électroniques dansants portent des textes graves : l’absence du père dans « Papaoutai », la détresse dans « Formidable », les clichés amoureux dans « Tous les mêmes ». Une {vision artistique|Vision artistique} totale, entre musique, clips et mode, où l’{humour|Humour} sert le propos et où l’{image de marque|Image de marque} fait partie de l’œuvre."},"economix":{"ctx":"Scénarisée par Michael Goodwin et dessinée par Dan E. Burr, la bande dessinée paraît aux États-Unis en 2012, puis en français aux Arènes.","recap":"Une histoire de l’économie, des premiers échanges à la crise de 2008, en passant par Adam Smith, Marx, Keynes et Friedman. Une {vulgarisation|Vulgarisation} rigoureuse du {capitalisme|Capitalisme} et de ses débats, qui garde l’{humour|Humour} du dessin de presse."},"freud":{"ctx":"En 1909, Freud donne cinq conférences à la Clark University, aux États-Unis, à l’invitation du psychologue Stanley Hall ; le texte paraît en 1910.","recap":"Il y présente la psychanalyse à un public non spécialiste : l’hystérie, le refoulement, l’interprétation des rêves, la sexualité infantile, le transfert. Une {vulgarisation|Vulgarisation} par son fondateur de la théorie de l’{inconscient|Inconscient}, qui change la manière de lire l’{âme humaine|Âme humaine}."},"grimley":{"ctx":"Publié en 2013 aux États-Unis sous le titre The Interior Design Reference + Specification Book, puis traduit en français.","recap":"Un manuel de référence pour concevoir un intérieur : relevés, ergonomie, circulations, mobilier, matériaux, éclairage et normes, en schémas et en fiches. Un outil pratique pour l’{aménagement de l’espace|Aménagement de l’espace}, qui traite la {lumière|Lumière} comme un matériau à part entière."},"marron":{"ctx":"Ouvrage de la collection « 3 minutes pour comprendre », publiée en français par Le Courrier du Livre.","recap":"Cinquante notions de finance, des taux d’intérêt aux produits dérivés et aux crises, expliquées chacune sur une double page. Une {vulgarisation|Vulgarisation} rapide des mécanismes du {capitalisme|Capitalisme} financier."},"orwell":{"ctx":"Écrite en 1943-1944, la fable paraît en août 1945, après plusieurs refus d’éditeurs réticents à critiquer l’URSS, alors alliée du Royaume-Uni.","recap":"Les animaux d’une ferme chassent leur propriétaire, mais les cochons confisquent peu à peu la révolution : « Tous les animaux sont égaux, mais certains sont plus égaux que d’autres. » Une {satire|Satire} du stalinisme sur la confiscation du {pouvoir|Pouvoir} et la trahison de la {justice sociale|Justice sociale}."},"alain":{"ctx":"Émile Chartier, dit Alain, professeur de philosophie, publie dès 1906 de courts « propos » dans la presse ; ceux consacrés au bonheur sont réunis en 1925.","recap":"En textes de quelques paragraphes, Alain défend un {bonheur|Bonheur} qui se construit : il tient à la volonté, à l’attention au corps et à la politesse envers les autres. Une {sagesse|Sagesse} pratique, résumée par sa formule : « Le pessimisme est d’humeur ; l’optimisme est de volonté. »"},"attali":{"ctx":"Économiste et essayiste, ancien conseiller spécial de François Mitterrand, Jacques Attali signe cet essai au sous-titre programmatique : comprendre, prévoir, agir, protéger.","recap":"Un panorama des grandes forces qui façonnent le monde contemporain et des moyens d’y faire face. Une {vulgarisation|Vulgarisation} des enjeux de la {mondialisation|Mondialisation} et des rapports de {pouvoir|Pouvoir} entre États."},"boniface":{"ctx":"Pascal Boniface, fondateur de l’Institut de relations internationales et stratégiques (IRIS), signe ce deuxième volume avec le dessinateur Tommy, chez Dunod Graphic.","recap":"Les grands enjeux du monde contemporain racontés en bande dessinée : rivalités entre puissances, conflits, ressources, organisations internationales. Une {vulgarisation|Vulgarisation} de la {mondialisation|Mondialisation} et des jeux de {pouvoir|Pouvoir}, avec l’{humour|Humour} du dessin."},"cigares":{"ctx":"Prépublié dans Le Petit Vingtième de 1932 à 1934, l’album paraît en 1934 ; Hergé le redessine en couleurs en 1955.","recap":"Parti en croisière, Tintin suit une piste qui le mène d’Égypte en Arabie puis en Inde, au cœur d’un trafic d’opium ; l’album marque la première apparition des Dupondt et de Rastapopoulos. Une {aventure|Aventure} qui met en scène, avec les regards de son époque, la rencontre de l’{altérité|Altérité}."},"lotus":{"ctx":"Prépublié en 1934-1935 et paru en album en 1936, c’est le premier album pour lequel Hergé se documente sérieusement, avec l’aide de l’étudiant chinois Tchang Tchong-Jen.","recap":"Tintin arrive en Chine au moment de l’invasion japonaise de la Mandchourie et démantèle un trafic d’opium. L’{aventure|Aventure} démonte les clichés occidentaux sur la Chine, fait de l’amitié avec Tchang un éloge de l’{altérité|Altérité} et dénonce le {pouvoir|Pouvoir} colonial et militaire."},"debord":{"ctx":"Guy Debord, figure de l’Internationale situationniste, publie l’essai en 1967, un an avant Mai 68.","recap":"En 221 thèses, il décrit une société où la marchandise et l’image se substituent à l’expérience vécue : « Le spectacle n’est pas un ensemble d’images, mais un rapport social entre des personnes, médiatisé par des images. » Une critique de la {société de consommation|Société de consommation}, du {capitalisme|Capitalisme} et de l’{aliénation|Aliénation} qu’ils produisent."},"pouchkine":{"ctx":"La nouvelle fait partie des Récits de feu Ivan Petrovitch Bielkine, écrits par Pouchkine à l’automne 1830 à Boldino et publiés en 1831.","recap":"Silvio, ancien officier, vit retiré en attendant de tirer le coup de feu qu’il doit encore, depuis un duel resté inachevé, au comte qui l’avait offensé. Une nouvelle brève sur l’{honneur|Honneur} et la vengeance, où le {destin|Destin} se joue en un seul coup."},"tchekhov":{"ctx":"Tchékhov écrit ce monologue en 1886 et le réécrit plusieurs fois jusqu’en 1902.","recap":"Un mari soumis donne, à la demande de sa femme, une conférence sur les dangers du tabac, et dérive vers la confession de sa vie ratée. Une {satire|Satire} pleine d’{humour|Humour}, qui glisse vers l’{absurde|Absurde} et la mélancolie."},"gary":{"ctx":"Romain Gary publie ce récit autobiographique en 1960, alors qu’il est consul général de France à Los Angeles.","recap":"De Vilnius à Nice, l’auteur raconte une {enfance|Enfance} marquée par l’{exil|Exil} et par une mère qui lui promet un {destin|Destin} exceptionnel, jusqu’à la guerre dans l’aviation de la France libre. Le livre fait de la {relation mère-fils|Relation mère-fils} un amour démesuré, drôle et bouleversant."},"larousse":{"ctx":"Ouvrage de la collection « Guides graphiques Larousse ».","recap":"Les notions clés de l’économie, de la monnaie à l’inflation en passant par le commerce, le travail et les marchés, expliquées en infographies. Une {vulgarisation|Vulgarisation} visuelle des mécanismes du {capitalisme|Capitalisme}."},"camus":{"ctx":"Albert Camus publie le roman en 1942 chez Gallimard, sous l’Occupation ; il forme avec Le Mythe de Sisyphe et Caligula son « cycle de l’absurde ».","recap":"À Alger, Meursault, employé indifférent, tue un homme sur une plage. Son procès juge moins son crime que son refus de jouer le jeu social, à commencer par son absence de larmes à l’enterrement de sa mère. Le roman fondateur de l’{absurde|Absurde} et un portrait de l’{aliénation|Aliénation}."},"kafka":{"ctx":"Franz Kafka écrit la nouvelle à Prague, fin 1912, et la publie en 1915.","recap":"Un matin, Gregor Samsa, représentant de commerce, se réveille transformé en insecte ; sa famille, qui vivait de son salaire, finit par le rejeter. Un récit à la logique de cauchemar, entre {onirisme|Onirisme}, {absurde|Absurde} et {aliénation|Aliénation} par le travail et la famille."},"petitprince":{"ctx":"Saint-Exupéry écrit et illustre le conte à New York, pendant son exil américain ; il paraît en 1943.","recap":"Un aviateur en panne dans le Sahara rencontre un petit prince venu d’un astéroïde, qui lui raconte ses voyages de planète en planète. Un conte sur l’{enfance|Enfance} et l’{innocence|Innocence} face au monde des adultes, porteur d’une {sagesse|Sagesse} simple : « On ne voit bien qu’avec le cœur. »"},"klapisch":{"ctx":"Pour sa première mise en scène d’opéra, le cinéaste Cédric Klapisch monte La Flûte enchantée au Théâtre des Champs-Élysées en novembre 2023, avec l’orchestre Les Siècles dirigé par François-Xavier Roth.","recap":"L’opéra de Mozart (1791), sur un livret d’Emanuel Schikaneder, suit le prince Tamino à travers des épreuves pour rejoindre Pamina et le royaume de {lumière|Lumière} de Sarastro, face à la Reine de la nuit. Un parcours d’{initiation|Initiation} entre conte et {onirisme|Onirisme}."},"chollat":{"ctx":"Comédie musicale d’Alain Boublil et Claude-Michel Schönberg, créée à Paris en 1980 ; Ladislas Chollat en signe une nouvelle production au Théâtre du Châtelet en 2024.","recap":"Le roman de Hugo condensé en chansons, de la libération de Jean Valjean aux barricades. La scène fait entendre la {rédemption|Rédemption}, la {justice sociale|Justice sociale} et toute l’{âme humaine|Âme humaine} du roman."}};
+const INSPIRATIONS = [{"id":"outil","type":"outil","title":"[Nom de l’outil]","source":"[Éditeur ou site]","note":"[Pourquoi je m’en sers, en une ou deux phrases.]"},{"id":"lien","type":"lien","title":"[Titre de l’article ou du site]","source":"[Média ou auteur]","note":"[Ce que j’en retiens.]"},{"id":"projet","type":"projet","title":"[Nom du projet]","source":"[Studio, agence ou artiste]","note":"[Ce qui m’inspire dans ce projet.]"},{"id":"audio","type":"audio","title":"[Titre du morceau ou du podcast]","source":"[Artiste ou émission]","note":"[Pourquoi l’écouter.]"},{"id":"video","type":"video","title":"[Titre de la vidéo]","source":"[Chaîne YouTube]","note":"[Pourquoi la regarder.]"}];
+const POOL = ["Initiation","Minimalisme","Humour","Capitalisme","Onirisme","Âme humaine"];
+const fold = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const test = n => Array.from({ length: n }, (_, i) => ({
+  id: "test-" + i, artist: "Cartel test " + (i + 1), work: "Œuvre fictive", date: String(2014 + (i % 12)), y: 2014 + i / 1000, type: "Test",
+  themes: [POOL[i % POOL.length], POOL[(i + 2) % POOL.length]],
+  disc: [DISC[i % DISC.length], DISC[(i + 9) % DISC.length]]
+}));
+const MH = 42, MG = 4, GP = 5, GROUPMAX = 640, MAXW = 8, DEPTH = 4, EXTRA = 16, DEPARTS = 40;
+const DROP = 20, STEM = 60, GUT = 26, SG = 32;
+const TS = 14, AS = 11, SPACING = 0.22, SAFE = 1.08;
+
+let CTX = null;
+let K = 1;
+const CACHE = new Map();
+const TITLE = size => "italic 500 " + size + "px \"Bodoni Moda\", Didot, Georgia, serif";
+const SUB = (size, weight) => weight + " " + size + "px Archivo, \"Arial Narrow\", sans-serif";
+const BODY = size => "400 " + size + "px Archivo, Helvetica, Arial, sans-serif";
+function textW(text, font, stretch, spacing) {
+  const key = font + "|" + stretch + "|" + text;
+  let w = CACHE.get(key);
+  if (w === undefined) {
+    if (!CTX) CTX = document.createElement("canvas").getContext("2d");
+    CTX.font = font;
+    try { CTX.fontStretch = stretch; } catch (e) {}
+    w = CTX.measureText(text).width + (spacing || 0) * text.length;
+    CACHE.set(key, w);
+  }
+  return w * K;
+}
+const fit = (natural, base, limit) => natural <= limit ? base : Math.floor(base * limit / natural * 10) / 10;
+function parse(s) {
+  const out = [], re = /\{([^}|]+)(?:\|([^}]+))?\}/g;
+  let last = 0, m;
+  while ((m = re.exec(s))) {
+    if (m.index > last) out.push({ txt: s.slice(last, m.index) });
+    out.push({ txt: m[1], theme: m[2] || m[1] });
+    last = re.lastIndex;
+  }
+  if (last < s.length) out.push({ txt: s.slice(last) });
+  return out;
+}
+
+function buildTree(all, start) {
+  const visited = new Set([start.id]);
+  const used = new Set(start.themes);
+  const root = { kind: "start", ref: start, children: [] };
+  let frontier = [{ node: root, works: [start] }];
+  for (let depth = 1; depth <= DEPTH && frontier.length; depth++) {
+    const next = [];
+    frontier.forEach(f => {
+      let cand;
+      if (f.node === root) cand = start.themes.slice();
+      else {
+        cand = [];
+        f.works.forEach(w => w.themes.forEach(t => { if (!used.has(t) && !cand.includes(t)) cand.push(t); }));
+        cand.forEach(t => used.add(t));
+      }
+      if (!cand.length) return;
+      const buckets = new Map();
+      all.forEach(w => {
+        if (visited.has(w.id)) return;
+        const m = cand.filter(t => w.themes.includes(t));
+        if (!m.length) return;
+        const pair = m.slice(0, 2);
+        const key = pair.join(" + ");
+        if (!buckets.has(key)) buckets.set(key, { themes: pair, works: [] });
+        buckets.get(key).works.push(w);
+      });
+      const keys = [...buckets.keys()].sort((a, b) => {
+        const A = buckets.get(a), B = buckets.get(b);
+        if (A.themes.length !== B.themes.length) return A.themes.length - B.themes.length;
+        return cand.indexOf(A.themes[0]) - cand.indexOf(B.themes[0]);
+      });
+      keys.forEach(k => {
+        const b = buckets.get(k);
+        const shown = b.works.slice(0, MAXW);
+        b.works.forEach(w => visited.add(w.id));
+        const text = b.themes.length > 1 ? "les deux : " + b.themes.join(" + ") : b.themes[0];
+        const child = { kind: "branch", depth, themes: b.themes, works: shown, extra: b.works.length - shown.length, children: [], text, labelW: Math.ceil(textW(text, SUB(12, 700), "extra-condensed") * SAFE) + 20 };
+        f.node.children.push(child);
+        next.push({ node: child, works: shown });
+      });
+    });
+    frontier = next;
+  }
+  return root;
+}
+
+function packGroup(n, maxW) {
+  const limit = Math.max(80, Math.min(maxW, GROUPMAX) - 2 * GP);
+  const placed = [];
+  let x = 0, y = 0, widest = 0;
+  n.works.forEach(w => {
+    const natural = Math.ceil(Math.max(textW(w.work, TITLE(TS), "normal"), textW(w.artist.toUpperCase(), SUB(AS, 700), "extra-condensed", SPACING)) * SAFE) + 18;
+    const iw = Math.min(natural, limit);
+    const s = iw / natural;
+    if (x > 0 && x + iw > limit) { y += MH + MG; x = 0; }
+    placed.push({ w, x, y, iw, s });
+    x += iw + MG;
+    widest = Math.max(widest, x - MG);
+  });
+  const extraW = n.extra > 0 ? textW("et " + n.extra + " autres : voir « " + n.themes[0] + " »", "400 11px \"DM Mono\", monospace", "normal") * SAFE + 2 * GP : 0;
+  const rowsH = y + MH;
+  return { w: Math.max(widest + 2 * GP, extraW), h: rowsH + 2 * GP + (n.extra > 0 ? EXTRA : 0), rowsH, items: placed };
+}
+
+function layout(n, maxW) {
+  let box;
+  if (n.kind === "start") box = { x: 0, w: 0, h: 0 };
+  else { const g = packGroup(n, maxW); box = { x: 0, w: g.w, h: g.h, group: g }; }
+  const lw = n.labelW || 0;
+  const p = { n, box, kids: [], rows: [], mode: "leaf", w: Math.max(box.w, lw), h: box.h };
+  p.box.x = (p.w - box.w) / 2;
+  if (!n.children.length) return p;
+  const top = box.h + DROP + STEM;
+  let kids = n.children.map(c => layout(c, maxW));
+  const total = kids.reduce((s, k) => s + k.w, 0) + SG * (kids.length - 1);
+  if (total <= maxW) {
+    p.mode = "row";
+    p.w = Math.max(box.w, total, lw);
+    p.box.x = (p.w - box.w) / 2;
+    let x = (p.w - total) / 2, mh = 0;
+    kids.forEach(k => { p.kids.push({ plan: k, dx: x, dy: top }); x += k.w + SG; mh = Math.max(mh, k.h); });
+    p.h = top + mh;
+    return p;
+  }
+  p.mode = "wrap";
+  kids = n.children.map(c => layout(c, maxW - GUT));
+  p.w = maxW;
+  p.box.x = (maxW - box.w) / 2;
+  let rowTop = top, x = GUT, mh = 0, row = [];
+  kids.forEach(k => {
+    if (row.length && x + k.w > maxW) {
+      p.rows.push({ top: rowTop, kids: row });
+      rowTop += mh + DROP + STEM; row = []; x = GUT; mh = 0;
+    }
+    const entry = { plan: k, dx: x, dy: rowTop };
+    p.kids.push(entry); row.push(entry);
+    x += k.w + SG; mh = Math.max(mh, k.h);
+  });
+  p.rows.push({ top: rowTop, kids: row });
+  p.h = rowTop + mh;
+  return p;
+}
+
+function montrerSousBandeau(id) {
+  // Fait défiler le conteneur qui défile réellement (fenêtre ou bloc parent) pour que le haut
+  // de l’élément arrive 12 px sous le bas réel du bandeau fixe. Corrigé une seconde fois au cas
+  // où la mise en page bouge encore (polices, ouverture du cartel).
+  const scroller = el => {
+    for (let p = el.parentElement; p; p = p.parentElement) {
+      const o = getComputedStyle(p).overflowY;
+      if ((o === "auto" || o === "scroll") && p.scrollHeight > p.clientHeight + 1) return p;
+    }
+    return document.scrollingElement || document.documentElement;
+  };
+  const go = () => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const band = document.getElementById("bandeau");
+    const limit = (band ? band.getBoundingClientRect().bottom : 0) + 12;
+    const delta = el.getBoundingClientRect().top - limit;
+    if (Math.abs(delta) < 1) return;
+    const sc = scroller(el);
+    if (sc === document.scrollingElement || sc === document.documentElement || sc === document.body) window.scrollBy(0, delta);
+    else sc.scrollTop += delta;
+  };
+  requestAnimationFrame(() => requestAnimationFrame(() => { go(); setTimeout(go, 120); setTimeout(go, 400); }));
+}
+// ——— Base du site, commune à toutes les pages ———
+// Les références publiées sont écrites dans la page (PLAYLIST, CITED, ITEMS, PROJETS…).
+// Les modifications faites depuis la page « Base de données » sont gardées dans ce navigateur
+// et s’appliquent par-dessus, jusqu’à ce que Claude les intègre au site pour tous les visiteurs.
+const PLAYLIST = [];
+function chundiLire(k, d) { try { const v = JSON.parse(localStorage.getItem(k) || "null"); return v || d; } catch (e) { return d; } }
+const CHUNDI_CLES = { oeuvres: "chundi-ajouts-oeuvres", inspirations: "chundi-ajouts-inspirations", projets: "chundi-ajouts-projets" };
+const CHUNDI_PREFIXE = { oeuvres: "oeuvre", inspirations: "inspiration", projets: "projet" };
+function chundiLocale() {
+  const parId = arr => Object.fromEntries((Array.isArray(arr) ? arr : []).map(x => [x.id, x]));
+  return { oeuvres: parId(chundiLire(CHUNDI_CLES.oeuvres, [])), inspirations: parId(chundiLire(CHUNDI_CLES.inspirations, [])), projets: parId(chundiLire(CHUNDI_CLES.projets, [])), retraits: chundiLire("chundi-retraits", {}), playlist: Object.fromEntries(PLAYLIST.map((t, k) => [t.id, { ordre: k + 1, ...t }])) };
+}
+function chundiOeuvre(w) {
+  const y = typeof w.y === "number" ? w.y : (parseInt(w.date, 10) || 2026);
+  return { artist: "—", date: String(w.date || y), type: "Œuvre", themes: [], disc: [], note: "", ...w, y, themes: Array.isArray(w.themes) ? w.themes : [], disc: Array.isArray(w.disc) ? w.disc : [] };
+}
+function chundiFusion(liste, base, kind) {
+  const b = base || {}, ret = b.retraits || {}, mods = b[kind] || {};
+  const k = CHUNDI_PREFIXE[kind] || kind;
+  const out = liste.filter(x => !ret[k + ":" + x.id]).map(x => (mods[x.id] ? { ...x, ...mods[x.id] } : x));
+  Object.values(mods).forEach(m => { if (!liste.some(x => x.id === m.id) && !ret[k + ":" + m.id]) out.push(m); });
+  return kind === "oeuvres" ? out.map(chundiOeuvre) : out;
+}
+class Component extends DCLogic {
+  // ——— Base (ce navigateur) ———
+  baseInit() {
+    let theme = "bleu";
+    try { theme = localStorage.getItem("chundi-theme") || "bleu"; } catch (e) {}
+    this.setState({ base: chundiLocale(), theme });
+    this.onStorage = e => {
+      if (!e || !e.key) return;
+      if (e.key === "chundi-theme") this.setState({ theme: e.newValue || "bleu" });
+      if (/^chundi-(ajouts|retraits)/.test(e.key)) this.baseMaj();
+      if (e.key === "chundi-son-actif" && e.newValue && e.newValue.indexOf(this.sonMoi) !== 0) { const a = document.getElementById("son-accueil"); if (a && !a.paused) a.pause(); }
+      if (e.key === "chundi-son") { const on = e.newValue !== "coupe"; this.setState({ sonOn: on }); if (!on) { const a = document.getElementById("son-accueil"); if (a) a.pause(); } }
+    };
+    window.addEventListener("storage", this.onStorage);
+  }
+  baseMaj() { this.setState({ base: chundiLocale() }, () => { if (this.baseRecue) this.baseRecue(); }); }
+  baseFin() { if (this.onStorage) window.removeEventListener("storage", this.onStorage); }
+  // Enregistre dans ce navigateur. obj = null : supprime.
+  async baseEcrire(kind, id, obj) {
+    if (kind === "retraits") {
+      const r = chundiLire("chundi-retraits", {});
+      if (obj) r[id] = obj; else delete r[id];
+      try { localStorage.setItem("chundi-retraits", JSON.stringify(r)); } catch (e) { return "erreur"; }
+    } else if (CHUNDI_CLES[kind]) {
+      let arr = chundiLire(CHUNDI_CLES[kind], []);
+      arr = (Array.isArray(arr) ? arr : []).filter(x => x.id !== id);
+      if (obj) arr.push({ ...obj, id });
+      try { localStorage.setItem(CHUNDI_CLES[kind], JSON.stringify(arr)); } catch (e) { return "erreur"; }
+    }
+    this.baseMaj();
+    return "local";
+  }
+  // ——— Son d’ambiance : la playlist de la base, en continu sur tout le site ———
+  sonListe() {
+    const p = (this.state.base && this.state.base.playlist) || {};
+    return Object.values(p).filter(t => t.asset || t.fichier).sort((a, b) => (a.ordre || 0) - (b.ordre || 0) || String(a.title).localeCompare(String(b.title)));
+  }
+  sonInit() {
+    this.sonMoi = "p" + Math.random().toString(36).slice(2, 9);
+    let on = true;
+    try { on = localStorage.getItem("chundi-son") !== "coupe"; } catch (e) {}
+    const pos = chundiLire("chundi-son-pos", {});
+    this.setState({ sonOn: on, sonPiste: pos.id || null });
+    // Relais : si une autre page jouait il y a un instant (changement de page), on reprend tout de suite.
+    this.sonRelais = pos.at && Date.now() - pos.at < 6000 && pos.playing;
+    const lancer = force => {
+      const a = document.getElementById("son-accueil");
+      if (!a || !a.getAttribute("src") || this.state.sonOn === false || !a.paused) return;
+      if (force === true && !this.sonRelais) return;
+      const p = chundiLire("chundi-son-pos", {});
+      if (p.id && p.id === this.state.sonPiste && p.t && a.currentTime < 0.5) { try { a.currentTime = p.t; } catch (e) {} }
+      a.volume = 0.7;
+      a.play().then(() => { this.sonRelais = false; }).catch(() => {});
+    };
+    this.sonLancer = lancer;
+    requestAnimationFrame(() => lancer(true));
+    // Les navigateurs bloquent le son avant le premier geste : il démarre au premier clic ou à la première touche.
+    const root = document.getElementById("page");
+    if (root) { root.addEventListener("pointerdown", () => lancer()); root.addEventListener("keydown", () => lancer()); }
+  }
+  sonGarder() {
+    const a = document.getElementById("son-accueil");
+    if (!a || !a.getAttribute("src")) return;
+    try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id: this.state.sonPiste || (this.sonListe()[0] || {}).id, t: a.currentTime || 0, at: Date.now(), playing: !a.paused })); } catch (e) {}
+  }
+  sonAller(id) {
+    try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id, t: 0, at: Date.now(), playing: true })); localStorage.setItem("chundi-son", "on"); } catch (e) {}
+    this.setState({ sonPiste: id, sonOn: true }, () => requestAnimationFrame(() => { const a = document.getElementById("son-accueil"); if (a) { a.currentTime = 0; a.play().catch(() => {}); } }));
+  }
+  sonVals() {
+    const on = this.state.sonOn !== false;
+    const liste = this.sonListe();
+    const cur = liste.find(t => t.id === this.state.sonPiste) || liste[0] || null;
+    return {
+      theme: this.state.theme || "bleu",
+      sonOn: on, sonFichier: !!cur, sonSrc: cur ? (cur.fichier || "/_blob/" + cur.asset) : "", sonBoucle: liste.length === 1,
+      sonLabel: !cur ? "[Son : à venir]" : (on ? "[Son : on]" : "[Son : coupé]"),
+      sonTitre: cur ? "En cours : " + cur.title + " · cliquer pour couper ou remettre le son" : "Le son arrivera avec la playlist",
+      sonOp: cur ? "1" : "0.72",
+      sonJoue: () => { try { localStorage.setItem("chundi-son-actif", this.sonMoi + ":" + Date.now()); } catch (e) {} },
+      sonTemps: e => { const t = e.target; if (!this.sonDernier || Date.now() - this.sonDernier > 2000) { this.sonDernier = Date.now(); try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id: cur && cur.id, t: t.currentTime, at: Date.now(), playing: !t.paused })); } catch (err) {} } },
+      sonSuivant: () => {
+        if (liste.length < 2) return;
+        const k = liste.findIndex(t => cur && t.id === cur.id);
+        this.sonAller(liste[(k + 1) % liste.length].id);
+      },
+      sonBascule: () => {
+        const next = !on;
+        try { localStorage.setItem("chundi-son", next ? "on" : "coupe"); } catch (e) {}
+        this.setState({ sonOn: next }, () => { const a = document.getElementById("son-accueil"); if (!a) return; if (next) a.play().catch(() => {}); else a.pause(); });
+      }
+    };
+  }
+  constructor(props) {
+    super(props);
+    this.state = { start: null, path: [], q: "", choosing: false, favOnly: false, hl: null, hov: null, vw: window.innerWidth, fonts: 0, k: 1 };
+    this.jump = false;
+    this.targets = {};
+    this.onResize = () => this.setState({ vw: window.innerWidth });
+    this.onFonts = () => { CACHE.clear(); this.setState({ fonts: this.state.fonts + 1, k: 1 }); };
+  }
+  componentDidMount() {
+    this.baseInit();
+    this.sonInit();
+    window.addEventListener("resize", this.onResize);
+    if (document.fonts) {
+      document.fonts.ready.then(this.onFonts);
+      document.fonts.addEventListener("loadingdone", this.onFonts);
+    }
+    this.check();
+    try {
+      const id = localStorage.getItem("chundi-explorer");
+      if (id) { localStorage.removeItem("chundi-explorer"); this.setStart(id); }
+      if (localStorage.getItem("chundi-focus-recherche")) {
+        localStorage.removeItem("chundi-focus-recherche");
+        this.setState({ choosing: true }, () => requestAnimationFrame(() => { const el = document.getElementById("recherche-explorer"); if (el) el.focus(); }));
+      }
+    } catch (e) {}
+    const root = document.getElementById("page");
+    if (root && (!document.activeElement || document.activeElement === document.body)) root.focus({ preventScroll: true });
+  }
+  componentWillUnmount() {
+    this.sonGarder(); this.baseFin();
+    window.removeEventListener("resize", this.onResize);
+    if (document.fonts) document.fonts.removeEventListener("loadingdone", this.onFonts);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    // Drapeaux posés au clic : on ne se fie pas à prevState pour déclencher le défilement.
+    if (this.allerEnHaut) { this.allerEnHaut = false; window.scrollTo(0, 0); }
+    if (this.allerAuCartel) { this.allerAuCartel = false; montrerSousBandeau("cartel-choisi"); }
+    this.check();
+  }
+  check() {
+    // Vérifie dans la page que chaque texte tient dans sa boîte ; sinon, agrandit toutes les boîtes d’autant.
+    requestAnimationFrame(() => {
+      let r = 1;
+      document.querySelectorAll(".mini, .fit").forEach(el => {
+        if (el.clientWidth > 0) r = Math.max(r, el.scrollWidth / el.clientWidth);
+      });
+      if (r > 1.002 && this.state.k < 1.6) this.setState({ k: Math.min(1.6, this.state.k * r * 1.01) });
+    });
+  }
+  setStart(id, mode) {
+    const path = this.state.path;
+    const at = path.indexOf(id);
+    this.jump = mode || "smooth";
+    if (mode !== "nav") this.futur = [];
+    this.allerAuCartel = true;
+    this.setState({ start: id, path: at >= 0 ? path.slice(0, at + 1) : [...path, id], q: "", choosing: false, hl: null, hov: null, lock: null, nav: (this.state.nav || 0) + 1 }, () => montrerSousBandeau("cartel-choisi"));
+  }
+  pickTheme(theme) {
+    const id = this.targets[theme];
+    if (!id) { this.setState({ q: theme, hl: null }); return; }
+    this.setState({ hl: theme }, () => {
+      const el = document.getElementById(id);
+      const calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (el) el.scrollIntoView({ block: "center", behavior: "auto" });
+    });
+  }
+  renderVals() { return { ...this.renderPage(), ...this.sonVals() }; }
+  renderPage() {
+    const { start, path, q, vw, favOnly, hl } = this.state;
+    K = this.state.k;
+    const all = [...chundiFusion(CITED, this.state.base, "oeuvres"), ...test(Number(this.props.cartelsTest ?? 0))];
+    const byId = id => all.find(r => r.id === id);
+    const startRef = start ? byId(start) || null : null;
+    const avail = Math.max(120, vw - 24);
+
+    const needle = fold(q.trim());
+    const resumeOf = r => RESUMES[r.id] ? (RESUMES[r.id].ctx + " " + RESUMES[r.id].recap).replace(/\{([^}|]+)(?:\|[^}]+)?\}/g, "$1") : "";
+    const matches = all.filter(r => (!favOnly || r.fav) && (!needle || fold([r.artist, r.work, r.type, r.date, ...r.themes, ...r.disc, resumeOf(r)].join(" ")).includes(needle)));
+    const goto = (k, v) => () => { try { localStorage.setItem(k, v); } catch (e) {} };
+    const tagCount = (key, v) => all.filter(w => w[key].includes(v)).length;
+    const tags = needle ? [
+      ...[...new Set(all.flatMap(w => w.themes))].filter(t => fold(t).includes(needle)).map(t => ({ label: t, count: tagCount("themes", t), go: goto("chundi-chercher", t) })),
+      ...[...new Set(all.flatMap(w => w.disc))].filter(d => fold(d).includes(needle)).map(d => ({ label: d, count: tagCount("disc", d), go: goto("chundi-chercher", d) }))
+    ] : [];
+    const TYPES_I = { outil: "Outil", lien: "Lien", projet: "Projet", audio: "Audio", video: "Vidéo YouTube", youtube: "Vidéo YouTube" };
+    const insp = needle ? chundiFusion(INSPIRATIONS, this.state.base, "inspirations").filter(i => fold([i.title, i.source, i.note, TYPES_I[i.type]].join(" ")).includes(needle)).map(i => ({ title: i.title, typeLabel: TYPES_I[i.type], go: goto("chundi-inspiration", i.id) })) : [];
+    const departLimit = avail - 32 - 26;
+    const departs = matches.slice(0, DEPARTS).map(r => {
+      const natural = Math.max(textW(r.work, TITLE(15), "normal"), textW(r.artist.toUpperCase(), SUB(AS, 700), "extra-condensed", SPACING)) * SAFE;
+      const s = natural > departLimit ? departLimit / natural : 1;
+      const on = !!startRef && r.id === startRef.id;
+      return {
+        title: r.work, artist: r.artist, on, fav: !!r.fav,
+        aria: r.work + ", " + r.artist + (r.fav ? ", favori" : ""),
+        ts: (15 * s).toFixed(1) + "px", as: (AS * s).toFixed(1) + "px",
+        bg: on ? "var(--accent)" : "var(--papier)",
+        pick: () => this.setStart(r.id)
+      };
+    });
+    const departLabel = matches.length === 0 ? "Aucun résultat"
+      : matches.length > DEPARTS ? DEPARTS + " sur " + matches.length + ", affinez la recherche"
+      : matches.length + (matches.length > 1 ? " œuvres" : " œuvre");
+
+    const crumbs = path.map((id, i) => {
+      const r = byId(id);
+      return { label: r ? r.work : id, notFirst: i > 0, current: i === path.length - 1 ? "step" : "false", weight: i === path.length - 1 ? "500" : "400", pick: () => this.setStart(id) };
+    });
+
+    const root = startRef ? buildTree(all, startRef) : { kind: "start", ref: null, children: [] };
+    const plan = layout(root, avail);
+
+    const groups = [], segs = [], arrows = [], edges = [];
+    const targets = {};
+    const seg = (x, y, w, h) => { if (w > 0 && h > 0) segs.push({ x: x + "px", y: y + "px", w: w + "px", h: h + "px" }); };
+    const arrow = (cx, tipY) => arrows.push({ x: (cx - 7) + "px", y: (tipY - 10) + "px" });
+    const chains = [];
+    let maxY = 0;
+
+    const emit = (p, ox, oy, chain) => {
+      const n = p.n, bx = ox + p.box.x;
+      const myGi = n.kind !== "start" ? groups.length : null;
+      maxY = Math.max(maxY, oy + p.h);
+      if (n.kind !== "start") {
+        const gi = groups.length, theme = n.themes[0], g = p.box.group, id = "branche-" + gi;
+        chains[gi] = chain;
+        n.themes.forEach(t => { if (!targets[t]) targets[t] = id; });
+        const lit = !!hl && n.themes.includes(hl);
+        groups.push({
+          id, x: bx + "px", y: oy + "px", w: p.box.w + "px", h: p.box.h + "px",
+          outline: lit ? "3px solid var(--accent)" : "none",
+          hasExtra: n.extra > 0,
+          extraY: (GP + g.rowsH + 1) + "px",
+          extraLabel: "et " + n.extra + (n.extra > 1 ? " autres" : " autre") + " : voir « " + theme + " »",
+          showAll: () => this.setState({ q: theme }),
+          enter: () => { if (this.state.hov !== gi) this.setState({ hov: gi }); },
+          items: g.items.map(it => ({
+            title: it.w.work, artist: it.w.artist, fav: !!it.w.fav,
+            x: (GP + it.x) + "px", y: (GP + it.y) + "px", w: it.iw + "px",
+            ts: (TS * it.s).toFixed(1) + "px", as: (AS * it.s).toFixed(1) + "px",
+            aria: "Repartir de " + it.w.work + ", " + it.w.artist + ", " + it.w.date + (it.w.fav ? ", favori" : ""),
+            pick: () => this.setStart(it.w.id)
+          }))
+        });
+      }
+      if (!p.kids.length) return;
+      const cx = bx + p.box.w / 2, bottom = oy + p.box.h, bus0 = bottom + DROP;
+      seg(cx - 1, bottom, 2, DROP);
+      const kidCx = k => ox + k.dx + k.plan.box.x + k.plan.box.w / 2;
+      const stem = (k, route) => {
+        const kx = kidCx(k), ky = oy + k.dy, busY = ky - STEM;
+        seg(kx - 1, busY, 2, STEM - 10);
+        arrow(kx, ky);
+        const ei = edges.length;
+        edges.push({ x: kx + "px", y: (busY + (STEM - 10) / 2) + "px", text: k.plan.n.text, themes: k.plan.n.themes, gi: groups.length });
+        const path = route.concat([[kx, busY, kx, ky - 10]]);
+        emit(k.plan, ox + k.dx, oy + k.dy, { segs: chain.segs.concat(path), arrows: chain.arrows.concat([[kx, ky]]), edges: chain.edges.concat([ei]), gids: (chain.gids || []).concat(myGi === null ? [] : [myGi]) });
+      };
+      if (p.mode === "row") {
+        const xs = p.kids.map(kidCx);
+        const a = Math.min(cx, ...xs), b = Math.max(cx, ...xs);
+        seg(a - 1, bus0 - 1, b - a + 2, 2);
+        p.kids.forEach(k => stem(k, [[cx, bottom, cx, bus0], [cx, bus0, kidCx(k), bus0]]));
+      } else {
+        const sx = ox + GUT / 2;
+        seg(sx - 1, bus0 - 1, cx - sx + 2, 2);
+        const lastBus = oy + p.rows[p.rows.length - 1].top - STEM;
+        seg(sx - 1, bus0, 2, lastBus - bus0 + 1);
+        p.rows.forEach(r => {
+          const rb = oy + r.top - STEM;
+          const right = Math.max(...r.kids.map(kidCx));
+          seg(sx - 1, rb - 1, right - sx + 2, 2);
+          r.kids.forEach(k => stem(k, [[cx, bottom, cx, bus0], [cx, bus0, sx, bus0], [sx, bus0, sx, rb], [sx, rb, kidCx(k), rb]]));
+        });
+      }
+    };
+    emit(plan, 0, 0, { segs: [], arrows: [], edges: [], gids: [] });
+    const locked = this.state.lock ?? null;
+    const hov = locked !== null ? locked : this.state.hov;
+    const ch = hov !== null && hov !== undefined && chains[hov] ? chains[hov] : null;
+    const onPath = new Set(ch ? ch.edges : []);
+    edges.forEach((e, i) => {
+      const lit = onPath.has(i) || (!!hl && e.themes.includes(hl));
+      e.bg = lit ? "var(--accent)" : "var(--papier)";
+      e.op = ch && !onPath.has(i) ? "0.45" : "1";
+      e.pressed = locked === e.gi;
+      e.border = e.pressed ? "2px solid var(--encre)" : "0";
+      e.hint = e.pressed ? "Cliquer pour libérer ce chemin" : "Cliquer pour garder ce chemin surligné";
+      e.pick = () => this.setState({ lock: this.state.lock === e.gi ? null : e.gi });
+    });
+    const onGroups = new Set(ch ? (ch.gids || []).concat([hov]) : []);
+    groups.forEach((g, i) => {
+      if (onGroups.has(i)) g.outline = "3px solid var(--accent)";
+      g.op = ch && !onGroups.has(i) ? "0.5" : "1";
+    });
+    const hlSegs = ch ? ch.segs.map(([x1, y1, x2, y2]) => {
+      const x = Math.min(x1, x2), y = Math.min(y1, y2), w = Math.abs(x2 - x1), h = Math.abs(y2 - y1);
+      return w === 0 ? { x: (x - 2) + "px", y: y + "px", w: "4px", h: h + "px" } : { x: (x - 2) + "px", y: (y - 2) + "px", w: (w + 4) + "px", h: "4px" };
+    }) : [];
+    const hlArrows = ch ? ch.arrows.map(([x, y]) => ({ x: (x - 8) + "px", y: (y - 11) + "px" })) : [];
+    this.targets = targets;
+
+    const tokens = s => parse(s || "").map(t => ({
+      txt: t.txt, isTheme: !!t.theme, isText: !t.theme,
+      bg: t.theme && t.theme === hl ? "var(--papier)" : "transparent",
+      pick: t.theme ? () => this.pickTheme(t.theme) : null
+    }));
+    let cur = { title: "", artist: "", date: "", type: "", fav: false, ctx: [], recap: [], hasAvis: false, noAvis: true, avis: "", avisLabel: "", hasCitation: false, citation: "", citationSrc: "", pourquoi: "", hasBy: false, by: "", discList: "", ts: "60px", as: "22px", discSize: "14px" };
+    if (startRef) {
+      const inner = Math.min(820, avail) - 36;
+      const discList = startRef.disc.join(", ");
+      const res = (startRef.resume && (startRef.resume.ctx || startRef.resume.recap) ? startRef.resume : null) || RESUMES[startRef.id] || { ctx: "Contexte à écrire.", recap: "Résumé à écrire." };
+      const avis = startRef.note || AVIS[startRef.id] || "";
+      cur = {
+        title: startRef.work, artist: startRef.artist, date: startRef.date, type: startRef.type, fav: !!startRef.fav,
+        ctx: tokens(res.ctx), recap: tokens(res.recap),
+        hasAvis: !!avis, noAvis: !avis, avis,
+        avisLabel: avis && startRef.avisDate ? "Écrit en " + startRef.avisDate : "",
+        hasCitation: !!startRef.citation, citation: startRef.citation || "", citationSrc: startRef.citationSrc || "",
+        pourquoi: startRef.pourquoi || "Ce que cette œuvre m’a apporté : à écrire.",
+        hasBy: !!startRef.by, by: startRef.by || "",
+        discList,
+        ts: fit(textW(startRef.work, TITLE(60), "normal") * SAFE, 60, inner) + "px",
+        as: fit(textW(startRef.artist.toUpperCase(), SUB(22, 800), "extra-condensed", 0.44) * SAFE, 22, inner) + "px",
+        discSize: fit(textW(discList, BODY(14), "normal") * SAFE, 14, inner - 108) + "px"
+      };
+    }
+
+    return {
+      hlSegs, hlArrows, lineOp: ch ? "0.35" : "1",
+      isLocked: locked !== null,
+      unlock: () => this.setState({ lock: null }),
+      leaveG: () => { if (this.state.hov !== null) this.setState({ hov: null }); },
+      q, departs, departLabel, crumbs, cur, tags, insp, hasTags: tags.length > 0, hasInsp: insp.length > 0, favOnly,
+      favBg: favOnly ? "var(--encre)" : "transparent",
+      favFg: favOnly ? "var(--papier)" : "var(--encre)",
+      toggleFav: () => this.setState({ favOnly: !this.state.favOnly }),
+      search: e => this.setState({ q: e.target.value }),
+      groups, segs, arrows, edges,
+      noBranches: !!startRef && root.children.length === 0,
+      hasStart: !!startRef,
+      showDeparts: !startRef || this.state.choosing || q.trim() !== "",
+      onKey: e => {
+        const t = e.target, typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA");
+        if (e.key === "/" && !typing) {
+          e.preventDefault();
+          const focus = () => { const el = document.getElementById("recherche-explorer"); if (el) el.focus(); };
+          if (this.state.start && !this.state.choosing) this.setState({ choosing: true }, () => { window.scrollTo(0, 0); requestAnimationFrame(focus); });
+          else focus();
+          return;
+        }
+        if (e.key === "Escape") {
+          if (typing) t.blur();
+          if (this.state.lock !== null && this.state.lock !== undefined) this.setState({ lock: null });
+          else if (this.state.start && (this.state.choosing || this.state.q)) this.setState({ choosing: false, q: "" });
+          return;
+        }
+        if (e.key === "ArrowLeft" && !typing && this.state.path.length > 1) {
+          e.preventDefault();
+          const path = this.state.path;
+          this.futur = [path[path.length - 1], ...(this.futur || [])];
+          this.setStart(path[path.length - 2], "nav");
+        }
+        if (e.key === "ArrowRight" && !typing && this.futur && this.futur.length) {
+          e.preventDefault();
+          const next = this.futur.shift();
+          this.setStart(next, "nav");
+        }
+      },
+      openDeparts: () => { this.allerEnHaut = true; this.setState({ choosing: true }, () => window.scrollTo(0, 0)); },
+      closeDeparts: () => this.setState({ choosing: false, q: "" }),
+      treeW: plan.w + "px",
+      treeH: (maxY + 8) + "px"
+    };
+  }
+}
+</script>
+</body>
+</html>

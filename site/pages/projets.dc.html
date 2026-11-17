@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Projets</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{--fond:#1428D8;--papier:#FFFFFF;--accent:#FFF04A;--encre:#0B1040;--pale:#E3E6FB;--pale2:#F1F2FD;--trait:#C9CCE0;--doux:#55598A;--surfond:#FFFFFF}
+:root:has(#page[data-theme="sombre"]){--fond:#08080B;--papier:#16171D;--accent:#6A45F5;--encre:#F1EFE8;--pale:#25272F;--pale2:#1D1F26;--trait:#3A3D48;--doux:#A6AAB8;--surfond:#F1EFE8}
+:root:has(#page[data-theme="girly"]){--fond:#FF5FA8;--papier:#FFF6FA;--accent:#C9B1FF;--encre:#4A0D33;--pale:#FFE1EF;--pale2:#FFEFF6;--trait:#F2C3D9;--doux:#8E4A72;--surfond:#FFFFFF}
+:root:has(#page[data-theme="noel"]){--fond:#B3121F;--papier:#FFFCF3;--accent:#F2C14E;--encre:#0E3B23;--pale:#E8F0E6;--pale2:#F3F7F1;--trait:#CFDCCB;--doux:#4F6B57;--surfond:#FFF6DC}
+:root:has(#page[data-theme="retro"]){--fond:#008080;--papier:#C0C0C0;--accent:#FFFF00;--encre:#000000;--pale:#DFDFDF;--pale2:#D4D0C8;--trait:#808080;--doux:#3A3A3A;--surfond:#FFFFFF}
+body{margin:0;background:var(--fond)}
+a{color:var(--encre)}a:hover{color:var(--fond)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+::selection{background:var(--accent);color:var(--encre)}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+#page{font-kerning:normal;hanging-punctuation:first}
+#page h1,#page h2{text-wrap:balance}
+#page p{text-wrap:pretty}
+:focus-visible{outline:3px solid var(--accent)!important;outline-offset:0!important;box-shadow:0 0 0 5px var(--encre)!important}
+#page input:focus-visible,#page select:focus-visible,#page textarea:focus-visible{outline:2px solid var(--encre)!important;outline-offset:-2px!important;box-shadow:0 0 0 3px var(--accent)!important}
+#page ::placeholder{color:var(--doux);opacity:1}
+#page button[style*="border: 1px solid var(--encre)"]:not([disabled]):hover,#page a[style*="border: 1px solid var(--encre)"]:hover,#page summary:hover{background:var(--accent)!important;color:var(--encre)!important}
+#page button[style*="background: var(--encre)"]:not([disabled]):hover,#page a[style*="background: var(--encre)"]:hover{background:var(--accent)!important;color:var(--encre)!important;box-shadow:inset 0 0 0 2px var(--encre)}
+#page button[disabled],#page input[disabled]{opacity:.35;cursor:not-allowed}
+#page input[type=checkbox]{accent-color:var(--encre)}
+html,body,#page{cursor:url(/img/fleche-retro.png) 0 0, default}
+#page a,#page button,#page summary,#page label,#page select,#page [role=tab],#page input[type=checkbox],#page input[type=range],#page input[type=file],#page .entree{cursor:url(/img/main-retro.png) 11 1, pointer!important}
+#page input[type=text],#page input[type=search],#page input[type=url],#page input:not([type]),#page textarea{cursor:text!important}
+#page button[disabled]{cursor:not-allowed!important}
+#bandeau .reglages button,#bandeau nav a,#bandeau nav button{display:inline-flex;align-items:center;min-height:30px;padding:0 9px!important;box-sizing:border-box}
+#bandeau .reglages button:hover,#bandeau nav a:hover,#bandeau nav button:hover{background:var(--accent);color:var(--encre)!important;opacity:1!important}
+#bandeau nav a[aria-current=page]{background:var(--encre);color:var(--accent)!important}
+#bandeau .nom:hover{background:var(--accent)}
+#bandeau .nom{order:-2;min-height:30px!important;font-size:19px!important}
+#bandeau .reglages{order:-1;flex:1 1 auto;justify-content:flex-end;margin:-2px 0 0;font-size:12px}
+#bandeau nav{flex:1 1 100%;margin-left:0!important;padding-top:6px;border-top:1px solid var(--trait)}
+#bandeau nav a{flex:1 1 0;justify-content:center;min-height:38px!important;font-size:14px}
+
+.mur article{transition:none}
+.mur article:hover{box-shadow:inset 0 0 0 2px var(--encre)}
+
+.defil{animation:defil 32s linear infinite}
+@keyframes defil{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.defil{animation:none}}
+</style>
+</helmet>
+<div id="page" data-theme="{{theme}}" tabIndex="-1" onKeyDown="{{onKey}}" style="outline: none; background: var(--fond); color: var(--encre); font-family: Archivo, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.4; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; gap: 12px">
+
+<div id="bandeau" style="position: sticky; top: 0; z-index: 30; margin: -12px -12px 0; padding: 12px 12px 0; background: var(--fond)">
+<header style="background: var(--papier); box-sizing: border-box; padding: 8px 10px 8px 8px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">
+<a class="nom" href="/chundi-alleyrat" style="color: inherit; text-decoration: none; display: flex; align-items: center; min-height: 34px; padding: 0 8px; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: 0.01em">
+<span>[Chundi Alleyrat]</span>
+</a>
+<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 2px; margin-left: auto">
+<a href="/" style="color: inherit; text-decoration: none">[Accueil]</a>
+<a href="/bibliotheque" style="color: inherit; text-decoration: none">[Bibliothèque]</a>
+<a id="lien-recherche" href="/explorer" title="Explorer et rechercher · raccourci : /" style="color: inherit; text-decoration: none">[Explorer]</a>
+<a href="/inspirations" style="color: inherit; text-decoration: none">[Inspirations]</a>
+<a href="/projets" aria-current="page" style="color: inherit; text-decoration: none">[Projets]</a>
+</nav>
+<div class="reglages" role="group" aria-label="Son et langue" style="display: flex; align-items: center; gap: 2px; margin-left: auto">
+<sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{sonBascule}}" aria-pressed="{{sonOn}}" title="{{sonTitre}}" style="min-height: 28px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; opacity: {{sonOp}}">{{sonLabel}}</button>
+</sc-if>
+<sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
+<audio id="son-accueil" src="{{sonSrc}}" loop="{{sonBoucle}}" preload="auto" onPlay="{{sonJoue}}" onEnded="{{sonSuivant}}" onTimeUpdate="{{sonTemps}}"></audio>
+</sc-if>
+<span aria-label="Langue : français (anglais à venir)" style="display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; "><b style="font-weight: 500">FR</b>&#160;/&#160;<span style="color: var(--doux)">EN</span></span>
+</div>
+<div aria-label="Actualité" style="flex: 1 1 100%; min-width: 0; margin: 0 -10px -8px -8px; border-top: 1px solid var(--encre); overflow: hidden; background: var(--pale); padding: 8px 0; white-space: nowrap; font-size: 12px">
+<div class="defil" style="display: inline-flex">
+<span style="padding-right: 32px">{{bandeau}}</span>
+<span aria-hidden="true" style="padding-right: 32px">{{bandeau}}</span>
+</div>
+</div>
+</header>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: 12px">
+<div style="background: var(--papier); box-sizing: border-box; padding: 16px">
+<h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.16em; font-size: clamp(56px, 8vw, 128px); line-height: 0.9">
+<span style="font-stretch: 62%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.012em">Projets</span>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.025em">portfolio</span>
+</h1>
+</div>
+<div style="background: var(--papier); box-sizing: border-box; padding: 16px 18px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px">
+<p style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.28">Ce que j’ai conçu, organisé ou fait exister : des espaces, des événements, des médias. Ouvrez un projet pour voir les images, le contexte et mon rôle.</p>
+<p style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">{{compte}}</p>
+</div>
+</div>
+
+<div role="group" aria-label="Filtrer par domaine" style="background: var(--papier); box-sizing: border-box; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<span style="margin-right: 8px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase">Domaine</span>
+<sc-for list="{{domaines}}" as="d" hint-placeholder-count="5">
+<button onClick="{{d.pick}}" aria-pressed="{{d.on}}" style="min-height: 34px; padding: 0 12px; border: 1px solid var(--encre); background: {{d.bg}}; color: {{d.fg}}; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase">{{d.label}} <span style="font-size: 10px">{{d.count}}</span></button>
+</sc-for>
+</div>
+
+<ol aria-label="Projets" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{projets}}" as="p" hint-placeholder-count="5">
+<li id="{{p.dom}}" style="background: {{p.bg}}; box-sizing: border-box; scroll-margin-top: 140px">
+<h2 style="margin: 0; font: inherit">
+<button onClick="{{p.toggle}}" aria-expanded="{{p.open}}" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; align-items: center; gap: 4px 20px">
+<span style="font-stretch: 62%; font-weight: 800; font-size: 56px; line-height: 0.85">{{p.num}}</span>
+<span style="min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(26px, 2.6vw, 40px); line-height: 1.02; overflow-wrap: anywhere">{{p.titre}}</span>
+<span style="font-stretch: 62%; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 0.02em">{{p.sousTitre}}</span>
+</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-align: right">
+<span>{{p.annee}}</span>
+<span style="padding: 2px 8px; background: var(--encre); color: var(--accent); text-transform: uppercase">{{p.domaine}}</span>
+<span>{{p.action}}</span>
+</span>
+</button>
+</h2>
+<sc-if value="{{p.open}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; padding: 0 16px 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); grid-template-columns: 2fr 1fr 1fr; align-items: start; gap: 8px">
+<sc-for list="{{p.visuels}}" as="v" hint-placeholder-count="3">
+<sc-if value="{{v.src}}" hint-placeholder-val="{{ false }}"><img src="{{v.src}}" alt="{{v.alt}}" loading="lazy" style="display: block; width: 100%; aspect-ratio: {{v.ratio}}; object-fit: cover; border: 1px solid var(--encre); box-sizing: border-box"></sc-if>
+<sc-if value="{{v.vide}}" hint-placeholder-val="{{ true }}"><div style="aspect-ratio: {{v.ratio}}; background: repeating-linear-gradient(135deg, var(--pale) 0 10px, var(--pale2) 10px 20px); border: 1px solid var(--encre); display: flex; align-items: flex-end; padding: 8px; box-sizing: border-box; font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px">{{v.label}}</div></sc-if>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px 28px; border-top: 2px solid var(--encre); padding-top: 12px">
+<sc-for list="{{p.blocs}}" as="b" hint-placeholder-count="3">
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400; text-transform: uppercase">{{b.titre}}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">{{b.texte}}</p>
+</section>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px">
+<sc-for list="{{p.tags}}" as="t" hint-placeholder-count="3">
+<span style="padding: 3px 8px; border: 1px solid var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase">{{t}}</span>
+</sc-for>
+<sc-if value="{{p.hasLien}}" hint-placeholder-val="{{ false }}">
+<a href="{{p.lien}}" target="_blank" rel="noopener" style="margin-left: auto; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; background: var(--encre); color: var(--accent); text-decoration: none; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">[Voir le projet]</a>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</li>
+</sc-for>
+</ol>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; border-top: 1px solid color-mix(in srgb, var(--surfond) 45%, transparent); padding: 10px 4px 0; color: var(--surfond); font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
+<span>Chundi Alleyrat · Paris</span>
+<a href="/chundi-alleyrat" style="color: var(--surfond)">CV et contact</a>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"bandeau":{"editor":"text","default":"En recherche d’alternance · communication, événementiel, culture ◆ Paris ◆ Bibliothèque mise à jour en continu ◆"},"$preview":{"width":1440,"height":1700}}'>
+// ——— Base du site, commune à toutes les pages ———
+// Les références publiées sont écrites dans la page (PLAYLIST, CITED, ITEMS, PROJETS…).
+// Les modifications faites depuis la page « Base de données » sont gardées dans ce navigateur
+// et s’appliquent par-dessus, jusqu’à ce que Claude les intègre au site pour tous les visiteurs.
+const PLAYLIST = [];
+function chundiLire(k, d) { try { const v = JSON.parse(localStorage.getItem(k) || "null"); return v || d; } catch (e) { return d; } }
+const CHUNDI_CLES = { oeuvres: "chundi-ajouts-oeuvres", inspirations: "chundi-ajouts-inspirations", projets: "chundi-ajouts-projets" };
+const CHUNDI_PREFIXE = { oeuvres: "oeuvre", inspirations: "inspiration", projets: "projet" };
+function chundiLocale() {
+  const parId = arr => Object.fromEntries((Array.isArray(arr) ? arr : []).map(x => [x.id, x]));
+  return { oeuvres: parId(chundiLire(CHUNDI_CLES.oeuvres, [])), inspirations: parId(chundiLire(CHUNDI_CLES.inspirations, [])), projets: parId(chundiLire(CHUNDI_CLES.projets, [])), retraits: chundiLire("chundi-retraits", {}), playlist: Object.fromEntries(PLAYLIST.map((t, k) => [t.id, { ordre: k + 1, ...t }])) };
+}
+function chundiOeuvre(w) {
+  const y = typeof w.y === "number" ? w.y : (parseInt(w.date, 10) || 2026);
+  return { artist: "—", date: String(w.date || y), type: "Œuvre", themes: [], disc: [], note: "", ...w, y, themes: Array.isArray(w.themes) ? w.themes : [], disc: Array.isArray(w.disc) ? w.disc : [] };
+}
+function chundiFusion(liste, base, kind) {
+  const b = base || {}, ret = b.retraits || {}, mods = b[kind] || {};
+  const k = CHUNDI_PREFIXE[kind] || kind;
+  const out = liste.filter(x => !ret[k + ":" + x.id]).map(x => (mods[x.id] ? { ...x, ...mods[x.id] } : x));
+  Object.values(mods).forEach(m => { if (!liste.some(x => x.id === m.id) && !ret[k + ":" + m.id]) out.push(m); });
+  return kind === "oeuvres" ? out.map(chundiOeuvre) : out;
+}
+const PROJETS = [{"id":"second-chronicle","annee":"2026 – aujourd’hui","titre":"The Second Chronicle","sousTitre":"Média sur l’horlogerie vintage","domaine":"Média","tags":["Instagram","TikTok","Horlogerie","Rédaction"],"contexte":"Un média sur l’horlogerie vintage, entre anecdotes et société, publié sur Instagram et TikTok.","role":"[Ton rôle : fondateur, rédaction, tournage, montage…]","resultat":"[Audience, formats, temps forts]","lien":""},{"id":"messika","annee":"2025","titre":"Projet Messika","sousTitre":"PLV et vitrine","domaine":"Espace","tags":["Luxe","Vitrine","PLV"],"contexte":"Conception d’une PLV et d’une vitrine pour Messika.","role":"[Ton rôle dans le projet]","resultat":"Sélectionné aux Shop! Design Awards 2025.","lien":""},{"id":"ascension-cordee","annee":"[année]","titre":"Ascension / Cordée","sousTitre":"Expédition solidaire au Mont-Blanc en joëlette","domaine":"Événementiel","tags":["Mécénat croisé","Budget","Communication","Film documentaire"],"contexte":"Une expédition solidaire au Mont-Blanc en joëlette.","role":"Mécénat croisé, budget, communication, film documentaire.","resultat":"[Ce que l’expédition a permis]","lien":""},{"id":"mecene-en-scene","annee":"[année]","titre":"Mécène en scène","sousTitre":"Mémoire et projet de diplôme, DN MADE","domaine":"Événementiel","tags":["Mécénat","Événementiel","Diplôme"],"contexte":"Mémoire et projet de diplôme du DN MADE mention Événementiel et Espace, au lycée Maximilien Vox.","role":"Recherche et conception, sur la relation entre mécénat et événementiel.","resultat":"[Mention, jury, prolongements]","lien":""},{"id":"florian-caulier","annee":"[année] – aujourd’hui","titre":"Florian Caulier","sousTitre":"Pianiste-compositeur : site, communication, organisation","domaine":"Communication","tags":["Site web","Communication","Management"],"contexte":"Manager du pianiste-compositeur Florian Caulier.","role":"Création de son site, communication, organisation.","resultat":"[Concerts, sorties, chiffres]","lien":""}];
+class Component extends DCLogic {
+  // ——— Base (ce navigateur) ———
+  baseInit() {
+    let theme = "bleu";
+    try { theme = localStorage.getItem("chundi-theme") || "bleu"; } catch (e) {}
+    this.setState({ base: chundiLocale(), theme });
+    this.onStorage = e => {
+      if (!e || !e.key) return;
+      if (e.key === "chundi-theme") this.setState({ theme: e.newValue || "bleu" });
+      if (/^chundi-(ajouts|retraits)/.test(e.key)) this.baseMaj();
+      if (e.key === "chundi-son-actif" && e.newValue && e.newValue.indexOf(this.sonMoi) !== 0) { const a = document.getElementById("son-accueil"); if (a && !a.paused) a.pause(); }
+      if (e.key === "chundi-son") { const on = e.newValue !== "coupe"; this.setState({ sonOn: on }); if (!on) { const a = document.getElementById("son-accueil"); if (a) a.pause(); } }
+    };
+    window.addEventListener("storage", this.onStorage);
+  }
+  baseMaj() { this.setState({ base: chundiLocale() }, () => { if (this.baseRecue) this.baseRecue(); }); }
+  baseFin() { if (this.onStorage) window.removeEventListener("storage", this.onStorage); }
+  // Enregistre dans ce navigateur. obj = null : supprime.
+  async baseEcrire(kind, id, obj) {
+    if (kind === "retraits") {
+      const r = chundiLire("chundi-retraits", {});
+      if (obj) r[id] = obj; else delete r[id];
+      try { localStorage.setItem("chundi-retraits", JSON.stringify(r)); } catch (e) { return "erreur"; }
+    } else if (CHUNDI_CLES[kind]) {
+      let arr = chundiLire(CHUNDI_CLES[kind], []);
+      arr = (Array.isArray(arr) ? arr : []).filter(x => x.id !== id);
+      if (obj) arr.push({ ...obj, id });
+      try { localStorage.setItem(CHUNDI_CLES[kind], JSON.stringify(arr)); } catch (e) { return "erreur"; }
+    }
+    this.baseMaj();
+    return "local";
+  }
+  // ——— Son d’ambiance : la playlist de la base, en continu sur tout le site ———
+  sonListe() {
+    const p = (this.state.base && this.state.base.playlist) || {};
+    return Object.values(p).filter(t => t.asset || t.fichier).sort((a, b) => (a.ordre || 0) - (b.ordre || 0) || String(a.title).localeCompare(String(b.title)));
+  }
+  sonInit() {
+    this.sonMoi = "p" + Math.random().toString(36).slice(2, 9);
+    let on = true;
+    try { on = localStorage.getItem("chundi-son") !== "coupe"; } catch (e) {}
+    const pos = chundiLire("chundi-son-pos", {});
+    this.setState({ sonOn: on, sonPiste: pos.id || null });
+    // Relais : si une autre page jouait il y a un instant (changement de page), on reprend tout de suite.
+    this.sonRelais = pos.at && Date.now() - pos.at < 6000 && pos.playing;
+    const lancer = force => {
+      const a = document.getElementById("son-accueil");
+      if (!a || !a.getAttribute("src") || this.state.sonOn === false || !a.paused) return;
+      if (force === true && !this.sonRelais) return;
+      const p = chundiLire("chundi-son-pos", {});
+      if (p.id && p.id === this.state.sonPiste && p.t && a.currentTime < 0.5) { try { a.currentTime = p.t; } catch (e) {} }
+      a.volume = 0.7;
+      a.play().then(() => { this.sonRelais = false; }).catch(() => {});
+    };
+    this.sonLancer = lancer;
+    requestAnimationFrame(() => lancer(true));
+    // Les navigateurs bloquent le son avant le premier geste : il démarre au premier clic ou à la première touche.
+    const root = document.getElementById("page");
+    if (root) { root.addEventListener("pointerdown", () => lancer()); root.addEventListener("keydown", () => lancer()); }
+  }
+  sonGarder() {
+    const a = document.getElementById("son-accueil");
+    if (!a || !a.getAttribute("src")) return;
+    try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id: this.state.sonPiste || (this.sonListe()[0] || {}).id, t: a.currentTime || 0, at: Date.now(), playing: !a.paused })); } catch (e) {}
+  }
+  sonAller(id) {
+    try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id, t: 0, at: Date.now(), playing: true })); localStorage.setItem("chundi-son", "on"); } catch (e) {}
+    this.setState({ sonPiste: id, sonOn: true }, () => requestAnimationFrame(() => { const a = document.getElementById("son-accueil"); if (a) { a.currentTime = 0; a.play().catch(() => {}); } }));
+  }
+  sonVals() {
+    const on = this.state.sonOn !== false;
+    const liste = this.sonListe();
+    const cur = liste.find(t => t.id === this.state.sonPiste) || liste[0] || null;
+    return {
+      theme: this.state.theme || "bleu",
+      sonOn: on, sonFichier: !!cur, sonSrc: cur ? (cur.fichier || "/_blob/" + cur.asset) : "", sonBoucle: liste.length === 1,
+      sonLabel: !cur ? "[Son : à venir]" : (on ? "[Son : on]" : "[Son : coupé]"),
+      sonTitre: cur ? "En cours : " + cur.title + " · cliquer pour couper ou remettre le son" : "Le son arrivera avec la playlist",
+      sonOp: cur ? "1" : "0.72",
+      sonJoue: () => { try { localStorage.setItem("chundi-son-actif", this.sonMoi + ":" + Date.now()); } catch (e) {} },
+      sonTemps: e => { const t = e.target; if (!this.sonDernier || Date.now() - this.sonDernier > 2000) { this.sonDernier = Date.now(); try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id: cur && cur.id, t: t.currentTime, at: Date.now(), playing: !t.paused })); } catch (err) {} } },
+      sonSuivant: () => {
+        if (liste.length < 2) return;
+        const k = liste.findIndex(t => cur && t.id === cur.id);
+        this.sonAller(liste[(k + 1) % liste.length].id);
+      },
+      sonBascule: () => {
+        const next = !on;
+        try { localStorage.setItem("chundi-son", next ? "on" : "coupe"); } catch (e) {}
+        this.setState({ sonOn: next }, () => { const a = document.getElementById("son-accueil"); if (!a) return; if (next) a.play().catch(() => {}); else a.pause(); });
+      }
+    };
+  }
+  constructor(props) { super(props); this.state = { open: null, domaine: null }; }
+  componentDidMount() {
+    this.baseInit();
+    this.sonInit();
+    try { const id = localStorage.getItem("chundi-projet"); if (id) { localStorage.removeItem("chundi-projet"); this.setState({ open: id }); } } catch (e) {}
+    const root = document.getElementById("page");
+    if (root && (!document.activeElement || document.activeElement === document.body)) root.focus({ preventScroll: true });
+  }
+  componentWillUnmount() { this.sonGarder(); this.baseFin(); }
+  renderPage() {
+    const st = this.state;
+    const TOUS = chundiFusion(PROJETS, st.base, "projets");
+    const doms = [...new Set(TOUS.map(p => p.domaine).filter(Boolean))];
+    const liste = TOUS.filter(p => !st.domaine || p.domaine === st.domaine);
+    return {
+      compte: TOUS.length + " projets · " + doms.length + " domaines",
+      domaines: [{ label: "Tous", value: null, count: TOUS.length }, ...doms.map(d => ({ label: d, value: d, count: TOUS.filter(p => p.domaine === d).length }))].map(d => {
+        const on = st.domaine === d.value;
+        return { ...d, count: String(d.count), on, bg: on ? "var(--encre)" : "transparent", fg: on ? "var(--accent)" : "var(--encre)", pick: () => this.setState({ domaine: d.value, open: null }) };
+      }),
+      projets: liste.map((p, k) => {
+        const open = st.open === p.id;
+        return {
+          ...p, tags: p.tags || [], annee: p.annee || "", domaine: p.domaine || "—", sousTitre: p.sousTitre || "", dom: "projet-" + p.id, num: String(TOUS.indexOf(p) + 1).padStart(2, "0"), open,
+          bg: open ? "var(--accent)" : "var(--papier)", action: open ? "Fermer −" : "Ouvrir +",
+          visuels: [0, 1, 2].map(k => { const im = (p.visuels || [])[k]; const src = im ? (typeof im === "string" ? im : im.image) : ""; return { label: k ? "Détail" : "Visuel principal", ratio: k ? "1 / 1" : "2 / 1", src: src || "", vide: !src, alt: (im && im.legende) || p.titre }; }),
+          blocs: [{ titre: "Contexte", texte: p.contexte }, { titre: "Mon rôle", texte: p.role }, { titre: "Résultat", texte: p.resultat }],
+          hasLien: !!p.lien,
+          toggle: () => this.setState({ open: open ? null : p.id })
+        };
+      }),
+      onKey: e => {
+        const t = e.target, typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT");
+        if (e.key === "/" && !typing) { e.preventDefault(); try { localStorage.setItem("chundi-focus-recherche", "1"); } catch (err) {} const l = document.getElementById("lien-recherche"); if (l) l.click(); }
+        if (e.key === "Escape" && st.open) this.setState({ open: null });
+      },
+      bandeau: this.props.bandeau ?? "En recherche d’alternance · communication, événementiel, culture ◆ Paris ◆ Bibliothèque mise à jour en continu ◆"
+    };
+  }
+  renderVals() { return { ...this.renderPage(), ...this.sonVals() }; }
+}
+</script>
+</body>
+</html>
