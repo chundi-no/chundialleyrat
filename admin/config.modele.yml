@@ -1,0 +1,208 @@
+# Configuration de l’administration (Decap CMS). Généré dans dist/admin/config.yml par build.js.
+backend:
+  name: github
+  repo: __DEPOT__
+  branch: main
+  commit_messages:
+    create: "Ajout : {{slug}} ({{collection}})"
+    update: "Modification : {{slug}} ({{collection}})"
+    delete: "Suppression : {{slug}} ({{collection}})"
+    uploadMedia: "Fichier ajouté : {{path}}"
+    deleteMedia: "Fichier supprimé : {{path}}"
+locale: fr
+site_url: https://chundialleyrat.com
+display_url: https://chundialleyrat.com
+logo_url: /img/fleche-retro.png
+media_folder: site/static/uploads
+public_folder: /uploads
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: oeuvres
+    label: Bibliothèque
+    label_singular: œuvre
+    description: "Chaque œuvre devient un cartel de la bibliothèque, un point de la partition et une étape d’Explorer."
+    folder: content/oeuvres
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: work
+    slug: "{{work}}"
+    summary: "{{work}} — {{artist}} ({{date}})"
+    sortable_fields: ["work", "artist", "y"]
+    view_filters:
+      - { label: "Favoris", field: fav, pattern: true }
+    fields:
+      - { label: "Titre de l’œuvre (ou nom de l’artiste, de la marque)", name: work, widget: string }
+      - { label: "Sous-titre · artiste, auteur ou « Œuvre phare : … »", name: artist, widget: string }
+      - { label: "Date affichée", name: date, widget: string, hint: "Telle qu’elle apparaît sur le cartel : 1862, Antiquité, Fondée en 1833…" }
+      - { label: "Année de classement", name: y, widget: number, value_type: float, hint: "Sert à l’ordre de la partition. Négatif pour avant J.-C. (ex. -350)." }
+      - { label: "Type", name: type, widget: string, hint: "Roman, essai, film d’animation, opéra, marque…" }
+      - label: "Disciplines"
+        name: disc
+        widget: select
+        multiple: true
+        min: 1
+        hint: "La première choisie donne la cote du cartel (ex. LIT pour Littérature)."
+        options:
+__DISCIPLINES__
+      - { label: "Thèmes", name: themes, widget: list, allow_add: true, hint: "Séparés par des virgules. Les œuvres qui partagent un thème sont reliées dans Explorer.", required: false }
+      - { label: "Favori", name: fav, widget: boolean, default: false, required: false }
+      - { label: "Avis personnel", name: avis, widget: text, required: false }
+      - { label: "Date de l’avis", name: avisDate, widget: string, required: false, hint: "Ex. novembre 2026" }
+      - { label: "Pourquoi c’est ici", name: pourquoi, widget: text, required: false }
+      - { label: "Citation", name: citation, widget: text, required: false }
+      - { label: "Source de la citation", name: citationSrc, widget: string, required: false }
+      - label: "Résumé (Explorer)"
+        name: resume
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: "Contexte", name: ctx, widget: text, required: false }
+          - { label: "Résumé", name: recap, widget: text, required: false, hint: "Un mot entre accolades devient un thème cliquable : {Sagesse}." }
+      - { label: "Lien", name: url, widget: string, required: false }
+      - { label: "Proposée par (prénom)", name: by, widget: string, required: false }
+      - { label: "Ordre d’affichage", name: ordre, widget: number, value_type: int, required: false }
+
+  - name: inspirations
+    label: Inspirations
+    label_singular: inspiration
+    folder: content/inspirations
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{title}}"
+    summary: "{{title}} · {{type}}"
+    fields:
+      - { label: "Titre", name: title, widget: string }
+      - { label: "Type", name: type, widget: select, options: [{ label: "Outil", value: outil }, { label: "Lien", value: lien }, { label: "Projet", value: projet }, { label: "Audio", value: audio }, { label: "Vidéo YouTube", value: video }] }
+      - { label: "Source · site, chaîne, auteur", name: source, widget: string, required: false }
+      - { label: "Note · pourquoi je la garde", name: note, widget: text, required: false }
+      - { label: "Lien (pour une vidéo : le lien YouTube)", name: url, widget: string, required: false }
+      - { label: "Image d’illustration", name: img, widget: image, required: false }
+      - { label: "Fichier audio (MP3)", name: media, widget: file, required: false, hint: "Seulement pour le type Audio." }
+      - { label: "Œuvre liée", name: oeuvre, widget: relation, collection: oeuvres, value_field: "{{slug}}", search_fields: ["work", "artist"], display_fields: ["{{work}} — {{artist}}"], required: false }
+      - { label: "Ordre d’affichage", name: ordre, widget: number, value_type: int, required: false }
+
+  - name: projets
+    label: Projets
+    label_singular: projet
+    folder: content/projets
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: titre
+    slug: "{{titre}}"
+    summary: "{{titre}} ({{annee}})"
+    fields:
+      - { label: "Nom du projet", name: titre, widget: string }
+      - { label: "Sous-titre · ce que c’est", name: sousTitre, widget: string, required: false }
+      - { label: "Année", name: annee, widget: string, required: false }
+      - { label: "Domaine", name: domaine, widget: string, required: false, hint: "Sert au filtre de la page : Espace, Événementiel, Communication…" }
+      - { label: "Mots-clés", name: tags, widget: list, required: false, hint: "Séparés par des virgules." }
+      - { label: "Contexte", name: contexte, widget: text, required: false }
+      - { label: "Mon rôle", name: role, widget: text, required: false }
+      - { label: "Résultat", name: resultat, widget: text, required: false }
+      - { label: "Lien", name: lien, widget: string, required: false }
+      - label: "Images (3 au plus : la première est la grande)"
+        name: visuels
+        widget: list
+        required: false
+        max: 3
+        fields:
+          - { label: "Image", name: image, widget: image }
+          - { label: "Légende", name: legende, widget: string, required: false }
+      - { label: "Ordre d’affichage", name: ordre, widget: number, value_type: int, required: false }
+
+  - name: playlist
+    label: Playlist
+    label_singular: morceau
+    description: "Les morceaux tournent en boucle sur tout le site. Sans morceau, le bouton Son est masqué."
+    folder: content/playlist
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{title}}"
+    fields:
+      - { label: "Titre affiché", name: title, widget: string }
+      - { label: "Fichier MP3", name: fichier, widget: file }
+      - { label: "Ordre", name: ordre, widget: number, value_type: int, required: false }
+
+  - name: pages
+    label: Pages et textes
+    files:
+      - name: accueil
+        label: Accueil
+        file: content/pages/accueil.json
+        format: json
+        fields:
+          - { label: "Titre", name: titre, widget: string }
+          - { label: "Titre, partie en italique", name: titreItalique, widget: string }
+          - { label: "Texte d’introduction (gauche)", name: intro, widget: text }
+          - { label: "Présentation (droite)", name: presentation, widget: text, hint: "Ces mots se remplacent tout seuls : {oeuvres}, {themes}, {familles}, {liste_familles}, {inspirations}, {projets}." }
+          - { label: "Invitation", name: invitation, widget: text }
+          - { label: "Sous-titre Bibliothèque", name: sousTitreBibliotheque, widget: string }
+          - { label: "Sous-titre Explorer", name: sousTitreExplorer, widget: string }
+          - { label: "Sous-titre Inspirations", name: sousTitreInspirations, widget: string }
+          - { label: "Sous-titre Projets", name: sousTitreProjets, widget: string }
+          - { label: "Étiquette Chundi Alleyrat", name: etiquetteChundi, widget: string }
+          - { label: "Sous-titre Chundi Alleyrat", name: sousTitreChundi, widget: string }
+          - { label: "Pied de page", name: piedDePage, widget: string }
+      - name: chundi
+        label: Chundi Alleyrat (présentation et CV)
+        file: content/pages/chundi.json
+        format: json
+        fields:
+          - { label: "Bonjour · paragraphes", name: bonjour, widget: list, field: { label: "Paragraphe", name: paragraphe, widget: text }, hint: "Le premier paragraphe est affiché en grand. *italique* entre astérisques." }
+          - label: "Rubriques du CV"
+            name: sections
+            widget: list
+            summary: "{{fields.titre}}"
+            fields:
+              - { label: "Titre de la rubrique", name: titre, widget: string }
+              - label: "Lignes"
+                name: lignes
+                widget: list
+                summary: "{{fields.quand}} · {{fields.quoi}}"
+                fields:
+                  - { label: "Quand", name: quand, widget: string }
+                  - { label: "Quoi", name: quoi, widget: text, hint: "*italique* entre astérisques." }
+          - label: "Contact"
+            name: contact
+            widget: object
+            fields:
+              - { label: "Ville", name: ville, widget: string, required: false }
+              - { label: "E-mail", name: email, widget: string, required: false }
+              - { label: "Téléphone", name: telephone, widget: string, required: false }
+              - label: "Liens"
+                name: liens
+                widget: list
+                required: false
+                summary: "{{fields.nom}}"
+                fields:
+                  - { label: "Nom (LinkedIn, Instagram…)", name: nom, widget: string }
+                  - { label: "Adresse", name: url, widget: string, required: false }
+              - { label: "Disponibilité", name: disponibilite, widget: text, required: false }
+      - name: reglages
+        label: Réglages du site
+        file: content/reglages.json
+        format: json
+        fields:
+          - { label: "Texte défilant du bandeau", name: bandeau, widget: string }
+          - label: "Grandes disciplines de la partition"
+            name: familles
+            widget: list
+            summary: "{{fields.nom}}"
+            hint: "Les disciplines listées ici sont celles proposées pour chaque œuvre (après la publication suivante)."
+            fields:
+              - { label: "Nom", name: nom, widget: string }
+              - { label: "Disciplines", name: disciplines, widget: list, hint: "Séparées par des virgules." }
