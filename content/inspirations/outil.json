@@ -1,0 +1,9 @@
+{
+  "type": "outil",
+  "title": "[Nom de l’outil]",
+  "source": "[Éditeur ou site]",
+  "note": "[Pourquoi je m’en sers, en une ou deux phrases.]",
+  "url": "",
+  "oeuvre": null,
+  "ordre": 1
+}
