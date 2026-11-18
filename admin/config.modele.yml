@@ -10,8 +10,8 @@ backend:
     uploadMedia: "Fichier ajouté : {{path}}"
     deleteMedia: "Fichier supprimé : {{path}}"
 locale: fr
-site_url: https://chundialleyrat.com
-display_url: https://chundialleyrat.com
+site_url: https://chundialleyrat.netlify.app
+display_url: https://chundialleyrat.netlify.app
 logo_url: /img/fleche-retro.png
 media_folder: site/static/uploads
 public_folder: /uploads
@@ -190,11 +190,9 @@ __DISCIPLINES__
           - { label: "Sous-titre Explorer", name: sousTitreExplorer, widget: string }
           - { label: "Sous-titre Inspirations", name: sousTitreInspirations, widget: string }
           - { label: "Sous-titre Projets", name: sousTitreProjets, widget: string }
-          - { label: "Étiquette Chundi Alleyrat", name: etiquetteChundi, widget: string }
-          - { label: "Sous-titre Chundi Alleyrat", name: sousTitreChundi, widget: string }
           - { label: "Pied de page", name: piedDePage, widget: string }
       - name: chundi
-        label: Chundi Alleyrat (présentation et CV)
+        label: CV et contact (sur l’accueil)
         file: content/pages/chundi.json
         format: json
         fields:

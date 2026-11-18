@@ -14,6 +14,15 @@ Tout se modifie dans l’administration, avec des champs à remplir : **chundial
 
 Les propositions envoyées par les visiteurs (« Proposer une idée » dans la bibliothèque) arrivent dans Netlify, rubrique **Forms**, avec une notification par e-mail si on l’active.
 
+## Deux façons de modifier, qui se suivent l’une l’autre
+
+Le dépôt GitHub `chundi-no/chundialleyrat` est la seule source du site. Les deux terrains écrivent dedans, et Netlify republie le site à chaque changement (une à deux minutes).
+
+- **Depuis le site** : `/admin` (ou l’engrenage en haut à droite, à côté de FR / EN). Chaque « Publier maintenant » crée un commit sur GitHub, Netlify reconstruit, c’est en ligne.
+- **Depuis Claude** : demander les modifications dans le projet Claude, puis envoyer **PUBLIER**. Claude récupère d’abord les derniers changements faits dans l’admin (git pull), applique les siens par-dessus, pousse sur GitHub, et Netlify republie.
+
+Comme Claude repart toujours de la dernière version du dépôt, ce qui est fait dans l’admin n’est jamais écrasé, et l’admin voit tout de suite ce que Claude a publié.
+
 ## Mise en ligne (une seule fois)
 
 ### 1. Mettre le site sur GitHub
@@ -42,7 +51,7 @@ Les propositions envoyées par les visiteurs (« Proposer une idée » dans la b
 2. Suivre les indications de Netlify chez le registraire du nom de domaine (OVH, Gandi, etc.) : soit changer les serveurs DNS pour ceux de Netlify, soit ajouter les enregistrements indiqués. Le HTTPS s’active tout seul.
 
 ### 5. Recevoir les propositions des visiteurs
-Netlify : **Forms** → **Enable form detection**, puis **Deploys** → **Trigger deploy**. Dans **Forms** → **Form notifications**, ajouter son adresse e-mail.
+Déjà activé. Dans Netlify : **Forms** → **Form notifications**, ajouter son adresse e-mail pour être prévenu à chaque proposition.
 
 ## Pour information (technique)
 - `content/` : tout le contenu, en fichiers JSON (c’est ce que l’administration modifie).
