@@ -1,0 +1,27 @@
+{
+  "artist": "Ernest Hemingway",
+  "work": "Le Vieil Homme et la Mer",
+  "date": "1952",
+  "y": 1952.7,
+  "type": "Roman",
+  "themes": [
+    "Résilience",
+    "Solitude",
+    "Honneur"
+  ],
+  "disc": [
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Court roman publié en 1952, prix Pulitzer 1953 ; il pèse lourd dans le prix Nobel attribué à Hemingway en 1954.",
+    "recap": "Santiago, vieux pêcheur cubain qui n’a rien pris depuis quatre-vingt-quatre jours, part seul au large et ferre un espadon géant. Un combat de trois jours sur la {résilience|Résilience}, la {solitude|Solitude} et l’{honneur|Honneur} de celui qui perd quand même."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 121,
+  "etoiles": 4
+}

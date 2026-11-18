@@ -1,0 +1,28 @@
+{
+  "artist": "Claude Zidi",
+  "work": "Les Ripoux",
+  "date": "1984",
+  "y": 1984.7,
+  "type": "Film",
+  "themes": [
+    "Humour",
+    "Satire",
+    "Transmission"
+  ],
+  "disc": [
+    "Cinéma",
+    "Sociologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Comédie de Claude Zidi, César du meilleur film 1985, avec Philippe Noiret et Thierry Lhermitte.",
+    "recap": "René, flic parisien qui arrondit ses fins de mois, doit former un jeune collègue intègre… qu’il entreprend de corrompre. Une {satire|Satire} pleine d’{humour|Humour} sur l’art de la {transmission|Transmission}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 116,
+  "etoiles": 5
+}

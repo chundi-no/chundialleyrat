@@ -1,0 +1,23 @@
+{
+  "titre": "Des Misérables à la scène",
+  "accroche": "Un même cri contre l’injustice, du roman de 1862 à la scène, puis en fable et jusqu’au cinéma d’aujourd’hui.",
+  "ordre": 5,
+  "etapes": [
+    {
+      "oeuvre": "miserables",
+      "liaison": "Le point de départ : le roman de Victor Hugo, une fresque sur la misère et la rédemption."
+    },
+    {
+      "oeuvre": "chollat",
+      "liaison": "Le même récit, chanté : la comédie musicale reprise au Théâtre du Châtelet."
+    },
+    {
+      "oeuvre": "orwell",
+      "liaison": "Autre fable de l’injustice : une révolution qui finit par reproduire l’oppression qu’elle combattait."
+    },
+    {
+      "oeuvre": "parasite",
+      "liaison": "Cent cinquante ans après Hugo, la même fracture filmée à Séoul : deux familles, un sous-sol et un escalier."
+    }
+  ]
+}

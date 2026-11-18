@@ -1,0 +1,28 @@
+{
+  "artist": "Rob Reiner, d’après Stephen King",
+  "work": "Stand by Me",
+  "date": "1986",
+  "y": 1986,
+  "type": "Film",
+  "themes": [
+    "Enfance",
+    "Initiation",
+    "Amitié"
+  ],
+  "disc": [
+    "Cinéma",
+    "Psychologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film américain sorti en 1986, adapté de la nouvelle Le Corps de Stephen King.",
+    "recap": "Été 1959, dans l’Oregon : quatre garçons de douze ans partent à pied à la recherche du corps d’un adolescent disparu. Un récit d’{initiation|Initiation} sur la fin de l’{enfance|Enfance} et une {amitié|Amitié} qu’on ne retrouve jamais tout à fait."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 41,
+  "etoiles": 4
+}

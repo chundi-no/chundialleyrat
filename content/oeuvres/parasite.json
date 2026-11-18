@@ -1,0 +1,28 @@
+{
+  "artist": "Bong Joon-ho",
+  "work": "Parasite",
+  "date": "2019",
+  "y": 2019.4,
+  "type": "Film",
+  "themes": [
+    "Justice sociale",
+    "Satire",
+    "Manipulation"
+  ],
+  "disc": [
+    "Cinéma",
+    "Sociologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Palme d’or 2019 et, en 2020, premier film non anglophone à recevoir l’Oscar du meilleur film.",
+    "recap": "Une famille pauvre s’infiltre, un par un, au service d’une famille riche de Séoul. Une {satire|Satire} de la {justice sociale|Justice sociale} qui bascule, par la {manipulation|Manipulation}, dans le thriller."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 117,
+  "etoiles": 4
+}

@@ -1,0 +1,29 @@
+{
+  "artist": "Baz Luhrmann, d’après F. Scott Fitzgerald",
+  "work": "Gatsby le Magnifique",
+  "date": "2013",
+  "y": 2013.4,
+  "type": "Film",
+  "themes": [
+    "Rêve américain",
+    "Ambition",
+    "Mélancolie"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature",
+    "Design"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de F. Scott Fitzgerald (1925), avec Leonardo DiCaprio ; Oscars des décors et des costumes.",
+    "recap": "Dans le New York des années folles, le mystérieux Jay Gatsby donne des fêtes immenses pour reconquérir Daisy. Une ode à l’{ambition|Ambition} et au {rêve américain|Rêve américain}, et à sa {mélancolie|Mélancolie}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 92,
+  "etoiles": 3
+}

@@ -1,0 +1,27 @@
+{
+  "artist": "Fiodor Dostoïevski",
+  "work": "Les Nuits blanches",
+  "date": "1848",
+  "y": 1848,
+  "type": "Nouvelle",
+  "themes": [
+    "Mélancolie",
+    "Solitude",
+    "Onirisme"
+  ],
+  "disc": [
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Nouvelle de jeunesse publiée en 1848, sous-titrée « roman sentimental (souvenirs d’un rêveur) ».",
+    "recap": "Pendant quatre nuits blanches de Saint-Pétersbourg, un jeune rêveur solitaire rencontre Nastenka, qui attend le retour d’un autre. Un récit de {solitude|Solitude} et de {mélancolie|Mélancolie}, où l’amour reste un {onirisme|Onirisme}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 49,
+  "etoiles": 5
+}

@@ -1,0 +1,28 @@
+{
+  "artist": "Robert Zemeckis",
+  "work": "Forrest Gump",
+  "date": "1994",
+  "y": 1994.5,
+  "type": "Film",
+  "themes": [
+    "Destin",
+    "Innocence",
+    "Rêve américain"
+  ],
+  "disc": [
+    "Cinéma",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de Winston Groom, avec Tom Hanks ; six Oscars, dont celui du meilleur film.",
+    "recap": "Forrest, homme simple et sincère, traverse trente ans d’histoire américaine sans vraiment s’en rendre compte. Un regard d’{innocence|Innocence} sur le {destin|Destin} et le {rêve américain|Rêve américain}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 89,
+  "etoiles": 4
+}

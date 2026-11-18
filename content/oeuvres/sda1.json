@@ -1,0 +1,28 @@
+{
+  "artist": "Peter Jackson, d’après J. R. R. Tolkien",
+  "work": "Le Seigneur des anneaux : la Communauté de l’anneau",
+  "date": "2001",
+  "y": 2001.95,
+  "type": "Film",
+  "themes": [
+    "Aventure",
+    "Amitié",
+    "Pouvoir"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Premier volet de la trilogie de Peter Jackson, adaptée du roman de Tolkien (1954-1955) et tournée d’une traite en Nouvelle-Zélande.",
+    "recap": "Le hobbit Frodon hérite d’un anneau qui donne un {pouvoir|Pouvoir} absolu et corrompt quiconque le porte. Neuf compagnons partent le détruire : le début d’une {aventure|Aventure} fondée sur l’{amitié|Amitié}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 125,
+  "etoiles": 3
+}

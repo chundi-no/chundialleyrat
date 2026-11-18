@@ -1,0 +1,35 @@
+{
+  "titre": "Rire à la française",
+  "accroche": "Soixante-dix ans de comédie, de Bourvil sous l’Occupation à trois sosies sur les planches.",
+  "ordre": 8,
+  "etapes": [
+    {
+      "oeuvre": "traversee",
+      "liaison": "Le point de départ : Paris occupé, deux valises de cochon, et un rire très noir."
+    },
+    {
+      "oeuvre": "vache",
+      "liaison": "La guerre vue par Fernandel : s’évader au pas d’une vache."
+    },
+    {
+      "oeuvre": "grandevadrouille",
+      "liaison": "Le plus grand succès de l’époque : Bourvil et de Funès traversent la France en zone occupée."
+    },
+    {
+      "oeuvre": "rabbijacob",
+      "liaison": "Le rire devient plaidoyer : de Funès en rabbin malgré lui, contre les préjugés."
+    },
+    {
+      "oeuvre": "chevre",
+      "liaison": "Le duo change : Pierre Richard et Depardieu, le malchanceux et le pragmatique."
+    },
+    {
+      "oeuvre": "ripoux",
+      "liaison": "La satire passe chez les flics, avec Noiret et Lhermitte."
+    },
+    {
+      "oeuvre": "ideegeniale",
+      "liaison": "Pour finir, sur scène : le vaudeville est toujours vivant, avec des portes, des quiproquos et trois sosies."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "artist": "Martin Scorsese",
+  "work": "Shutter Island",
+  "date": "2010",
+  "y": 2010.1,
+  "type": "Film",
+  "themes": [
+    "Enquête",
+    "Mémoire",
+    "Manipulation"
+  ],
+  "disc": [
+    "Cinéma",
+    "Psychologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de Dennis Lehane, avec Leonardo DiCaprio, sorti en 2010.",
+    "recap": "1954 : le marshal Teddy Daniels enquête sur la disparition d’une patiente dans un hôpital psychiatrique sur une île. Une {enquête|Enquête} où la {mémoire|Mémoire} devient le vrai terrain de la {manipulation|Manipulation}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 88,
+  "etoiles": 5
+}

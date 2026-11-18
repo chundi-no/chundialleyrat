@@ -1,0 +1,27 @@
+{
+  "artist": "David Fincher, d’après F. Scott Fitzgerald",
+  "work": "L’Étrange Histoire de Benjamin Button",
+  "date": "2008",
+  "y": 2008.9,
+  "type": "Film",
+  "themes": [
+    "Destin",
+    "Mélancolie"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté d’une nouvelle de F. Scott Fitzgerald (1922), avec Brad Pitt et Cate Blanchett.",
+    "recap": "Benjamin naît vieillard et rajeunit au fil des années, tandis que celle qu’il aime vieillit. Un film sur le temps, le {destin|Destin} et la {mélancolie|Mélancolie} des rendez-vous manqués."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 90,
+  "etoiles": 3
+}

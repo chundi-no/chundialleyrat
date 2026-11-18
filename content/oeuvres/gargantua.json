@@ -1,0 +1,28 @@
+{
+  "artist": "François Rabelais",
+  "work": "Gargantua",
+  "date": "1534",
+  "y": 1534,
+  "type": "Roman",
+  "themes": [
+    "Humour",
+    "Transmission",
+    "Satire"
+  ],
+  "disc": [
+    "Littérature",
+    "Philosophie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Publié vers 1534 sous le pseudonyme d’Alcofribas Nasier, il raconte l’histoire du père de Pantagruel.",
+    "recap": "La naissance, l’éducation et les guerres du géant Gargantua, qui finit par fonder l’abbaye de Thélème et sa devise, « Fais ce que voudras ». Un texte de la Renaissance plein d’{humour|Humour} énorme, une {satire|Satire} de l’école de son temps et un manifeste pour la {transmission|Transmission} du savoir."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 124,
+  "etoiles": 4
+}

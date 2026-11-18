@@ -1,0 +1,28 @@
+{
+  "artist": "James Cameron",
+  "work": "Avatar : la voie de l’eau",
+  "date": "2022",
+  "y": 2022.95,
+  "type": "Film",
+  "themes": [
+    "Famille",
+    "Écologie"
+  ],
+  "disc": [
+    "Cinéma",
+    "Écologie et consommation",
+    "Technologie et science"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Suite d’Avatar, sortie en 2022, treize ans après le premier film.",
+    "recap": "Traqués, Jake et sa famille quittent la forêt pour vivre parmi un peuple de la mer. Un film de {famille|Famille} et d’{écologie|Écologie} marine, tourné en grande partie sous l’eau."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 106,
+  "etoiles": 4
+}

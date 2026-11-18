@@ -1,0 +1,29 @@
+{
+  "artist": "Steven Spielberg et George Lucas",
+  "work": "Indiana Jones",
+  "date": "1981",
+  "y": 1981.45,
+  "type": "Film",
+  "themes": [
+    "Aventure",
+    "Patrimoine",
+    "Humour"
+  ],
+  "disc": [
+    "Cinéma",
+    "Histoire de l’art",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Saga née en 1981 avec Les Aventuriers de l’arche perdue ; cinq films jusqu’en 2023, avec Harrison Ford.",
+    "recap": "Professeur d’archéologie le jour, aventurier en chapeau et fouet le reste du temps, Indiana Jones court le monde après l’Arche d’alliance ou le Graal, souvent juste avant les nazis. L’{aventure|Aventure} pure, pleine d’{humour|Humour}, au service du {patrimoine|Patrimoine} qui « devrait être dans un musée »."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 128,
+  "etoiles": 2
+}

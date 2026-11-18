@@ -1,0 +1,25 @@
+{
+  "artist": "Steven Spielberg",
+  "work": "Les Dents de la mer",
+  "date": "1975",
+  "y": 1975.45,
+  "type": "Film",
+  "themes": [
+    "Survie"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de Peter Benchley, le film invente le blockbuster d’été en 1975 ; la musique est de John Williams.",
+    "recap": "Un grand requin blanc terrorise la station balnéaire d’Amity, et trois hommes partent le traquer. Un film de {survie|Survie} qui fait peur avec ce qu’il ne montre pas."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 102,
+  "etoiles": 2
+}

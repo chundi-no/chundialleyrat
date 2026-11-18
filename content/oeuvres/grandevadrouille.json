@@ -1,0 +1,28 @@
+{
+  "artist": "Gérard Oury",
+  "work": "La Grande Vadrouille",
+  "date": "1966",
+  "y": 1966,
+  "type": "Film",
+  "themes": [
+    "Humour",
+    "Amitié",
+    "Guerre"
+  ],
+  "disc": [
+    "Cinéma",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film de 1966 avec Bourvil et Louis de Funès, longtemps plus grand succès du cinéma français.",
+    "recap": "Sous l’Occupation, un peintre en bâtiment et un chef d’orchestre aident des aviateurs anglais à rejoindre la zone libre. La {guerre|Guerre} traitée avec {humour|Humour}, et une {amitié|Amitié} improbable."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 111,
+  "etoiles": 5
+}

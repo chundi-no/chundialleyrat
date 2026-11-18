@@ -1,0 +1,31 @@
+{
+  "titre": "Des machines et des hommes",
+  "accroche": "Ce que la technique fait de nous, de l’usine de Chaplin aux androïdes de Pommerat.",
+  "ordre": 9,
+  "etapes": [
+    {
+      "oeuvre": "tempsmodernes",
+      "liaison": "Le point de départ : Charlot avalé par les engrenages de l’usine."
+    },
+    {
+      "oeuvre": "jurassicpark",
+      "liaison": "Quand la science va plus vite que la sagesse : on ressuscite les dinosaures parce qu’on peut."
+    },
+    {
+      "oeuvre": "oppenheimer",
+      "liaison": "La technique change d’échelle : une bombe qui peut détruire le monde."
+    },
+    {
+      "oeuvre": "detroit",
+      "liaison": "Retournement : ce sont les machines qui réclament leur liberté."
+    },
+    {
+      "oeuvre": "cyberpunk",
+      "liaison": "Le corps lui-même devient une marchandise que l’on améliore à crédit."
+    },
+    {
+      "oeuvre": "contes",
+      "liaison": "Pour finir, au théâtre : des adolescents grandissent avec des robots, et on ne sait plus qui imite qui."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "titre": "Contes pour adultes",
+  "accroche": "Les contes ne sont pas que pour les enfants : quatre façons de les réécrire.",
+  "ordre": 11,
+  "etapes": [
+    {
+      "oeuvre": "petitprince",
+      "liaison": "Le point de départ : le conte le plus lu au monde, qui parle surtout aux grandes personnes."
+    },
+    {
+      "oeuvre": "cendrillon",
+      "liaison": "Perrault dansé chez Maguy Marin, dans une maison de poupée un peu inquiétante."
+    },
+    {
+      "oeuvre": "azur",
+      "liaison": "Un conte venu d’ailleurs, qui parle de l’autre et du regard qu’on porte sur lui."
+    },
+    {
+      "oeuvre": "dilili",
+      "liaison": "Michel Ocelot encore : un conte d’enquête dans le Paris de la Belle Époque."
+    },
+    {
+      "oeuvre": "contes",
+      "liaison": "Pour finir, Pommerat garde le mot « conte » mais l’emmène vers le futur, avec des robots."
+    }
+  ]
+}

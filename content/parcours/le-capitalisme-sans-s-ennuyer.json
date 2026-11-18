@@ -1,0 +1,35 @@
+{
+  "titre": "Le capitalisme sans s’ennuyer",
+  "accroche": "Comprendre l’économie avec des dessins, des chiffres, une marque, puis prendre du recul.",
+  "ordre": 4,
+  "etapes": [
+    {
+      "oeuvre": "economix",
+      "liaison": "L’histoire des idées économiques racontée en bande dessinée."
+    },
+    {
+      "oeuvre": "marron",
+      "liaison": "Les notions de la finance, une à une, en quelques minutes chacune."
+    },
+    {
+      "oeuvre": "uniqlo",
+      "liaison": "Un cas concret : une marque qui conquiert le monde par la qualité perçue."
+    },
+    {
+      "oeuvre": "prada2",
+      "liaison": "L’envers du décor : la mode comme machine à fabriquer du désir, vue depuis la rédaction d’un magazine."
+    },
+    {
+      "oeuvre": "attali",
+      "liaison": "Prendre de la hauteur : la mondialisation et les rapports de force, vus d’ensemble."
+    },
+    {
+      "oeuvre": "debord",
+      "liaison": "Le contrepoint critique : ce que la consommation fait à nos vies."
+    },
+    {
+      "oeuvre": "cyberpunk",
+      "liaison": "Et si on poussait la logique jusqu’au bout ? Une ville où les entreprises ont remplacé l’État."
+    }
+  ]
+}

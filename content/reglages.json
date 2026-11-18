@@ -2,7 +2,7 @@
   "bandeau": "En recherche d’alternance · communication, événementiel, culture ◆ Paris ◆ Bibliothèque mise à jour en continu ◆",
   "familles": [
     {
-      "nom": "Pensée",
+      "nom": "Méditer",
       "disciplines": [
         "Philosophie",
         "Religions",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "nom": "Société",
+      "nom": "Comprendre",
       "disciplines": [
         "Sociologie",
         "Politique",
@@ -19,42 +19,45 @@
       ]
     },
     {
-      "nom": "Économie",
+      "nom": "Évaluer",
       "disciplines": [
         "Économie",
         "Finance",
         "Marketing",
         "Publicité",
-        "Écologie et consommation"
+        "Écologie et consommation",
+        "Immobilier"
       ]
     },
     {
-      "nom": "Arts et lettres",
+      "nom": "Interpréter",
       "disciplines": [
         "Littérature",
         "Théâtre",
         "Cinéma",
         "Musique",
-        "Histoire de l’art"
+        "Histoire de l’art",
+        "Séries",
+        "Jeu vidéo"
       ]
     },
     {
-      "nom": "Espace et design",
+      "nom": "Concevoir",
       "disciplines": [
         "Design",
         "Scénographie",
         "Événementiel",
-        "Architecture",
-        "Immobilier"
+        "Architecture"
       ]
     },
     {
-      "nom": "Savoir-faire",
+      "nom": "Expérimenter",
       "disciplines": [
         "Technologie et science",
         "Horlogerie",
         "Rénovation",
-        "Bricolage"
+        "Bricolage",
+        "Gastronomie"
       ]
     }
   ]

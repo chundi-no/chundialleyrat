@@ -1,0 +1,28 @@
+{
+  "artist": "Charlie Chaplin",
+  "work": "Les Temps modernes",
+  "date": "1936",
+  "y": 1936,
+  "type": "Film",
+  "themes": [
+    "Aliénation",
+    "Humour",
+    "Justice sociale"
+  ],
+  "disc": [
+    "Cinéma",
+    "Sociologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Dernier film où apparaît le personnage de Charlot, sorti en 1936.",
+    "recap": "Ouvrier à la chaîne, Charlot finit happé par les engrenages de sa machine. Une satire de l’{aliénation|Aliénation} par le travail, avec un {humour|Humour} au service de la {justice sociale|Justice sociale}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 109,
+  "etoiles": 4
+}

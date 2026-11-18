@@ -1,0 +1,31 @@
+{
+  "titre": "La grande aventure",
+  "accroche": "Partir à l’aventure, de la Terre du Milieu à la Bohême de 1403, en passant par les temples d’Indiana Jones.",
+  "ordre": 10,
+  "etapes": [
+    {
+      "oeuvre": "odyssee",
+      "liaison": "Le point de départ : l’aventure fondatrice, celle d’Ulysse."
+    },
+    {
+      "oeuvre": "sda1",
+      "liaison": "Le récit d’aventure moderne par excellence : neuf compagnons et un anneau à détruire."
+    },
+    {
+      "oeuvre": "indianajones",
+      "liaison": "L’aventure pour le plaisir, avec un chapeau, un fouet et beaucoup d’humour."
+    },
+    {
+      "oeuvre": "hxh",
+      "liaison": "Partir pour retrouver un père, et apprendre en route ce que vaut une amitié."
+    },
+    {
+      "oeuvre": "witcher3",
+      "liaison": "En jeu vidéo, l’aventure devient un monde où chaque choix compte."
+    },
+    {
+      "oeuvre": "kcd2",
+      "liaison": "Pour finir, l’aventure sans magie : un fils de forgeron dans la vraie Bohême médiévale."
+    }
+  ]
+}

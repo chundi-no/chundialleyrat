@@ -1,0 +1,29 @@
+{
+  "artist": "Roman Polanski",
+  "work": "Le Pianiste",
+  "date": "2002",
+  "y": 2002.4,
+  "type": "Film",
+  "themes": [
+    "Survie",
+    "Résilience",
+    "Mémoire"
+  ],
+  "disc": [
+    "Cinéma",
+    "Musique",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Palme d’or 2002, d’après les mémoires de Władysław Szpilman.",
+    "recap": "Pianiste juif de Varsovie, Szpilman survit au ghetto puis à la destruction de la ville, caché et affamé. Un récit de {survie|Survie} et de {mémoire|Mémoire}, où la musique tient lieu de {résilience|Résilience}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 100,
+  "etoiles": 4
+}

@@ -1,0 +1,28 @@
+{
+  "artist": "Stendhal",
+  "work": "Le Rouge et le Noir",
+  "date": "1830",
+  "y": 1830.9,
+  "type": "Roman",
+  "themes": [
+    "Ambition",
+    "Pouvoir",
+    "Satire"
+  ],
+  "disc": [
+    "Littérature",
+    "Sociologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Roman publié en 1830, sous-titré Chronique de 1830, inspiré d’un fait divers jugé à Grenoble.",
+    "recap": "Julien Sorel, fils de charpentier, veut s’élever dans une société qui méprise les gens comme lui, entre l’armée et l’Église, le rouge et le noir. Un roman de l’{ambition|Ambition} et du {pouvoir|Pouvoir}, et une {satire|Satire} de la Restauration."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 122,
+  "etoiles": 5
+}

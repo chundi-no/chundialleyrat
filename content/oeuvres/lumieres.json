@@ -1,0 +1,27 @@
+{
+  "artist": "Charlie Chaplin",
+  "work": "Les Lumières de la ville",
+  "date": "1931",
+  "y": 1931,
+  "type": "Film",
+  "themes": [
+    "Humour",
+    "Innocence",
+    "Justice sociale"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film muet sorti en 1931, alors que le parlant s’est déjà imposé.",
+    "recap": "Charlot, vagabond, tombe amoureux d’une jeune fleuriste aveugle qui le prend pour un millionnaire. De l’{humour|Humour} et de l’{innocence|Innocence}, et une dernière scène restée célèbre."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 108,
+  "etoiles": 5
+}

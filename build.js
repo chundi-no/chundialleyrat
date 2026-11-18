@@ -14,12 +14,13 @@ const DISC = FAMS.flatMap(f => f.disc);
 const W = dossier("content/oeuvres").map(w => ({ ...w, themes: w.themes || [], disc: (w.disc || []).filter(d => DISC.includes(d)), y: typeof w.y === "number" ? w.y : (parseFloat(w.y) || parseInt(w.date, 10) || 2026), date: String(w.date ?? "") })).sort(parOrdre);
 const INSPI = dossier("content/inspirations").map(i => nettoie({ ...i, oeuvre: i.oeuvre || null })).map(i => ({ oeuvre: null, ...i })).sort(parOrdre);
 const PROJ = dossier("content/projets").map(p => ({ tags: [], visuels: [], ...p })).sort(parOrdre);
+const PARCOURS = dossier("content/parcours").sort(parOrdre).map(p => ({ id: p.id, titre: p.titre || p.id, accroche: p.accroche || "", etapes: (p.etapes || []).filter(e => e && W.some(w => w.id === e.oeuvre)).map(e => ({ oeuvre: e.oeuvre, liaison: e.liaison || "" })) })).filter(p => p.etapes.length >= 2);
 const PLAYLIST = dossier("content/playlist").filter(t => t.fichier).sort(parOrdre).map((t, k) => ({ id: t.id, title: t.title || t.id, fichier: t.fichier, ordre: k + 1 }));
 const accueil = lireJSON(path.join(R, "content/pages/accueil.json"));
 const chundi = lireJSON(path.join(R, "content/pages/chundi.json"));
 
 const pick = (o, keys) => Object.fromEntries(keys.filter(k => o[k] !== undefined && o[k] !== "").map(k => [k, o[k]]));
-const CORE = ["id", "artist", "work", "date", "y", "type", "fav", "themes", "disc"];
+const CORE = ["id", "artist", "work", "date", "y", "type", "fav", "themes", "disc", "etoiles"];
 const EXTRA = ["avisDate", "citation", "citationSrc", "pourquoi", "by", "url"];
 const resumeOK = w => w.resume && (w.resume.ctx || w.resume.recap);
 
@@ -50,10 +51,12 @@ const DONNEES = {
   bibliotheque: s => {
     s = remplaceConst(s, "DISC", DISC); s = remplaceConst(s, "FAMS", FAMS);
     s = remplaceConst(s, "CITED", W.map(w => ({ ...pick(w, CORE), note: w.avis || "", ...pick(w, EXTRA) })));
+    s = remplaceConst(s, "PARCOURS", PARCOURS);
     return remplaceConst(s, "INSPIRATIONS", INSPI.map(i => pick(i, ["id", "type", "title", "oeuvre"])));
   },
   explorer: s => {
     s = remplaceConst(s, "DISC", DISC);
+    s = remplaceConst(s, "PARCOURS", PARCOURS);
     s = remplaceConst(s, "CITED", W.map(w => ({ ...pick(w, CORE), ...pick(w, EXTRA) })));
     s = remplaceConst(s, "AVIS", Object.fromEntries(W.filter(w => w.avis).map(w => [w.id, w.avis])));
     s = remplaceConst(s, "RESUMES", Object.fromEntries(W.filter(resumeOK).map(w => [w.id, { ctx: w.resume.ctx || "", recap: w.resume.recap || "" }])));
@@ -64,8 +67,8 @@ const DONNEES = {
     return remplaceConst(s, "OEUVRES", W.map(w => pick(w, ["id", "work", "artist"])));
   },
   projets: s => remplaceConst(s, "PROJETS", PROJ),
-  accueil: s => s.replace(/%%(\w+)%%/g, (_, k) => {
-    const n = { nb_oeuvres: W.length, nb_themes: themes.length, nb_inspirations: INSPI.length, nb_projets: PROJ.length };
+  accueil: s => DONNEES["chundi-alleyrat"](s).replace(/%%(\w+)%%/g, (_, k) => {
+    const n = { nb_oeuvres: W.length, nb_themes: themes.length, nb_inspirations: INSPI.length, nb_projets: PROJ.length, nb_parcours: PARCOURS.length };
     if (k in n) return String(n[k]);
     return texte(remplaceTokens(accueil[k] ?? ""));
   }),
@@ -91,7 +94,7 @@ ${c.disponibilite ? `<p style="margin: 0; border-top: 1px solid var(--encre); pa
 };
 
 // ——— Pages ———
-const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", explorer: "explorer/index.html", inspirations: "inspirations/index.html", projets: "projets/index.html", "chundi-alleyrat": "chundi-alleyrat/index.html" };
+const PAGES = { accueil: "index.html", bibliotheque: "bibliotheque/index.html", explorer: "explorer/index.html", inspirations: "inspirations/index.html", projets: "projets/index.html" };
 const DESCRIPTION = "Bibliothèque personnelle de Chundi Alleyrat : œuvres, thèmes, inspirations et projets.";
 const FORMULAIRE = `<form name="proposition" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="reference"><input name="pourquoi"><input name="prenom"></form>`;
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -119,8 +122,9 @@ for (const [nom, sortie] of Object.entries(PAGES)) {
 <meta property="og:description" content="${esc(DESCRIPTION)}">
 <link rel="icon" href="/img/fleche-retro.png">
 ${helmet.trim()}
+<link rel="stylesheet" href="/fichier.css">
 </head>
-<body>
+<body data-rub="${nom}">
 <div id="racine"></div>
 <noscript>Ce site a besoin de JavaScript pour s’afficher.</noscript>
 ${nom === "bibliotheque" ? FORMULAIRE : ""}
@@ -128,9 +132,11 @@ ${nom === "bibliotheque" ? FORMULAIRE : ""}
 <script src="/vendor/react.production.min.js"></script>
 <script src="/vendor/react-dom.production.min.js"></script>
 <script src="/dc.js"></script>
+<script src="/clic.js"></script>
 <script>
 ${code}
 DCMonter(Component, ${lit(props)});
+setTimeout(function () { var o = document.querySelector(".onglets"), a = o && o.querySelector("[aria-current=page]"); if (o && a && o.scrollWidth > o.clientWidth) o.scrollLeft = a.offsetLeft - (o.clientWidth - a.offsetWidth) / 2; }, 60);
 </script>
 </body>
 </html>
@@ -148,4 +154,4 @@ fs.mkdirSync(path.join(OUT, "admin"), { recursive: true });
 fs.writeFileSync(path.join(OUT, "admin/config.yml"), config);
 fs.copyFileSync(path.join(R, "admin/index.html"), path.join(OUT, "admin/index.html"));
 fs.writeFileSync(path.join(OUT, "robots.txt"), "User-agent: *\nDisallow: /admin/\n");
-console.log(`Site construit : ${W.length} œuvres, ${INSPI.length} inspirations, ${PROJ.length} projets, ${PLAYLIST.length} morceaux · dépôt ${depot}`);
+console.log(`Site construit : ${W.length} œuvres, ${INSPI.length} inspirations, ${PROJ.length} projets, ${PARCOURS.length} parcours, ${PLAYLIST.length} morceaux · dépôt ${depot}`);

@@ -9,3 +9,13 @@
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# L’ancienne page CV est maintenant sur l’accueil
+[[redirects]]
+  from = "/chundi-alleyrat"
+  to = "/#cv"
+  status = 301
+[[redirects]]
+  from = "/chundi-alleyrat/*"
+  to = "/#cv"
+  status = 301

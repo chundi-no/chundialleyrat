@@ -1,0 +1,29 @@
+{
+  "artist": "Milo Manara, d’après Umberto Eco",
+  "work": "Le Nom de la rose",
+  "date": "2023",
+  "y": 2023.7,
+  "type": "Bande dessinée",
+  "themes": [
+    "Enquête",
+    "Pouvoir",
+    "Quête spirituelle"
+  ],
+  "disc": [
+    "Littérature",
+    "Religions",
+    "Histoire de l’art"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Première adaptation en bande dessinée du roman d’Umberto Eco (1980), en deux tomes chez Glénat : le premier paraît en septembre 2023, le second en janvier 2026.",
+    "recap": "1327, dans une abbaye bénédictine du nord de l’Italie : Guillaume de Baskerville et le jeune Adso enquêtent sur une série de morts liées à une bibliothèque labyrinthique. Une {enquête|Enquête} médiévale sur le {pouvoir|Pouvoir} du savoir, entre {quête spirituelle|Quête spirituelle} et fanatisme."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 50,
+  "etoiles": 4
+}

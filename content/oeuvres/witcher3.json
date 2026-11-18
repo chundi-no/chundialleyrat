@@ -1,0 +1,28 @@
+{
+  "artist": "CD Projekt Red, d’après Andrzej Sapkowski",
+  "work": "The Witcher 3 : Wild Hunt",
+  "date": "2015",
+  "y": 2015.4,
+  "type": "Jeu vidéo",
+  "themes": [
+    "Aventure",
+    "Destin",
+    "Famille"
+  ],
+  "disc": [
+    "Jeu vidéo",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Troisième volet de la saga développée par le studio polonais CD Projekt Red, sorti en mai 2015 et tiré des romans d’Andrzej Sapkowski.",
+    "recap": "Geralt de Riv, chasseur de monstres, cherche Ciri, sa fille adoptive poursuivie par la Chasse sauvage. Une {aventure|Aventure} en monde ouvert où chaque choix pèse, sur fond de {destin|Destin} et de {famille|Famille} choisie."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 60,
+  "etoiles": 4
+}

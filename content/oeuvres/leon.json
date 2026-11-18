@@ -1,0 +1,26 @@
+{
+  "artist": "Luc Besson",
+  "work": "Léon",
+  "date": "1994",
+  "y": 1994.7,
+  "type": "Film",
+  "themes": [
+    "Enfance",
+    "Solitude"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film de Luc Besson sorti en 1994, avec Jean Reno, Natalie Portman et Gary Oldman.",
+    "recap": "Léon, tueur à gages solitaire, recueille Mathilda, 12 ans, dont la famille vient d’être assassinée. Une rencontre entre {solitude|Solitude} et {enfance|Enfance} brisée."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 99,
+  "etoiles": 4
+}

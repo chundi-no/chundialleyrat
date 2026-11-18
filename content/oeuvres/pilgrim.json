@@ -1,0 +1,26 @@
+{
+  "artist": "Restaurant, Paris 15e (Pasteur)",
+  "work": "Pilgrim",
+  "date": "Ouvert en 2018",
+  "y": 2018.1,
+  "type": "Restaurant",
+  "themes": [
+    "Altérité",
+    "Minimalisme"
+  ],
+  "disc": [
+    "Gastronomie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Restaurant de la rue Nicolas-Charlet, près de Pasteur, ouvert en 2018 dans le giron du chef japonais Hideki Nishi ; depuis fin 2025, la cuisine est menée par le chef Masaki Nagao.",
+    "recap": "Une cuisine française vue par un regard japonais : des produits de saison, une technique précise, des assiettes épurées. La rencontre de deux cultures, entre {altérité|Altérité} et {minimalisme|Minimalisme}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 36,
+  "etoiles": 5
+}

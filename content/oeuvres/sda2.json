@@ -1,0 +1,28 @@
+{
+  "artist": "Peter Jackson, d’après J. R. R. Tolkien",
+  "work": "Le Seigneur des anneaux : les Deux Tours",
+  "date": "2002",
+  "y": 2002.95,
+  "type": "Film",
+  "themes": [
+    "Guerre",
+    "Amitié",
+    "Résistance"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Deuxième volet de la trilogie, sorti en décembre 2002.",
+    "recap": "La Communauté est dispersée : Frodon et Sam avancent vers le Mordor guidés par Gollum, pendant que les hommes du Rohan se préparent à la {guerre|Guerre} au gouffre de Helm. La {résistance|Résistance} tient par l’{amitié|Amitié}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 126,
+  "etoiles": 5
+}

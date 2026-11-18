@@ -15,7 +15,7 @@
 :root:has(#page[data-theme="sombre"]){--fond:#08080B;--papier:#16171D;--accent:#6A45F5;--encre:#F1EFE8;--pale:#25272F;--pale2:#1D1F26;--trait:#3A3D48;--doux:#A6AAB8;--surfond:#F1EFE8}
 :root:has(#page[data-theme="girly"]){--fond:#FF5FA8;--papier:#FFF6FA;--accent:#C9B1FF;--encre:#4A0D33;--pale:#FFE1EF;--pale2:#FFEFF6;--trait:#F2C3D9;--doux:#8E4A72;--surfond:#FFFFFF}
 :root:has(#page[data-theme="noel"]){--fond:#B3121F;--papier:#FFFCF3;--accent:#F2C14E;--encre:#0E3B23;--pale:#E8F0E6;--pale2:#F3F7F1;--trait:#CFDCCB;--doux:#4F6B57;--surfond:#FFF6DC}
-:root:has(#page[data-theme="retro"]){--fond:#008080;--papier:#C0C0C0;--accent:#FFFF00;--encre:#000000;--pale:#DFDFDF;--pale2:#D4D0C8;--trait:#808080;--doux:#3A3A3A;--surfond:#FFFFFF}
+:root:has(#page[data-theme="retrofutur"]){--fond:#241A5E;--papier:#110D2B;--accent:#FF7A1A;--encre:#F6E9CC;--pale:#211A4F;--pale2:#19143D;--trait:#3D3480;--doux:#B7ABE0;--surfond:#F6E9CC}
 body{margin:0;background:var(--fond)}
 sc-for,sc-if{display:contents}
 button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -51,6 +51,12 @@ input::placeholder{color:var(--doux);opacity:1}
 .mini:hover{background:var(--accent)}
 .depart:hover{background:var(--accent)}
 .theme:hover{background:var(--papier)}
+.modes button[aria-selected=false]:hover,.carte-parcours:hover{background:var(--accent)!important}
+#page .station:hover{background:var(--accent)!important;color:var(--encre)!important}
+.tampon{animation:tampon .38s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes tampon{from{opacity:0;transform:rotate(-6deg) scale(1.9)}to{opacity:1;transform:rotate(-6deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.tampon{animation:none}}
+@media (max-width:700px),(pointer:coarse){.clavier{display:none}}
 .defil{animation:defil 32s linear infinite}
 @keyframes defil{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.defil{animation:none}}
@@ -60,23 +66,24 @@ input::placeholder{color:var(--doux);opacity:1}
 
 <div id="bandeau" style="position: sticky; top: 0; z-index: 30; margin: -12px -12px 0; padding: 12px 12px 0; background: var(--fond)">
 <header style="background: var(--papier); box-sizing: border-box; padding: 8px 10px 8px 8px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">
-<a class="nom" href="/chundi-alleyrat" style="color: inherit; text-decoration: none; display: flex; align-items: center; min-height: 34px; padding: 0 8px; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: 0.01em">
-<span>[Chundi Alleyrat]</span>
+<a class="nom" href="/#cv" style="color: inherit; text-decoration: none; display: flex; align-items: center; min-height: 34px; padding: 0 8px; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: 0.01em">
+<span>Chundi Alleyrat</span><span class="sous">bibliothèque personnelle</span>
 </a>
-<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 2px; margin-left: auto">
-<a href="/" style="color: inherit; text-decoration: none">[Accueil]</a>
-<a href="/bibliotheque" style="color: inherit; text-decoration: none">[Bibliothèque]</a>
-<a href="/explorer" aria-current="page" style="color: inherit; text-decoration: none">[Explorer]</a>
-<a href="/inspirations" style="color: inherit; text-decoration: none">[Inspirations]</a>
-<a href="/projets" style="color: inherit; text-decoration: none">[Projets]</a>
+<nav class="onglets" aria-label="Rubriques du site">
+<a href="/" data-rub="accueil" title="Présentation, CV, contact"><span class="n">00</span><span class="l">Accueil · CV</span></a>
+<a href="/projets" data-rub="projets" title="Ce que j’ai conçu et organisé"><span class="n">01</span><span class="l">Projets</span></a>
+<a href="/bibliotheque" data-rub="bibliotheque" title="Tout le fonds, rangé par discipline et par date"><span class="n">02</span><span class="l">Bibliothèque</span></a>
+<a id="lien-recherche" href="/explorer" data-rub="explorer" aria-current="page" title="Parcours guidés et chemin libre · raccourci : /"><span class="n">03</span><span class="l">Explorer</span></a>
+<a href="/inspirations" data-rub="inspirations" title="Outils, liens, sons et vidéos"><span class="n">04</span><span class="l">Inspirations</span></a>
 </nav>
 <div class="reglages" role="group" aria-label="Son et langue" style="display: flex; align-items: center; gap: 2px; margin-left: auto">
-<sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
-<button onClick="{{sonBascule}}" aria-pressed="{{sonOn}}" title="{{sonTitre}}" style="min-height: 28px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; opacity: {{sonOp}}">{{sonLabel}}</button>
+<sc-if value="{{sonBouton}}" hint-placeholder-val="{{ true }}">
+<button class="son" onClick="{{sonBascule}}" aria-pressed="{{sonOn}}" title="{{sonTitre}}" style="min-height: 28px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; opacity: {{sonOp}}"><svg class="son-icone" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6M22 9l-6 6"/></svg><span class="son-texte">{{sonLabel}}</span></button>
 </sc-if>
 <sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
 <audio id="son-accueil" src="{{sonSrc}}" loop="{{sonBoucle}}" preload="auto" onPlay="{{sonJoue}}" onEnded="{{sonSuivant}}" onTimeUpdate="{{sonTemps}}"></audio>
 </sc-if>
+<a class="engrenage pas-imprime" href="/admin/" aria-label="Base de données et modération (réservé à Chundi)" title="Base de données · modération (réservé à Chundi)" style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; color: inherit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.5"/></svg></a>
 <span aria-label="Langue : français (anglais à venir)" style="display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; "><b style="font-weight: 500">FR</b>&#160;/&#160;<span style="color: var(--doux)">EN</span></span>
 </div>
 <div aria-label="Actualité" style="flex: 1 1 100%; min-width: 0; margin: 0 -10px -8px -8px; border-top: 1px solid var(--encre); overflow: hidden; background: var(--pale); padding: 8px 0; white-space: nowrap; font-size: 12px">
@@ -88,17 +95,129 @@ input::placeholder{color:var(--doux);opacity:1}
 </header>
 </div>
 
-<sc-if value="{{showDeparts}}" hint-placeholder-val="{{ true }}">
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 12px">
+<div class="titre-rubrique">
 <div style="background: var(--papier); box-sizing: border-box; padding: 16px">
 <h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.16em; font-size: clamp(44px, 7.4vw, 112px); line-height: 0.94">
 <span style="font-stretch: 62%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.012em">Explorer</span>
-<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.025em">de thème en thème</span>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.025em">parcours et détours</span>
 </h1>
 </div>
-<p style="margin: 0; background: var(--papier); box-sizing: border-box; padding: 16px; font-size: 19px; line-height: 1.32; font-weight: 500; display: flex; align-items: flex-end">Choisissez une œuvre de départ, puis suivez les flèches : chacune porte le thème qui relie deux œuvres. Cliquez sur un thème pour garder son chemin surligné. La recherche couvre tout le site : œuvres, thèmes, disciplines, résumés et inspirations. Clavier : / pour chercher, ← → pour reculer ou avancer dans votre cheminement, Échap pour libérer le chemin.</p>
 </div>
+
+<div class="modes" role="tablist" aria-label="Deux façons d’explorer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px">
+<sc-for list="{{modes}}" as="m" hint-placeholder-count="2">
+<button role="tab" id="{{m.id}}" aria-selected="{{m.on}}" onClick="{{m.pick}}" style="box-sizing: border-box; min-height: 84px; padding: 10px 16px 12px; border: 0; background: {{m.bg}}; color: {{m.fg}}; text-align: left; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px">
+<span style="display: flex; justify-content: space-between; gap: 12px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase"><span>{{m.num}}</span><span>{{m.meta}}</span></span>
+<span style="font-stretch: 62%; font-weight: 800; font-size: clamp(30px, 3vw, 44px); line-height: 0.95; text-transform: uppercase">{{m.label}}</span>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 17px; line-height: 1.2">{{m.sub}}</span>
+</button>
+</sc-for>
+</div>
+
+<sc-if value="{{pListe}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Les parcours" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 12px">
+<sc-for list="{{parcours}}" as="p" hint-placeholder-count="5">
+<article style="position: relative; background: var(--papier); display: flex; flex-direction: column; overflow: hidden">
+<button class="carte-parcours" onClick="{{p.open}}" aria-label="{{p.aria}}" style="flex: 1 1 auto; box-sizing: border-box; padding: 14px 16px 16px; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; justify-content: space-between; gap: 12px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase"><span>Parcours {{p.num}}</span><span>{{p.nb}} étapes</span></span>
+<span style="font-stretch: 62%; font-weight: 800; font-size: 34px; line-height: 0.95; text-transform: uppercase">{{p.titre}}</span>
+<span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.22">{{p.accroche}}</span>
+<span style="display: flex; flex-wrap: wrap; gap: 2px 6px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; line-height: 1.5">
+<sc-for list="{{p.etapes}}" as="e" hint-placeholder-count="4"><span><sc-if value="{{e.notFirst}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true">→ </span></sc-if><span style="text-decoration: {{e.deco}}; text-underline-offset: 3px">{{e.titre}}</span></span></sc-for>
+</span>
+<span style="margin-top: auto; padding-top: 6px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; background: {{p.etatBg}}; color: {{p.etatFg}}; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase">{{p.etat}}</span>
+</button>
+<span aria-hidden="true" style="display: block; height: 5px; background: var(--pale)"><span style="display: block; height: 100%; width: {{p.pct}}; background: var(--vif, var(--fond))"></span></span>
+<sc-if value="{{p.fini}}" hint-placeholder-val="{{ false }}">
+<span class="tampon-mini" aria-hidden="true" style="position: absolute; right: 12px; bottom: 16px; transform: rotate(-8deg); border: 3px double var(--vif, var(--fond)); color: var(--vif, var(--fond)); padding: 4px 10px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; line-height: 1.2; text-align: center; text-transform: uppercase; pointer-events: none">Terminé<br>{{p.date}}</span>
+</sc-if>
+</article>
+</sc-for>
+</section>
+</sc-if>
+
+<sc-if value="{{pVue}}" hint-placeholder-val="{{ false }}">
+<section id="parcours-haut" aria-labelledby="parcours-titre" style="background: var(--papier); box-sizing: border-box; padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase">
+<button onClick="{{pRetour}}" style="min-height: 34px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font: inherit; cursor: pointer">← Tous les parcours</button>
+<span>Parcours {{pc.num}} · {{pc.nb}} étapes</span>
+</div>
+<h2 id="parcours-titre" style="margin: 0; font-stretch: 62%; font-weight: 800; font-size: clamp(38px, 5.4vw, 76px); line-height: 0.92; text-transform: uppercase; letter-spacing: -0.01em">{{pc.titre}}</h2>
+<p style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.25">{{pc.accroche}}</p>
+<ol aria-label="Étapes du parcours" style="list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: {{pc.cols}}">
+<sc-for list="{{pc.stations}}" as="s" hint-placeholder-count="4">
+<li style="position: relative; min-width: 0; display: flex; flex-direction: column; align-items: center">
+<span aria-hidden="true" style="position: absolute; top: 15px; left: {{s.lineL}}; right: {{s.lineR}}; height: 3px; background: {{s.lineBg}}"></span>
+<button class="station" onClick="{{s.pick}}" aria-current="{{s.current}}" aria-label="{{s.aria}}" style="position: relative; z-index: 1; width: 33px; height: 33px; padding: 0; border: 2px solid var(--encre); border-radius: 50%; background: {{s.bg}}; color: {{s.fg}}; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; cursor: pointer">{{s.n}}</button>
+<span style="margin-top: 5px; max-width: 100%; box-sizing: border-box; padding: 0 4px; text-align: center; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 14px; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: {{s.weight}}">{{s.titre}}</span>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<sc-if value="{{pEtape}}" hint-placeholder-val="{{ true }}">
+<article id="etape" aria-label="{{et.aria}}" style="width: 100%; max-width: 820px; margin: 0 auto; box-sizing: border-box; padding: 14px 18px 16px; background: var(--accent); display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-bottom: 8px; border-bottom: 1px solid var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase"><span title="← → pour changer d’étape · Échap pour revenir aux parcours">Étape {{et.n}} sur {{pc.nb}}</span><span>{{et.lien}}</span></div>
+<sc-if value="{{et.hasLiaison}}" hint-placeholder-val="{{ true }}"><p style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: clamp(21px, 2.3vw, 28px); line-height: 1.22; text-wrap: pretty">{{et.liaison}}</p></sc-if>
+<div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid var(--encre); padding-top: 10px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px"><span style="font-size: 18px">{{et.date}}</span><span>{{et.type}}</span></div>
+<h3 style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(34px, 5vw, 60px); line-height: 1.04; letter-spacing: -0.01em; overflow-wrap: anywhere">{{et.titre}}</h3>
+<p style="margin: 0; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.02em">{{et.artist}}</p>
+</div>
+<sc-if value="{{et.hasCitation}}" hint-placeholder-val="{{ false }}">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 3px">
+<blockquote style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 21px; line-height: 1.28; text-wrap: pretty">« {{et.citation}} »</blockquote>
+<figcaption style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px">{{et.citationSrc}}</figcaption>
+</figure>
+</sc-if>
+<sc-if value="{{et.hasCtx}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Contexte" style="border-top: 1px solid var(--encre); padding-top: 10px; display: flex; flex-direction: column; gap: 6px">
+<h4 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Contexte</h4>
+<p style="margin: 0; font-size: 16px; line-height: 1.45; text-wrap: pretty">{{et.ctx}}</p>
+</section>
+</sc-if>
+<sc-if value="{{et.hasAvis}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Avis personnel" style="display: flex; flex-direction: column">
+<h4 style="margin: 0; padding: 6px 12px; background: var(--encre); color: var(--accent); font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em">Avis personnel</h4>
+<p style="margin: 0; padding: 10px 12px 12px; background: var(--pale); font-size: 17px; font-weight: 500; line-height: 1.45; text-wrap: pretty">{{et.avis}}</p>
+</section>
+</sc-if>
+<nav aria-label="Avancer dans le parcours" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; border-top: 1px solid var(--encre); padding-top: 12px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px">
+<button onClick="{{pPrec}}" disabled="{{pPremier}}" style="min-height: 44px; padding: 0 14px; border: 1px solid var(--encre); background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer">← Précédent</button>
+<button onClick="{{pSuiv}}" style="min-height: 44px; padding: 0 18px; border: 0; background: var(--encre); color: var(--accent); font: inherit; font-weight: 500; text-transform: uppercase; cursor: pointer">{{pSuivLabel}}</button>
+<span style="margin-left: auto; display: flex; flex-wrap: wrap; gap: 4px 14px">
+<button onClick="{{et.libre}}" style="min-height: 36px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Chemin libre depuis cette œuvre</button>
+<a href="/bibliotheque" onClick="{{et.biblio}}" style="display: inline-flex; align-items: center; min-height: 36px; color: inherit; text-underline-offset: 3px">Son cartel dans la bibliothèque</a>
+</span>
+</nav>
+</article>
+</sc-if>
+
+<sc-if value="{{pFin}}" hint-placeholder-val="{{ false }}">
+<article id="etape" aria-label="Parcours terminé" style="width: 100%; max-width: 820px; margin: 0 auto; box-sizing: border-box; padding: 22px 18px 18px; background: var(--papier); display: flex; flex-direction: column; gap: 16px">
+<div class="tampon" role="img" aria-label="Tampon : parcours terminé" style="align-self: center; margin: 4px 0 18px; transform: rotate(-6deg); border: 5px double var(--vif, var(--fond)); color: var(--vif, var(--fond)); padding: 10px 26px 12px; text-align: center; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; line-height: 1.3">
+<span style="display: block">Bibliothèque Chundi Alleyrat</span>
+<span style="display: block; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 46px; line-height: 1">Parcours terminé</span>
+<span style="display: block">{{pc.date}} · {{pc.nb}} œuvres</span>
+</div>
+<p style="margin: 0; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.25; text-align: center">« {{pc.titre}} » est tamponné sur votre carte. {{pBilan}}.</p>
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--encre); padding-top: 12px">
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400; text-transform: uppercase">Et ensuite ?</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{pSuite}}" as="s" hint-placeholder-count="2">
+<button class="depart" onClick="{{s.open}}" style="min-height: 44px; padding: 4px 14px; border: 1px solid var(--encre); background: var(--papier); color: inherit; cursor: pointer; text-align: left; display: flex; flex-direction: column; justify-content: center"><span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 10px; text-transform: uppercase">Parcours suivant</span><span style="font-stretch: 62%; font-weight: 800; font-size: 18px; text-transform: uppercase">{{s.titre}}</span></button>
+</sc-for>
+<button onClick="{{pRecommencer}}" style="min-height: 44px; padding: 0 14px; border: 1px solid var(--encre); background: transparent; color: inherit; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase; cursor: pointer">Recommencer</button>
+<button onClick="{{pRetour}}" style="min-height: 44px; padding: 0 14px; border: 1px solid var(--encre); background: transparent; color: inherit; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase; cursor: pointer">Tous les parcours</button>
+</div>
+</div>
+</article>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{modeLibre}}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{showDeparts}}" hint-placeholder-val="{{ true }}">
+
 
 <div style="background: var(--papier); box-sizing: border-box; padding: 8px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px">
 <input id="recherche-explorer" type="search" aria-label="Rechercher un point de départ (raccourci : /)" title="Raccourci : /" placeholder="Rechercher dans tout le site : œuvre, artiste, thème, mot…" value="{{q}}" onChange="{{search}}" style="width: min(460px, 100%); box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 1px solid var(--encre); border-radius: 0; background: transparent; color: inherit; font: inherit">
@@ -108,16 +227,16 @@ input::placeholder{color:var(--doux);opacity:1}
 <sc-if value="{{showDeparts}}" hint-placeholder-val="{{ true }}">
 <section aria-label="Choisir un point de départ" style="background: var(--papier); box-sizing: border-box; padding: 10px 16px 14px; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
-<h2 style="margin: 0; font: inherit">Choisir un point de départ</h2>
+<h2 style="margin: 0; font: inherit">Point de départ</h2>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px">
-<button onClick="{{toggleFav}}" aria-pressed="{{favOnly}}" style="min-height: 36px; padding: 0 10px; border: 1px solid var(--encre); background: {{favBg}}; color: {{favFg}}; font: inherit; cursor: pointer; display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 7px; height: 7px; background: var(--fond); outline: 1px solid var(--papier)"></span>Favoris</button>
+<button onClick="{{toggleFav}}" aria-pressed="{{favOnly}}" style="min-height: 36px; padding: 0 10px; border: 1px solid var(--encre); background: {{favBg}}; color: {{favFg}}; font: inherit; cursor: pointer; display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 7px; height: 7px; background: var(--vif, var(--fond)); outline: 1px solid var(--papier)"></span>Favoris</button>
 <span>{{departLabel}}</span>
 </div>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
 <sc-for list="{{departs}}" as="d" hint-placeholder-count="11">
 <button class="depart" onClick="{{d.pick}}" aria-pressed="{{d.on}}" aria-label="{{d.aria}}" style="position: relative; min-height: 44px; padding: 4px 14px 4px 10px; border: 1px solid var(--encre); background: {{d.bg}}; color: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1px; text-align: left; white-space: nowrap">
-<sc-if value="{{d.fav}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 7px; height: 7px; background: var(--fond)"></span></sc-if>
+<sc-if value="{{d.fav}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 7px; height: 7px; background: var(--vif, var(--fond))"></span></sc-if>
 <span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: {{d.ts}}; line-height: 1.15">{{d.title}}</span>
 <span style="font-stretch: 62%; font-weight: 700; font-size: {{d.as}}; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.02em">{{d.artist}}</span>
 </button>
@@ -125,7 +244,7 @@ input::placeholder{color:var(--doux);opacity:1}
 </div>
 <sc-if value="{{hasTags}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--trait); padding-top: 8px">
-<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Thèmes et disciplines · voir les œuvres dans la bibliothèque</h3>
+<h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Dans la bibliothèque</h3>
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
 <sc-for list="{{tags}}" as="t" hint-placeholder-count="4">
 <a class="depart" href="/bibliotheque" onClick="{{t.go}}" style="display: inline-flex; align-items: baseline; gap: 6px; min-height: 32px; padding: 4px 10px; box-sizing: border-box; border: 1px solid var(--encre); color: var(--encre); text-decoration: none; font-size: 15px; font-stretch: 75%; font-weight: 600">{{t.label}} <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-stretch: 100%; font-weight: 400">{{t.count}}</span></a>
@@ -163,11 +282,18 @@ input::placeholder{color:var(--doux);opacity:1}
 </div>
 <button onClick="{{openDeparts}}" style="min-height: 36px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font: inherit; cursor: pointer">Changer de point de départ</button>
 </nav>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
+<sc-for list="{{curParcours}}" as="p" hint-placeholder-count="0">
+<button onClick="{{p.open}}" title="Suivre ce parcours à partir de cette œuvre" style="min-height: 32px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font: inherit; cursor: pointer">Dans le parcours « {{p.titre}} » · {{p.etape}} →</button>
+</sc-for>
+<a href="/bibliotheque" onClick="{{curBiblio}}" style="margin-left: auto; display: inline-flex; align-items: center; min-height: 32px; color: inherit; text-underline-offset: 3px">Son cartel dans la bibliothèque</a>
+</div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
 <span style="font-size: 18px; line-height: 1.2">{{cur.date}}</span>
 <span style="display: flex; align-items: center; gap: 8px">
 <sc-if value="{{cur.fav}}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 7px; background: var(--encre); color: var(--accent)">Favori</span></sc-if>
 <span>{{cur.type}}</span>
+<sc-if value="{{cur.hasNote}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{cur.noteAria}}" title="{{cur.noteAria}}" style="font-size: 15px; letter-spacing: 2px">{{cur.noteTxt}}</span></sc-if>
 </span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 4px">
@@ -175,13 +301,20 @@ input::placeholder{color:var(--doux);opacity:1}
 <p class="fit" style="margin: 0; white-space: nowrap; font-stretch: 62%; font-weight: 800; font-size: {{cur.as}}; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.02em">{{cur.artist}}</p>
 </div>
 
+<sc-if value="{{cur.hasRes}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Résumé" style="border-top: 1px solid var(--encre); padding-top: 10px; display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{cur.hasCtx}}" hint-placeholder-val="{{ false }}">
 <h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Contexte</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.45; text-wrap: pretty"><sc-for list="{{cur.ctx}}" as="t" hint-placeholder-count="3"><sc-if value="{{t.isTheme}}" hint-placeholder-val="{{ false }}"><button class="theme" onClick="{{t.pick}}" style="display: inline; padding: 0; border: 0; background: {{t.bg}}; color: inherit; font: inherit; line-height: inherit; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; cursor: pointer">{{t.txt}}</button></sc-if><sc-if value="{{t.isText}}" hint-placeholder-val="{{ true }}"><span>{{t.txt}}</span></sc-if></sc-for></p>
+</sc-if>
+<sc-if value="{{cur.hasRecap}}" hint-placeholder-val="{{ false }}">
 <h3 style="margin: 4px 0 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">L’œuvre</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.45; text-wrap: pretty"><sc-for list="{{cur.recap}}" as="t" hint-placeholder-count="5"><sc-if value="{{t.isTheme}}" hint-placeholder-val="{{ false }}"><button class="theme" onClick="{{t.pick}}" style="display: inline; padding: 0; border: 0; background: {{t.bg}}; color: inherit; font: inherit; line-height: inherit; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; cursor: pointer">{{t.txt}}</button></sc-if><sc-if value="{{t.isText}}" hint-placeholder-val="{{ true }}"><span>{{t.txt}}</span></sc-if></sc-for></p>
+</sc-if>
 </section>
+</sc-if>
 
+<sc-if value="{{cur.hasPourquoiBloc}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Pourquoi c’est ici" style="border-top: 1px solid var(--encre); padding-top: 10px; display: flex; flex-direction: column; gap: 6px">
 <h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Pourquoi c’est ici</h3>
 <sc-if value="{{cur.hasCitation}}" hint-placeholder-val="{{ false }}">
@@ -190,21 +323,21 @@ input::placeholder{color:var(--doux);opacity:1}
 <figcaption style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px">{{cur.citationSrc}}</figcaption>
 </figure>
 </sc-if>
-<p style="margin: 0; font-size: 15px; line-height: 1.4">{{cur.pourquoi}}</p>
+<sc-if value="{{cur.hasPourquoi}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 15px; line-height: 1.4">{{cur.pourquoi}}</p></sc-if>
 <sc-if value="{{cur.hasBy}}" hint-placeholder-val="{{ false }}">
 <p style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Proposé par {{cur.by}}</p>
 </sc-if>
 </section>
+</sc-if>
 
+<sc-if value="{{cur.hasAvis}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Avis personnel" style="display: flex; flex-direction: column">
 <h3 style="margin: 0; display: flex; justify-content: space-between; gap: 8px; padding: 6px 12px; background: var(--encre); color: var(--accent); font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em"><span>Avis personnel</span><span>{{cur.avisLabel}}</span></h3>
 <sc-if value="{{cur.hasAvis}}" hint-placeholder-val="{{ false }}">
 <p style="margin: 0; padding: 10px 12px 12px; background: var(--pale); font-family: Archivo, Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.45; text-wrap: pretty; font-size: 18px">{{cur.avis}}</p>
 </sc-if>
-<sc-if value="{{cur.noAvis}}" hint-placeholder-val="{{ true }}">
-<p style="margin: 0; font-size: 15px">À écrire.</p>
-</sc-if>
 </section>
+</sc-if>
 
 <dl style="margin: 0; border-top: 1px solid var(--encre); padding-top: 10px; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 12px; font-size: 14px">
 <dt style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; padding-top: 1px">Disciplines</dt><dd class="fit" style="margin: 0; white-space: nowrap; font-size: {{cur.discSize}}">{{cur.discList}}</dd>
@@ -233,7 +366,7 @@ input::placeholder{color:var(--doux);opacity:1}
 <div id="{{g.id}}" onMouseEnter="{{g.enter}}" onMouseLeave="{{leaveG}}" onFocus="{{g.enter}}" onBlur="{{leaveG}}" style="position: absolute; left: {{g.x}}; top: {{g.y}}; width: {{g.w}}; height: {{g.h}}; box-sizing: border-box; background: var(--pale); outline: {{g.outline}}; outline-offset: 2px; opacity: {{g.op}}; scroll-margin: 120px">
 <sc-for list="{{g.items}}" as="it" hint-placeholder-count="2">
 <button class="mini" onClick="{{it.pick}}" aria-label="{{it.aria}}" title="{{it.aria}}" style="position: absolute; left: {{it.x}}; top: {{it.y}}; width: {{it.w}}; height: 42px; box-sizing: border-box; padding: 4px 7px; border: 1px solid var(--encre); background: var(--papier); color: inherit; cursor: pointer; text-align: left; display: flex; flex-direction: column; justify-content: center; gap: 1px; white-space: nowrap; overflow: hidden">
-<sc-if value="{{it.fav}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 6px; height: 6px; background: var(--fond)"></span></sc-if>
+<sc-if value="{{it.fav}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 6px; height: 6px; background: var(--vif, var(--fond))"></span></sc-if>
 <span style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: {{it.ts}}; line-height: 1.15">{{it.title}}</span>
 <span style="font-stretch: 62%; font-weight: 700; font-size: {{it.as}}; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.02em">{{it.artist}}</span>
 </button>
@@ -249,17 +382,19 @@ input::placeholder{color:var(--doux);opacity:1}
 </sc-if>
 
 <sc-if value="{{noBranches}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 0 auto; max-width: 560px; background: var(--papier); box-sizing: border-box; padding: 14px 16px; font-size: 17px; text-align: center">Aucun lien pour l’instant : les thèmes de cette œuvre restent à écrire, ou aucune autre œuvre ne les partage encore.</p>
+<p style="margin: 0 auto; max-width: 560px; background: var(--papier); box-sizing: border-box; padding: 14px 16px; font-size: 17px; text-align: center">Rien ne la relie encore aux autres. Pour l’instant.</p>
 </sc-if>
 
 <sc-if value="{{isLocked}}" hint-placeholder-val="{{ false }}">
 <button onClick="{{unlock}}" style="position: fixed; right: 24px; bottom: 24px; z-index: 40; min-height: 44px; padding: 0 16px; border: 0; background: var(--accent); color: var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase; cursor: pointer; box-shadow: 0 0 0 2px var(--encre)">[Libérer le chemin]</button>
 </sc-if>
 
+</sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"cartelsTest":{"editor":"range","default":0,"min":0,"max":300,"step":10},"$preview":{"width":1440,"height":2200}}'>
 const DISC = ["Philosophie","Religions","Développement humain","Psychologie","Sociologie","Politique","Histoire et géopolitique","Économie","Finance","Marketing","Publicité","Écologie et consommation","Technologie et science","Littérature","Théâtre","Cinéma","Musique","Histoire de l’art","Design","Scénographie","Événementiel","Architecture","Rénovation","Bricolage","Immobilier","Horlogerie"];
+const PARCOURS = [];
 const CITED = [{"id":"siddhartha","artist":"Hermann Hesse","work":"Siddhartha","date":"1922","y":1922,"type":"Roman","themes":["Initiation","Quête spirituelle","Pensée orientale","Sagesse"],"disc":["Littérature","Philosophie","Religions","Développement humain"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"tao","artist":"Lao Tseu","work":"Tao Te King","date":"Antiquité","y":-350,"type":"Texte fondateur","themes":["Texte fondateur","Quête spirituelle","Pensée orientale","Sagesse"],"disc":["Philosophie","Religions"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"bible","artist":"Auteurs multiples","work":"La Bible","date":"Antiquité","y":-1000,"type":"Texte fondateur","themes":["Texte fondateur","Quête spirituelle","Rédemption"],"disc":["Religions","Philosophie","Littérature","Histoire et géopolitique"],"avisDate":"novembre 2026","citation":"Au commencement, Dieu créa les cieux et la terre.","citationSrc":"Genèse 1, 1 — trad. Louis Segond","pourquoi":"","by":""},{"id":"miserables","artist":"Victor Hugo","work":"Les Misérables","date":"1862","y":1862,"type":"Roman","themes":["Âme humaine","Justice sociale","Rédemption"],"disc":["Littérature","Histoire et géopolitique","Politique","Sociologie","Psychologie"],"avisDate":"novembre 2026","citation":"Il n’y a ni mauvaises herbes ni mauvais hommes. Il n’y a que de mauvais cultivateurs.","citationSrc":"Victor Hugo, Les Misérables","pourquoi":"","by":""},{"id":"azur","artist":"Michel Ocelot","work":"Azur & Asmar","date":"2006","y":2006,"type":"Film d’animation","themes":["Innocence","Initiation","Altérité","Onirisme"],"disc":["Cinéma","Sociologie"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"uniqlo","artist":"Marque japonaise","work":"Uniqlo","date":"Fondée en 1984","y":1984,"type":"Marque","themes":["Qualité perçue","Capitalisme","Minimalisme"],"disc":["Marketing","Économie","Écologie et consommation"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"jlc","artist":"Manufacture horlogère","work":"Jaeger-LeCoultre","date":"Fondée en 1833","y":1833,"type":"Maison","themes":["Patrimoine","Aura","Image de marque"],"disc":["Horlogerie","Histoire de l’art","Marketing"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"wilson","artist":"Œuvre phare : Einstein on the Beach","work":"Robert Wilson","date":"1976","y":1976,"type":"Metteur en scène","themes":["Lumière","Onirisme","Minimalisme"],"disc":["Théâtre","Scénographie","Histoire de l’art"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"evora","artist":"Œuvre phare : Miss Perfumado","work":"Cesária Évora","date":"1992","y":1992,"type":"Chanteuse","themes":["Exil","Mélancolie"],"disc":["Musique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"stromae","artist":"Œuvre phare : Racine carrée","work":"Stromae","date":"2013","y":2013,"type":"Auteur-compositeur-interprète","themes":["Vision artistique","Image de marque","Humour"],"disc":["Musique","Design","Marketing"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"economix","artist":"Michael Goodwin, Dan E. Burr","work":"Economix","date":"2012","y":2012,"type":"Bande dessinée","themes":["Vulgarisation","Humour","Capitalisme"],"disc":["Économie","Politique","Histoire et géopolitique"],"avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"freud","artist":"Sigmund Freud","work":"Cinq leçons sur la psychanalyse","date":"1910","y":1910,"type":"Essai","themes":["Inconscient","Âme humaine","Vulgarisation"],"disc":["Psychologie","Philosophie","Technologie et science"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"grimley","artist":"Chris Grimley, Mimi Love","work":"L’architecture d’intérieur","date":"2013","y":2013.1,"type":"Guide pratique","themes":["Aménagement de l’espace","Lumière"],"disc":["Architecture","Design","Rénovation","Bricolage"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"marron","artist":"Donald Marron","work":"3 minutes pour comprendre 50 notions fondamentales de la finance","date":"2020","y":2020,"type":"Essai illustré","themes":["Vulgarisation","Capitalisme"],"disc":["Finance","Économie"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"orwell","artist":"George Orwell","work":"La Ferme des animaux","date":"1945","y":1945,"type":"Fable","themes":["Pouvoir","Satire","Justice sociale"],"disc":["Littérature","Politique","Histoire et géopolitique"],"avisDate":"","citation":"Tous les animaux sont égaux, mais certains sont plus égaux que d’autres.","citationSrc":"George Orwell, La Ferme des animaux","pourquoi":"","by":""},{"id":"alain","artist":"Alain","work":"Propos sur le bonheur","date":"1925","y":1925,"type":"Essai","themes":["Bonheur","Sagesse"],"disc":["Philosophie","Développement humain","Psychologie"],"avisDate":"","citation":"Le pessimisme est d’humeur ; l’optimisme est de volonté.","citationSrc":"Alain, Propos sur le bonheur","pourquoi":"","by":""},{"id":"attali","artist":"Jacques Attali","work":"Le monde, modes d’emploi","date":"2024","y":2024,"type":"Essai","themes":["Mondialisation","Pouvoir","Vulgarisation"],"disc":["Économie","Politique","Histoire et géopolitique","Technologie et science"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"boniface","artist":"Pascal Boniface, Tommy","work":"Géostratégix, vol. 2","date":"2023","y":2023.5,"type":"Bande dessinée","themes":["Mondialisation","Pouvoir","Vulgarisation","Humour"],"disc":["Histoire et géopolitique","Politique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"cigares","artist":"Hergé","work":"Les Cigares du pharaon","date":"1934","y":1934,"type":"Bande dessinée","themes":["Aventure","Altérité"],"disc":["Littérature","Histoire et géopolitique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"lotus","artist":"Hergé","work":"Le Lotus bleu","date":"1936","y":1936,"type":"Bande dessinée","themes":["Aventure","Altérité","Pouvoir"],"disc":["Littérature","Histoire et géopolitique","Politique"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"debord","artist":"Guy Debord","work":"La Société du spectacle","date":"1967","y":1967,"type":"Essai","themes":["Société de consommation","Capitalisme","Aliénation"],"disc":["Philosophie","Sociologie","Politique","Publicité"],"avisDate":"","citation":"Le spectacle n’est pas un ensemble d’images, mais un rapport social entre des personnes, médiatisé par des images.","citationSrc":"Guy Debord, La Société du spectacle, thèse 4","pourquoi":"","by":""},{"id":"pouchkine","artist":"Alexandre Pouchkine","work":"Le Coup de pistolet","date":"1831","y":1831,"type":"Nouvelles","themes":["Destin","Honneur"],"disc":["Littérature"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"tchekhov","artist":"Anton Tchékhov","work":"Les Méfaits du tabac","date":"1886","y":1886,"type":"Théâtre","themes":["Humour","Absurde","Satire"],"disc":["Théâtre","Littérature"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"gary","artist":"Romain Gary","work":"La Promesse de l’aube","date":"1960","y":1960,"type":"Roman","fav":true,"themes":["Relation mère-fils","Enfance","Destin","Exil"],"disc":["Littérature","Psychologie","Histoire et géopolitique"],"avisDate":"","citation":"Avec l’amour maternel, la vie vous fait, à l’aube, une promesse qu’elle ne tient jamais.","citationSrc":"Romain Gary, La Promesse de l’aube","pourquoi":"","by":""},{"id":"larousse","artist":"Larousse","work":"L’économie en 101 infographies","date":"2024","y":2024.2,"type":"Guide illustré","themes":["Vulgarisation","Capitalisme"],"disc":["Économie","Design"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"camus","artist":"Albert Camus","work":"L’Étranger","date":"1942","y":1942,"type":"Roman","themes":["Absurde","Aliénation"],"disc":["Littérature","Philosophie"],"avisDate":"","citation":"Aujourd’hui, maman est morte.","citationSrc":"Albert Camus, L’Étranger, incipit","pourquoi":"","by":""},{"id":"kafka","artist":"Franz Kafka","work":"La Métamorphose","date":"1915","y":1915,"type":"Nouvelle","themes":["Absurde","Aliénation","Onirisme"],"disc":["Littérature","Psychologie","Philosophie"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"petitprince","artist":"Antoine de Saint-Exupéry","work":"Le Petit Prince","date":"1943","y":1943,"type":"Conte","themes":["Enfance","Innocence","Sagesse"],"disc":["Littérature","Philosophie","Développement humain"],"avisDate":"","citation":"On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.","citationSrc":"Antoine de Saint-Exupéry, Le Petit Prince","pourquoi":"","by":""},{"id":"klapisch","artist":"Cédric Klapisch, d’après Mozart","work":"La Flûte enchantée","date":"2023","y":2023,"type":"Opéra, mise en scène","themes":["Initiation","Lumière","Onirisme"],"disc":["Musique","Théâtre","Scénographie"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"chollat","artist":"Ladislas Chollat, Théâtre du Châtelet","work":"Les Misérables","date":"2024","y":2024.8,"type":"Comédie musicale","themes":["Âme humaine","Justice sociale","Rédemption"],"disc":["Musique","Théâtre","Scénographie","Littérature"],"avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""}];
 const AVIS = {"siddhartha":"Un roman d’initiation, un texte fondateur pour approcher la manière de penser bouddhiste et asiatique.","tao":"Un texte fondateur d’un courant de pensée civilisationnel et spirituel.","bible":"Un texte fondateur d’un courant de pensée civilisationnel et spirituel.","miserables":"Un roman historique, particulièrement universel dans son approche de l’âme humaine, sa compréhension et son questionnement.","azur":"Une approche innocente mais juste, sans avoir peur des clichés.","uniqlo":"Sa stratégie commerciale et sa conquête par la qualité perçue.","jlc":"Son patrimoine et son aura.","wilson":"Son travail sur la lumière et les ambiances oniriques et minimalistes.","stromae":"Sa vision artistique, musicale et hors musicale.","economix":"Une vulgarisation en BD, avec humour et consistance."};
 const RESUMES = {"siddhartha":{"ctx":"Hermann Hesse publie ce court roman en 1922, après un voyage en Asie en 1911 et une longue fréquentation des textes indiens, dans une Europe meurtrie par la Première Guerre mondiale.","recap":"Fils de brahmane, Siddhartha quitte sa famille, essaie l’ascèse, rencontre le Bouddha, puis se perd dans les plaisirs et les affaires avant de revenir au fleuve, auprès d’un passeur. Un récit d’{initiation|Initiation} où la {quête spirituelle|Quête spirituelle} passe par l’expérience plutôt que par l’enseignement, et une porte d’entrée vers la {pensée orientale|Pensée orientale} et sa {sagesse|Sagesse}."},"tao":{"ctx":"Attribué à Lao Tseu, sage chinois dont l’existence reste incertaine, le texte a sans doute été compilé entre le VIe et le IIIe siècle avant notre ère.","recap":"En 81 courts chapitres, il décrit la Voie (Tao) et la vertu (Te) : le non-agir, la souplesse de l’eau, l’humilité du sage. {Texte fondateur|Texte fondateur} du taoïsme, il nourrit la {pensée orientale|Pensée orientale} et une {quête spirituelle|Quête spirituelle} fondée sur la {sagesse|Sagesse} plutôt que sur la règle."},"bible":{"ctx":"Rédigée sur plus d’un millénaire, en hébreu, en araméen et en grec, elle rassemble la Bible hébraïque, reprise par les chrétiens comme Ancien Testament, et le Nouveau Testament.","recap":"Récits des origines, lois, poèmes et prophéties, puis vie et enseignement de Jésus : un {texte fondateur|Texte fondateur} de la civilisation occidentale, traversé par la {quête spirituelle|Quête spirituelle} d’un peuple et par l’idée de {rédemption|Rédemption}."},"miserables":{"ctx":"Victor Hugo commence le roman dans les années 1840 et l’achève en exil à Guernesey ; sa parution en 1862 est un événement dans toute l’Europe.","recap":"Ancien forçat, Jean Valjean se transforme grâce à la bonté d’un évêque, recueille Cosette et échappe sans cesse à l’inspecteur Javert, jusqu’aux barricades de 1832. Un roman de la {rédemption|Rédemption} et de la {justice sociale|Justice sociale}, qui sonde l’{âme humaine|Âme humaine} jusque dans ses contradictions."},"azur":{"ctx":"Michel Ocelot, le réalisateur de Kirikou et la Sorcière, signe ce film en 2006, en animation numérique nourrie des arts de l’Islam médiéval. Une partie des dialogues, en arabe, n’est volontairement pas sous-titrée.","recap":"Azur, fils de seigneur, et Asmar, fils de sa nourrice, sont élevés comme frères puis séparés ; adultes, ils traversent la mer pour délivrer la fée des Djinns. Le film interroge le regard porté sur l’{altérité|Altérité}, avec l’{innocence|Innocence} d’un conte, la structure d’un récit d’{initiation|Initiation} et un {onirisme|Onirisme} d’enluminure."},"uniqlo":{"ctx":"Tadashi Yanai ouvre le premier magasin Uniqlo en 1984 à Hiroshima, à partir de l’entreprise de vêtements familiale ; la marque appartient aujourd’hui au groupe Fast Retailing.","recap":"Des basiques sans logo, des textiles techniques et des prix stables : Uniqlo vend moins une mode qu’une {qualité perçue|Qualité perçue}. Une stratégie du {capitalisme|Capitalisme} de masse, servie par un {minimalisme|Minimalisme} japonais dans les produits comme dans les magasins."},"jlc":{"ctx":"Antoine LeCoultre fonde son atelier en 1833 au Sentier, dans la Vallée de Joux, en Suisse ; l’association avec l’horloger Edmond Jaeger, au début du XXe siècle, donne son nom à la maison.","recap":"Une manufacture qui conçoit et fabrique ses propres mouvements, connue pour la Reverso (1931), montre au boîtier réversible imaginée pour les joueurs de polo. Son {patrimoine|Patrimoine} technique nourrit une {aura|Aura} de maison d’horlogers et une {image de marque|Image de marque} discrète."},"wilson":{"ctx":"Robert Wilson crée Einstein on the Beach en 1976 au Festival d’Avignon, avec le compositeur Philip Glass.","recap":"Un opéra d’environ cinq heures, sans intrigue, construit sur des images répétées : un train, un procès, un vaisseau spatial ; le public peut entrer et sortir librement. La {lumière|Lumière} y sculpte l’espace, dans un {onirisme|Onirisme} lent et un {minimalisme|Minimalisme} musical et visuel."},"evora":{"ctx":"Chanteuse cap-verdienne de morna, Cesária Évora publie Miss Perfumado en 1992 chez Lusafrica ; l’album lui ouvre une carrière internationale, passé cinquante ans.","recap":"Porté par la chanson « Sodade », l’album chante l’{exil|Exil} des Cap-Verdiens partis travailler loin des îles, dans une {mélancolie|Mélancolie} douce, sans effet ni démonstration."},"stromae":{"ctx":"Deuxième album du chanteur belge, sorti en 2013 après le succès d’« Alors on danse » ; Stromae en conçoit l’univers visuel avec son collectif Mosaert.","recap":"Des rythmes électroniques dansants portent des textes graves : l’absence du père dans « Papaoutai », la détresse dans « Formidable », les clichés amoureux dans « Tous les mêmes ». Une {vision artistique|Vision artistique} totale, entre musique, clips et mode, où l’{humour|Humour} sert le propos et où l’{image de marque|Image de marque} fait partie de l’œuvre."},"economix":{"ctx":"Scénarisée par Michael Goodwin et dessinée par Dan E. Burr, la bande dessinée paraît aux États-Unis en 2012, puis en français aux Arènes.","recap":"Une histoire de l’économie, des premiers échanges à la crise de 2008, en passant par Adam Smith, Marx, Keynes et Friedman. Une {vulgarisation|Vulgarisation} rigoureuse du {capitalisme|Capitalisme} et de ses débats, qui garde l’{humour|Humour} du dessin de presse."},"freud":{"ctx":"En 1909, Freud donne cinq conférences à la Clark University, aux États-Unis, à l’invitation du psychologue Stanley Hall ; le texte paraît en 1910.","recap":"Il y présente la psychanalyse à un public non spécialiste : l’hystérie, le refoulement, l’interprétation des rêves, la sexualité infantile, le transfert. Une {vulgarisation|Vulgarisation} par son fondateur de la théorie de l’{inconscient|Inconscient}, qui change la manière de lire l’{âme humaine|Âme humaine}."},"grimley":{"ctx":"Publié en 2013 aux États-Unis sous le titre The Interior Design Reference + Specification Book, puis traduit en français.","recap":"Un manuel de référence pour concevoir un intérieur : relevés, ergonomie, circulations, mobilier, matériaux, éclairage et normes, en schémas et en fiches. Un outil pratique pour l’{aménagement de l’espace|Aménagement de l’espace}, qui traite la {lumière|Lumière} comme un matériau à part entière."},"marron":{"ctx":"Ouvrage de la collection « 3 minutes pour comprendre », publiée en français par Le Courrier du Livre.","recap":"Cinquante notions de finance, des taux d’intérêt aux produits dérivés et aux crises, expliquées chacune sur une double page. Une {vulgarisation|Vulgarisation} rapide des mécanismes du {capitalisme|Capitalisme} financier."},"orwell":{"ctx":"Écrite en 1943-1944, la fable paraît en août 1945, après plusieurs refus d’éditeurs réticents à critiquer l’URSS, alors alliée du Royaume-Uni.","recap":"Les animaux d’une ferme chassent leur propriétaire, mais les cochons confisquent peu à peu la révolution : « Tous les animaux sont égaux, mais certains sont plus égaux que d’autres. » Une {satire|Satire} du stalinisme sur la confiscation du {pouvoir|Pouvoir} et la trahison de la {justice sociale|Justice sociale}."},"alain":{"ctx":"Émile Chartier, dit Alain, professeur de philosophie, publie dès 1906 de courts « propos » dans la presse ; ceux consacrés au bonheur sont réunis en 1925.","recap":"En textes de quelques paragraphes, Alain défend un {bonheur|Bonheur} qui se construit : il tient à la volonté, à l’attention au corps et à la politesse envers les autres. Une {sagesse|Sagesse} pratique, résumée par sa formule : « Le pessimisme est d’humeur ; l’optimisme est de volonté. »"},"attali":{"ctx":"Économiste et essayiste, ancien conseiller spécial de François Mitterrand, Jacques Attali signe cet essai au sous-titre programmatique : comprendre, prévoir, agir, protéger.","recap":"Un panorama des grandes forces qui façonnent le monde contemporain et des moyens d’y faire face. Une {vulgarisation|Vulgarisation} des enjeux de la {mondialisation|Mondialisation} et des rapports de {pouvoir|Pouvoir} entre États."},"boniface":{"ctx":"Pascal Boniface, fondateur de l’Institut de relations internationales et stratégiques (IRIS), signe ce deuxième volume avec le dessinateur Tommy, chez Dunod Graphic.","recap":"Les grands enjeux du monde contemporain racontés en bande dessinée : rivalités entre puissances, conflits, ressources, organisations internationales. Une {vulgarisation|Vulgarisation} de la {mondialisation|Mondialisation} et des jeux de {pouvoir|Pouvoir}, avec l’{humour|Humour} du dessin."},"cigares":{"ctx":"Prépublié dans Le Petit Vingtième de 1932 à 1934, l’album paraît en 1934 ; Hergé le redessine en couleurs en 1955.","recap":"Parti en croisière, Tintin suit une piste qui le mène d’Égypte en Arabie puis en Inde, au cœur d’un trafic d’opium ; l’album marque la première apparition des Dupondt et de Rastapopoulos. Une {aventure|Aventure} qui met en scène, avec les regards de son époque, la rencontre de l’{altérité|Altérité}."},"lotus":{"ctx":"Prépublié en 1934-1935 et paru en album en 1936, c’est le premier album pour lequel Hergé se documente sérieusement, avec l’aide de l’étudiant chinois Tchang Tchong-Jen.","recap":"Tintin arrive en Chine au moment de l’invasion japonaise de la Mandchourie et démantèle un trafic d’opium. L’{aventure|Aventure} démonte les clichés occidentaux sur la Chine, fait de l’amitié avec Tchang un éloge de l’{altérité|Altérité} et dénonce le {pouvoir|Pouvoir} colonial et militaire."},"debord":{"ctx":"Guy Debord, figure de l’Internationale situationniste, publie l’essai en 1967, un an avant Mai 68.","recap":"En 221 thèses, il décrit une société où la marchandise et l’image se substituent à l’expérience vécue : « Le spectacle n’est pas un ensemble d’images, mais un rapport social entre des personnes, médiatisé par des images. » Une critique de la {société de consommation|Société de consommation}, du {capitalisme|Capitalisme} et de l’{aliénation|Aliénation} qu’ils produisent."},"pouchkine":{"ctx":"La nouvelle fait partie des Récits de feu Ivan Petrovitch Bielkine, écrits par Pouchkine à l’automne 1830 à Boldino et publiés en 1831.","recap":"Silvio, ancien officier, vit retiré en attendant de tirer le coup de feu qu’il doit encore, depuis un duel resté inachevé, au comte qui l’avait offensé. Une nouvelle brève sur l’{honneur|Honneur} et la vengeance, où le {destin|Destin} se joue en un seul coup."},"tchekhov":{"ctx":"Tchékhov écrit ce monologue en 1886 et le réécrit plusieurs fois jusqu’en 1902.","recap":"Un mari soumis donne, à la demande de sa femme, une conférence sur les dangers du tabac, et dérive vers la confession de sa vie ratée. Une {satire|Satire} pleine d’{humour|Humour}, qui glisse vers l’{absurde|Absurde} et la mélancolie."},"gary":{"ctx":"Romain Gary publie ce récit autobiographique en 1960, alors qu’il est consul général de France à Los Angeles.","recap":"De Vilnius à Nice, l’auteur raconte une {enfance|Enfance} marquée par l’{exil|Exil} et par une mère qui lui promet un {destin|Destin} exceptionnel, jusqu’à la guerre dans l’aviation de la France libre. Le livre fait de la {relation mère-fils|Relation mère-fils} un amour démesuré, drôle et bouleversant."},"larousse":{"ctx":"Ouvrage de la collection « Guides graphiques Larousse ».","recap":"Les notions clés de l’économie, de la monnaie à l’inflation en passant par le commerce, le travail et les marchés, expliquées en infographies. Une {vulgarisation|Vulgarisation} visuelle des mécanismes du {capitalisme|Capitalisme}."},"camus":{"ctx":"Albert Camus publie le roman en 1942 chez Gallimard, sous l’Occupation ; il forme avec Le Mythe de Sisyphe et Caligula son « cycle de l’absurde ».","recap":"À Alger, Meursault, employé indifférent, tue un homme sur une plage. Son procès juge moins son crime que son refus de jouer le jeu social, à commencer par son absence de larmes à l’enterrement de sa mère. Le roman fondateur de l’{absurde|Absurde} et un portrait de l’{aliénation|Aliénation}."},"kafka":{"ctx":"Franz Kafka écrit la nouvelle à Prague, fin 1912, et la publie en 1915.","recap":"Un matin, Gregor Samsa, représentant de commerce, se réveille transformé en insecte ; sa famille, qui vivait de son salaire, finit par le rejeter. Un récit à la logique de cauchemar, entre {onirisme|Onirisme}, {absurde|Absurde} et {aliénation|Aliénation} par le travail et la famille."},"petitprince":{"ctx":"Saint-Exupéry écrit et illustre le conte à New York, pendant son exil américain ; il paraît en 1943.","recap":"Un aviateur en panne dans le Sahara rencontre un petit prince venu d’un astéroïde, qui lui raconte ses voyages de planète en planète. Un conte sur l’{enfance|Enfance} et l’{innocence|Innocence} face au monde des adultes, porteur d’une {sagesse|Sagesse} simple : « On ne voit bien qu’avec le cœur. »"},"klapisch":{"ctx":"Pour sa première mise en scène d’opéra, le cinéaste Cédric Klapisch monte La Flûte enchantée au Théâtre des Champs-Élysées en novembre 2023, avec l’orchestre Les Siècles dirigé par François-Xavier Roth.","recap":"L’opéra de Mozart (1791), sur un livret d’Emanuel Schikaneder, suit le prince Tamino à travers des épreuves pour rejoindre Pamina et le royaume de {lumière|Lumière} de Sarastro, face à la Reine de la nuit. Un parcours d’{initiation|Initiation} entre conte et {onirisme|Onirisme}."},"chollat":{"ctx":"Comédie musicale d’Alain Boublil et Claude-Michel Schönberg, créée à Paris en 1980 ; Ladislas Chollat en signe une nouvelle production au Théâtre du Châtelet en 2024.","recap":"Le roman de Hugo condensé en chansons, de la libération de Jean Valjean aux barricades. La scène fait entendre la {rédemption|Rédemption}, la {justice sociale|Justice sociale} et toute l’{âme humaine|Âme humaine} du roman."}};
@@ -498,7 +633,7 @@ class Component extends DCLogic {
     let on = true;
     try { on = localStorage.getItem("chundi-son") !== "coupe"; } catch (e) {}
     const pos = chundiLire("chundi-son-pos", {});
-    this.setState({ sonOn: on, sonPiste: pos.id || null });
+    this.setState({ sonOn: on, sonPiste: pos.id || null, amb: !!(window.chundiAmbiance && window.chundiAmbiance.voulu()) });
     // Relais : si une autre page jouait il y a un instant (changement de page), on reprend tout de suite.
     this.sonRelais = pos.at && Date.now() - pos.at < 6000 && pos.playing;
     const lancer = force => {
@@ -526,15 +661,15 @@ class Component extends DCLogic {
     this.setState({ sonPiste: id, sonOn: true }, () => requestAnimationFrame(() => { const a = document.getElementById("son-accueil"); if (a) { a.currentTime = 0; a.play().catch(() => {}); } }));
   }
   sonVals() {
-    const on = this.state.sonOn !== false;
+    const on = this.state.sonOn !== false, amb = !!this.state.amb;
     const liste = this.sonListe();
     const cur = liste.find(t => t.id === this.state.sonPiste) || liste[0] || null;
     return {
       theme: this.state.theme || "bleu",
-      sonOn: on, sonFichier: !!cur, sonSrc: cur ? (cur.fichier || "/_blob/" + cur.asset) : "", sonBoucle: liste.length === 1,
-      sonLabel: !cur ? "[Son : à venir]" : (on ? "[Son : on]" : "[Son : coupé]"),
-      sonTitre: cur ? "En cours : " + cur.title + " · cliquer pour couper ou remettre le son" : "Le son arrivera avec la playlist",
-      sonOp: cur ? "1" : "0.72",
+      sonOn: cur ? on : amb, sonBouton: true, sonFichier: !!cur, sonSrc: cur ? (cur.fichier || "/_blob/" + cur.asset) : "", sonBoucle: liste.length === 1,
+      sonLabel: !cur ? (amb ? "[Musique : on]" : "[Musique : off]") : (on ? "[Son : on]" : "[Son : coupé]"),
+      sonTitre: cur ? "En cours : " + cur.title + " · cliquer pour couper ou remettre le son" : (amb ? "Couper la musique d’ambiance" : "Lancer la musique d’ambiance"),
+      sonOp: "1",
       sonJoue: () => { try { localStorage.setItem("chundi-son-actif", this.sonMoi + ":" + Date.now()); } catch (e) {} },
       sonTemps: e => { const t = e.target; if (!this.sonDernier || Date.now() - this.sonDernier > 2000) { this.sonDernier = Date.now(); try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id: cur && cur.id, t: t.currentTime, at: Date.now(), playing: !t.paused })); } catch (err) {} } },
       sonSuivant: () => {
@@ -543,15 +678,148 @@ class Component extends DCLogic {
         this.sonAller(liste[(k + 1) % liste.length].id);
       },
       sonBascule: () => {
+        if (!cur) { const v = !amb; if (window.chundiAmbiance) window.chundiAmbiance[v ? "on" : "off"](); this.setState({ amb: v }); return; }
         const next = !on;
         try { localStorage.setItem("chundi-son", next ? "on" : "coupe"); } catch (e) {}
         this.setState({ sonOn: next }, () => { const a = document.getElementById("son-accueil"); if (!a) return; if (next) a.play().catch(() => {}); else a.pause(); });
       }
     };
   }
+  // ——— Parcours guidés ———
+  progLire() { return chundiLire("chundi-parcours", {}); }
+  progEcrire(id, patch) {
+    const all = this.progLire();
+    all[id] = { ...(all[id] || {}), ...patch };
+    try { localStorage.setItem("chundi-parcours", JSON.stringify(all)); } catch (e) {}
+    this.setState({ prog: all });
+  }
+  ouvrirParcours(id, etape) {
+    const p = PARCOURS.find(x => x.id === id);
+    if (!p) return;
+    const pr = this.progLire()[id] || {};
+    const e = typeof etape === "number" ? etape : (pr.fini ? 0 : Math.min(pr.e || 0, p.etapes.length - 1));
+    this.progEcrire(id, { e });
+    this.allerEnHautParcours = true;
+    this.setState({ mode: "parcours", pc: id, pe: e, pfin: false });
+  }
+  allerEtape(e) {
+    const p = PARCOURS.find(x => x.id === this.state.pc);
+    if (!p) return;
+    const k = Math.max(0, Math.min(p.etapes.length - 1, e));
+    this.progEcrire(p.id, { e: k });
+    this.allerEtapeHaut = true;
+    this.setState({ pe: k, pfin: false });
+  }
+  terminerParcours() {
+    const p = PARCOURS.find(x => x.id === this.state.pc);
+    if (!p) return;
+    const date = new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+    this.progEcrire(p.id, { fini: date, e: 0 });
+    this.allerEtapeHaut = true;
+    this.setState({ pfin: true });
+  }
+  parcoursVals() {
+    const { mode, pc, pe, pfin, start } = this.state;
+    const prog = this.state.prog || {};
+    const all = chundiFusion(CITED, this.state.base, "oeuvres");
+    const byId = id => all.find(r => r.id === id);
+    const LIST = PARCOURS.map(p => ({ ...p, etapes: p.etapes.filter(e => byId(e.oeuvre)) })).filter(p => p.etapes.length >= 2);
+    const num = i => String(i + 1).padStart(2, "0");
+    const finis = LIST.filter(p => prog[p.id] && prog[p.id].fini).length;
+    const bilan = LIST.length === 0 ? "Aucun parcours pour l’instant"
+      : finis === 0 ? LIST.length + " parcours · aucun terminé pour l’instant"
+      : finis + (finis > 1 ? " parcours terminés" : " parcours terminé") + " sur " + LIST.length;
+    const libre = mode === "libre";
+    const cur = !libre && pc ? LIST.find(p => p.id === pc) : null;
+    const modes = [
+      { id: "onglet-parcours", key: "parcours", num: "A", label: "Parcours guidés", sub: "", meta: finis ? finis + " / " + LIST.length + " ✓" : LIST.length + " parcours" },
+      { id: "onglet-libre", key: "libre", num: "B", label: "Chemin libre", sub: "", meta: "" }
+    ].map(m => {
+      const on = m.key === (libre ? "libre" : "parcours");
+      return { ...m, on, bg: on ? "var(--encre)" : "var(--papier)", fg: on ? "var(--accent)" : "var(--encre)",
+        pick: () => this.setState(m.key === "libre" ? { mode: "libre" } : { mode: "parcours", pc: null, pfin: false }) };
+    });
+    const parcours = LIST.map((p, i) => {
+      const pr = prog[p.id] || {};
+      const e = Math.min(pr.e || 0, p.etapes.length - 1);
+      const commence = pr.e > 0;
+      return {
+        num: num(i), titre: p.titre, accroche: p.accroche, nb: p.etapes.length,
+        aria: "Parcours " + p.titre + ", " + p.etapes.length + " étapes" + (pr.fini ? ", terminé" : commence ? ", en cours" : ""),
+        etapes: p.etapes.map((s, k) => ({ titre: byId(s.oeuvre).work, notFirst: k > 0, deco: pr.fini || (commence && k < e) ? "line-through" : "none" })),
+        fini: !!pr.fini, date: pr.fini || "",
+        etat: pr.fini ? "Refaire le parcours" : commence ? "Reprendre · étape " + (e + 1) + " sur " + p.etapes.length : "Commencer →",
+        etatBg: pr.fini ? "transparent" : commence ? "var(--accent)" : "var(--encre)",
+        etatFg: pr.fini ? "var(--encre)" : commence ? "var(--encre)" : "var(--accent)",
+        pct: (pr.fini ? 100 : Math.round(e / p.etapes.length * 100)) + "%",
+        open: () => this.ouvrirParcours(p.id)
+      };
+    });
+    const vals = {
+      modes, modeLibre: libre, modeParcours: !libre, parcours, pBilan: bilan, hasBilan: finis > 0,
+      pListe: !libre && !cur, pVue: !!cur, pEtape: !!cur && !pfin, pFin: !!cur && !!pfin,
+      pc: { titre: "", accroche: "", num: "", nb: 0, cols: "1fr", stations: [], date: "" },
+      et: {}, pSuite: [], pPremier: true, pSuivLabel: "Suivant →",
+      pRetour: () => { this.allerEnHaut = true; this.setState({ pc: null, pfin: false }); },
+      pPrec: () => this.allerEtape((this.state.pe || 0) - 1),
+      pSuiv: () => {}, pRecommencer: () => {}
+    };
+    if (cur) {
+      const i = LIST.indexOf(cur), n = cur.etapes.length, k = Math.min(pe || 0, n - 1);
+      const st = cur.etapes[k], w = byId(st.oeuvre);
+      const prev = k > 0 ? byId(cur.etapes[k - 1].oeuvre) : null;
+      const communs = prev ? w.themes.filter(t => prev.themes.includes(t)) : [];
+      const res = (w.resume && (w.resume.ctx || w.resume.recap) ? w.resume : null) || RESUMES[w.id] || null;
+      const plain = s => String(s || "").replace(/\{([^}|]+)(?:\|[^}]+)?\}/g, "$1");
+      const avis = w.note || AVIS[w.id] || "";
+      vals.pc = {
+        titre: cur.titre, accroche: cur.accroche, num: num(i), nb: n, cols: "repeat(" + n + ", minmax(0, 1fr))",
+        date: (prog[cur.id] && prog[cur.id].fini) || "",
+        stations: cur.etapes.map((s, j) => {
+          const done = pfin || j < k, here = !pfin && j === k;
+          return {
+            n: j + 1, titre: byId(s.oeuvre).work, current: here ? "step" : "false",
+            aria: "Étape " + (j + 1) + " : " + byId(s.oeuvre).work + (here ? " (étape en cours)" : done ? " (vue)" : ""),
+            bg: here ? "var(--accent)" : done ? "var(--encre)" : "var(--papier)",
+            fg: done && !here ? "var(--accent)" : "var(--encre)",
+            weight: here ? "700" : "400",
+            lineL: j === 0 ? "50%" : "0", lineR: j === n - 1 ? "50%" : "0",
+            lineBg: pfin || j < k ? "var(--encre)" : j === k ? "linear-gradient(to right, var(--encre) 50%, var(--trait) 50%)" : "var(--trait)",
+            pick: () => this.allerEtape(j)
+          };
+        })
+      };
+      vals.et = {
+        n: k + 1, aria: "Étape " + (k + 1) + " : " + w.work,
+        lien: k === 0 ? "Point de départ" : communs.length ? "Lien avec l’étape " + k + " : " + communs.slice(0, 2).join(", ") : "Changement de piste",
+        liaison: st.liaison || "",
+        hasLiaison: !!st.liaison,
+        titre: w.work, artist: w.artist, date: w.date, type: w.fav ? "Favori · " + w.type : w.type,
+        hasCitation: !!w.citation, citation: w.citation || "", citationSrc: w.citationSrc || "",
+        hasCtx: !!(res && res.ctx), ctx: res ? plain(res.ctx) : "",
+        hasAvis: !!avis, avis,
+        libre: () => { this.setState({ mode: "libre" }); this.setStart(w.id); },
+        biblio: () => { try { localStorage.setItem("chundi-ouvrir", w.id); } catch (e) {} }
+      };
+      vals.pPremier = k === 0;
+      vals.pSuivLabel = k === n - 1 ? "Terminer le parcours ✓" : "Suivant →";
+      vals.pSuiv = () => (k === n - 1 ? this.terminerParcours() : this.allerEtape(k + 1));
+      vals.pRecommencer = () => this.ouvrirParcours(cur.id, 0);
+      const suite = LIST.filter(p => p.id !== cur.id && !(prog[p.id] && prog[p.id].fini));
+      vals.pSuite = (suite.length ? suite : LIST.filter(p => p.id !== cur.id)).slice(0, 2).map(p => ({ titre: p.titre, open: () => this.ouvrirParcours(p.id) }));
+    }
+    // Chemin libre : à quels parcours appartient l’œuvre affichée ?
+    const sr = start ? byId(start) : null;
+    vals.curParcours = sr ? LIST.filter(p => p.etapes.some(e => e.oeuvre === sr.id)).map(p => {
+      const j = p.etapes.findIndex(e => e.oeuvre === sr.id);
+      return { titre: p.titre, etape: "étape " + (j + 1) + " sur " + p.etapes.length, open: () => this.ouvrirParcours(p.id, j) };
+    }) : [];
+    vals.curBiblio = () => { try { if (sr) localStorage.setItem("chundi-ouvrir", sr.id); } catch (e) {} };
+    return vals;
+  }
   constructor(props) {
     super(props);
-    this.state = { start: null, path: [], q: "", choosing: false, favOnly: false, hl: null, hov: null, vw: window.innerWidth, fonts: 0, k: 1 };
+    this.state = { mode: "parcours", pc: null, pe: 0, pfin: false, prog: {}, start: null, path: [], q: "", choosing: false, favOnly: false, hl: null, hov: null, vw: window.innerWidth, fonts: 0, k: 1 };
     this.jump = false;
     this.targets = {};
     this.onResize = () => this.setState({ vw: window.innerWidth });
@@ -566,12 +834,15 @@ class Component extends DCLogic {
       document.fonts.addEventListener("loadingdone", this.onFonts);
     }
     this.check();
+    this.setState({ prog: this.progLire() });
     try {
+      const pid = localStorage.getItem("chundi-parcours-ouvrir");
+      if (pid) { localStorage.removeItem("chundi-parcours-ouvrir"); const [pp, kk] = pid.split("@"); this.ouvrirParcours(pp, kk ? Number(kk) : undefined); }
       const id = localStorage.getItem("chundi-explorer");
-      if (id) { localStorage.removeItem("chundi-explorer"); this.setStart(id); }
+      if (id) { localStorage.removeItem("chundi-explorer"); this.setState({ mode: "libre" }); this.setStart(id); }
       if (localStorage.getItem("chundi-focus-recherche")) {
         localStorage.removeItem("chundi-focus-recherche");
-        this.setState({ choosing: true }, () => requestAnimationFrame(() => { const el = document.getElementById("recherche-explorer"); if (el) el.focus(); }));
+        this.setState({ choosing: true, mode: "libre" }, () => requestAnimationFrame(() => { const el = document.getElementById("recherche-explorer"); if (el) el.focus(); }));
       }
     } catch (e) {}
     const root = document.getElementById("page");
@@ -586,6 +857,8 @@ class Component extends DCLogic {
     // Drapeaux posés au clic : on ne se fie pas à prevState pour déclencher le défilement.
     if (this.allerEnHaut) { this.allerEnHaut = false; window.scrollTo(0, 0); }
     if (this.allerAuCartel) { this.allerAuCartel = false; montrerSousBandeau("cartel-choisi"); }
+    if (this.allerEnHautParcours) { this.allerEnHautParcours = false; montrerSousBandeau("parcours-haut"); }
+    if (this.allerEtapeHaut) { this.allerEtapeHaut = false; montrerSousBandeau("etape"); }
     this.check();
   }
   check() {
@@ -615,7 +888,7 @@ class Component extends DCLogic {
       if (el) el.scrollIntoView({ block: "center", behavior: "auto" });
     });
   }
-  renderVals() { return { ...this.renderPage(), ...this.sonVals() }; }
+  renderVals() { return { ...this.renderPage(), ...this.parcoursVals(), ...this.sonVals() }; }
   renderPage() {
     const { start, path, q, vw, favOnly, hl } = this.state;
     K = this.state.k;
@@ -755,11 +1028,11 @@ class Component extends DCLogic {
       bg: t.theme && t.theme === hl ? "var(--papier)" : "transparent",
       pick: t.theme ? () => this.pickTheme(t.theme) : null
     }));
-    let cur = { title: "", artist: "", date: "", type: "", fav: false, ctx: [], recap: [], hasAvis: false, noAvis: true, avis: "", avisLabel: "", hasCitation: false, citation: "", citationSrc: "", pourquoi: "", hasBy: false, by: "", discList: "", ts: "60px", as: "22px", discSize: "14px" };
+    let cur = { title: "", artist: "", date: "", type: "", fav: false, ctx: [], recap: [], hasAvis: false, noAvis: true, avis: "", avisLabel: "", hasCitation: false, citation: "", citationSrc: "", pourquoi: "", hasBy: false, by: "", discList: "", hasNote: false, noteTxt: "", noteAria: "", ts: "60px", as: "22px", discSize: "14px" };
     if (startRef) {
       const inner = Math.min(820, avail) - 36;
       const discList = startRef.disc.join(", ");
-      const res = (startRef.resume && (startRef.resume.ctx || startRef.resume.recap) ? startRef.resume : null) || RESUMES[startRef.id] || { ctx: "Contexte à écrire.", recap: "Résumé à écrire." };
+      const res = (startRef.resume && (startRef.resume.ctx || startRef.resume.recap) ? startRef.resume : null) || RESUMES[startRef.id] || { ctx: "", recap: "" };
       const avis = startRef.note || AVIS[startRef.id] || "";
       cur = {
         title: startRef.work, artist: startRef.artist, date: startRef.date, type: startRef.type, fav: !!startRef.fav,
@@ -767,9 +1040,12 @@ class Component extends DCLogic {
         hasAvis: !!avis, noAvis: !avis, avis,
         avisLabel: avis && startRef.avisDate ? "Écrit en " + startRef.avisDate : "",
         hasCitation: !!startRef.citation, citation: startRef.citation || "", citationSrc: startRef.citationSrc || "",
-        pourquoi: startRef.pourquoi || "Ce que cette œuvre m’a apporté : à écrire.",
+        pourquoi: startRef.pourquoi || "",
+        hasPourquoi: !!startRef.pourquoi, hasPourquoiBloc: !!(startRef.pourquoi || startRef.citation),
+        hasCtx: !!res.ctx, hasRecap: !!res.recap, hasRes: !!(res.ctx || res.recap),
         hasBy: !!startRef.by, by: startRef.by || "",
         discList,
+        hasNote: (startRef.etoiles || 0) > 0, noteTxt: "★".repeat(startRef.etoiles || 0) + "☆".repeat(5 - (startRef.etoiles || 0)), noteAria: "Note : " + (startRef.etoiles || 0) + " sur 5",
         ts: fit(textW(startRef.work, TITLE(60), "normal") * SAFE, 60, inner) + "px",
         as: fit(textW(startRef.artist.toUpperCase(), SUB(22, 800), "extra-condensed", 0.44) * SAFE, 22, inner) + "px",
         discSize: fit(textW(discList, BODY(14), "normal") * SAFE, 14, inner - 108) + "px"
@@ -792,6 +1068,20 @@ class Component extends DCLogic {
       showDeparts: !startRef || this.state.choosing || q.trim() !== "",
       onKey: e => {
         const t = e.target, typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA");
+        if (this.state.mode !== "libre") {
+          if (e.key === "/" && !typing) {
+            e.preventDefault();
+            this.setState({ mode: "libre", choosing: true }, () => { window.scrollTo(0, 0); requestAnimationFrame(() => { const el = document.getElementById("recherche-explorer"); if (el) el.focus(); }); });
+            return;
+          }
+          if (this.state.pc && !typing) {
+            const p = PARCOURS.find(x => x.id === this.state.pc), k = this.state.pe || 0;
+            if (e.key === "ArrowRight" && !this.state.pfin) { e.preventDefault(); if (p && k >= p.etapes.length - 1) this.terminerParcours(); else this.allerEtape(k + 1); }
+            if (e.key === "ArrowLeft") { e.preventDefault(); if (this.state.pfin) { this.allerEtapeHaut = true; this.setState({ pfin: false }); } else this.allerEtape(k - 1); }
+            if (e.key === "Escape") { this.allerEnHaut = true; this.setState({ pc: null, pfin: false }); }
+          }
+          return;
+        }
         if (e.key === "/" && !typing) {
           e.preventDefault();
           const focus = () => { const el = document.getElementById("recherche-explorer"); if (el) el.focus(); };

@@ -1,0 +1,26 @@
+{
+  "artist": "Doug Liman",
+  "work": "Mr. & Mrs. Smith",
+  "date": "2005",
+  "y": 2005.45,
+  "type": "Film",
+  "themes": [
+    "Humour",
+    "Manipulation"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Comédie d’action de 2005, avec Brad Pitt et Angelina Jolie.",
+    "recap": "Un couple marié découvre que chacun est un tueur à gages… et que chacun a reçu pour mission d’éliminer l’autre. De l’{humour|Humour}, de l’action et un mariage fondé sur la {manipulation|Manipulation}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 91,
+  "etoiles": 5
+}

@@ -1,0 +1,29 @@
+{
+  "artist": "Christopher Nolan",
+  "work": "Oppenheimer",
+  "date": "2023",
+  "y": 2023.55,
+  "type": "Film",
+  "themes": [
+    "Pouvoir",
+    "Guerre",
+    "Technologie"
+  ],
+  "disc": [
+    "Cinéma",
+    "Technologie et science",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film de Christopher Nolan sorti en juillet 2023, sept Oscars en 2024 dont celui du meilleur film.",
+    "recap": "Le physicien Robert Oppenheimer dirige le projet Manhattan et donne naissance à la bombe atomique, avant d’être broyé par la machine politique qu’il a servie. Un film sur le {pouvoir|Pouvoir} de la {technologie|Technologie} et la {guerre|Guerre} qu’elle rend possible."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 129,
+  "etoiles": 3
+}

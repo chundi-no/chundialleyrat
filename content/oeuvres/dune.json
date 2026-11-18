@@ -1,0 +1,28 @@
+{
+  "artist": "Denis Villeneuve, d’après Frank Herbert",
+  "work": "Dune",
+  "date": "2021",
+  "y": 2021.7,
+  "type": "Film",
+  "themes": [
+    "Destin",
+    "Pouvoir"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature",
+    "Scénographie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adaptation de la première moitié du roman de Frank Herbert (1965), avec Timothée Chalamet.",
+    "recap": "Paul Atréides suit sa famille sur Arrakis, planète désertique et seule source de l’Épice, la ressource la plus précieuse de l’univers. Un récit de {destin|Destin} et de {pouvoir|Pouvoir}, d’une ampleur visuelle rare."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 97,
+  "etoiles": 3
+}

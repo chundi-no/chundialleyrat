@@ -1,0 +1,28 @@
+{
+  "artist": "CD Projekt Red",
+  "work": "Cyberpunk 2077",
+  "date": "2020",
+  "y": 2020.95,
+  "type": "Jeu vidéo",
+  "themes": [
+    "Aliénation",
+    "Capitalisme",
+    "Technologie"
+  ],
+  "disc": [
+    "Jeu vidéo",
+    "Technologie et science"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Sorti en décembre 2020 après un lancement chaotique, le jeu a été corrigé pendant des années et complété par l’extension Phantom Liberty (2023).",
+    "recap": "À Night City, mégapole dominée par les corporations, V porte dans sa tête une puce qui abrite l’esprit de Johnny Silverhand, joué par Keanu Reeves. Une critique du {capitalisme|Capitalisme} et de l’{aliénation|Aliénation} par la {technologie|Technologie}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 65,
+  "etoiles": 5
+}

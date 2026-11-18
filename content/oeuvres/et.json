@@ -1,0 +1,27 @@
+{
+  "artist": "Steven Spielberg",
+  "work": "E.T. l’extra-terrestre",
+  "date": "1982",
+  "y": 1982.45,
+  "type": "Film",
+  "themes": [
+    "Enfance",
+    "Altérité",
+    "Amitié"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film de Steven Spielberg sorti en 1982.",
+    "recap": "Elliott, 10 ans, cache chez lui un extraterrestre oublié sur Terre et l’aide à rentrer chez lui. Une {amitié|Amitié} d’{enfance|Enfance} qui est aussi une leçon d’{altérité|Altérité}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 104,
+  "etoiles": 4
+}

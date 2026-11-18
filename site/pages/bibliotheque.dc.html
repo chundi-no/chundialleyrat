@@ -15,7 +15,7 @@
 :root:has(#page[data-theme="sombre"]){--fond:#08080B;--papier:#16171D;--accent:#6A45F5;--encre:#F1EFE8;--pale:#25272F;--pale2:#1D1F26;--trait:#3A3D48;--doux:#A6AAB8;--surfond:#F1EFE8}
 :root:has(#page[data-theme="girly"]){--fond:#FF5FA8;--papier:#FFF6FA;--accent:#C9B1FF;--encre:#4A0D33;--pale:#FFE1EF;--pale2:#FFEFF6;--trait:#F2C3D9;--doux:#8E4A72;--surfond:#FFFFFF}
 :root:has(#page[data-theme="noel"]){--fond:#B3121F;--papier:#FFFCF3;--accent:#F2C14E;--encre:#0E3B23;--pale:#E8F0E6;--pale2:#F3F7F1;--trait:#CFDCCB;--doux:#4F6B57;--surfond:#FFF6DC}
-:root:has(#page[data-theme="retro"]){--fond:#008080;--papier:#C0C0C0;--accent:#FFFF00;--encre:#000000;--pale:#DFDFDF;--pale2:#D4D0C8;--trait:#808080;--doux:#3A3A3A;--surfond:#FFFFFF}
+:root:has(#page[data-theme="retrofutur"]){--fond:#241A5E;--papier:#110D2B;--accent:#FF7A1A;--encre:#F6E9CC;--pale:#211A4F;--pale2:#19143D;--trait:#3D3480;--doux:#B7ABE0;--surfond:#F6E9CC}
 body{margin:0;background:var(--fond)}
 sc-for,sc-if{display:contents}
 button:focus-visible,input:focus-visible{outline:2px solid var(--fond);outline-offset:-2px}
@@ -65,23 +65,24 @@ input::placeholder{color:var(--doux);opacity:1}
 
 <div id="bandeau" style="position: sticky; top: 0; z-index: 30; margin: {{bandMargin}}; padding: 12px 12px 0; background: var(--fond)">
 <header style="background: var(--papier); box-sizing: border-box; padding: 8px 10px 8px 8px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--encre); font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">
-<a class="nom" href="/chundi-alleyrat" style="color: inherit; text-decoration: none; display: flex; align-items: center; min-height: 34px; padding: 0 8px; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: 0.01em">
-<span>[Chundi Alleyrat]</span>
+<a class="nom" href="/#cv" style="color: inherit; text-decoration: none; display: flex; align-items: center; min-height: 34px; padding: 0 8px; font-family: Archivo, Helvetica, Arial, sans-serif; font-stretch: 62%; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: 0.01em">
+<span>Chundi Alleyrat</span><span class="sous">bibliothèque personnelle</span>
 </a>
-<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 2px; margin-left: auto">
-<a href="/" style="color: inherit; text-decoration: none">[Accueil]</a>
-<a href="/bibliotheque" aria-current="page" style="color: inherit; text-decoration: none">[Bibliothèque]</a>
-<a id="lien-recherche" href="/explorer" title="Explorer et rechercher · raccourci : /" style="color: inherit; text-decoration: none">[Explorer]</a>
-<a href="/inspirations" style="color: inherit; text-decoration: none">[Inspirations]</a>
-<a href="/projets" style="color: inherit; text-decoration: none">[Projets]</a>
+<nav class="onglets" aria-label="Rubriques du site">
+<a href="/" data-rub="accueil" title="Présentation, CV, contact"><span class="n">00</span><span class="l">Accueil · CV</span></a>
+<a href="/projets" data-rub="projets" title="Ce que j’ai conçu et organisé"><span class="n">01</span><span class="l">Projets</span></a>
+<a href="/bibliotheque" data-rub="bibliotheque" aria-current="page" title="Tout le fonds, rangé par discipline et par date"><span class="n">02</span><span class="l">Bibliothèque</span></a>
+<a id="lien-recherche" href="/explorer" data-rub="explorer" title="Parcours guidés et chemin libre · raccourci : /"><span class="n">03</span><span class="l">Explorer</span></a>
+<a href="/inspirations" data-rub="inspirations" title="Outils, liens, sons et vidéos"><span class="n">04</span><span class="l">Inspirations</span></a>
 </nav>
 <div class="reglages" role="group" aria-label="Son et langue" style="display: flex; align-items: center; gap: 2px; margin-left: auto">
-<sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
-<button onClick="{{sonBascule}}" aria-pressed="{{sonOn}}" title="{{sonTitre}}" style="min-height: 28px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; opacity: {{sonOp}}">{{sonLabel}}</button>
+<sc-if value="{{sonBouton}}" hint-placeholder-val="{{ true }}">
+<button class="son" onClick="{{sonBascule}}" aria-pressed="{{sonOn}}" title="{{sonTitre}}" style="min-height: 28px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; opacity: {{sonOp}}"><svg class="son-icone" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6M22 9l-6 6"/></svg><span class="son-texte">{{sonLabel}}</span></button>
 </sc-if>
 <sc-if value="{{sonFichier}}" hint-placeholder-val="{{ false }}">
 <audio id="son-accueil" src="{{sonSrc}}" loop="{{sonBoucle}}" preload="auto" onPlay="{{sonJoue}}" onEnded="{{sonSuivant}}" onTimeUpdate="{{sonTemps}}"></audio>
 </sc-if>
+<a class="engrenage pas-imprime" href="/admin/" aria-label="Base de données et modération (réservé à Chundi)" title="Base de données · modération (réservé à Chundi)" style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; color: inherit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.5"/></svg></a>
 <span aria-label="Langue : français (anglais à venir)" style="display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; "><b style="font-weight: 500">FR</b>&#160;/&#160;<span style="color: var(--doux)">EN</span></span>
 </div>
 <div aria-label="Actualité" style="flex: 1 1 100%; min-width: 0; margin: 0 -10px -8px -8px; border-top: 1px solid var(--encre); overflow: hidden; background: var(--pale); padding: 8px 0; white-space: nowrap; font-size: 12px">
@@ -102,8 +103,9 @@ input::placeholder{color:var(--doux);opacity:1}
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 12px">
-<p style="margin: 0; background: var(--papier); box-sizing: border-box; padding: 14px 16px; font-size: 18px; line-height: 1.32; font-weight: 500">Toutes les œuvres, en cartels, triées par discipline. La partition, en bas, les range par ordre de parution. Ouvrez un cartel pour lire ses thèmes.</p>
+<sc-if value="{{hasCommon}}" hint-placeholder-val="{{ false }}">
 <p role="status" style="margin: 0; background: var(--accent); box-sizing: border-box; padding: 14px 16px; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.04; font-style: italic">{{commonLabel}}</p>
+</sc-if>
 <section id="proposer" aria-labelledby="proposer-titre" style="background: var(--papier); box-sizing: border-box; padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 8px">
 <h2 id="proposer-titre" style="margin: 0; font: inherit">
 <button onClick="{{toggleProposer}}" aria-expanded="{{proposerOpen}}" style="width: 100%; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px">
@@ -111,7 +113,6 @@ input::placeholder{color:var(--doux);opacity:1}
 <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">{{proposerHint}}</span>
 </button>
 </h2>
-<p style="margin: 0; font-size: 15px; line-height: 1.35">Une référence à me faire découvrir, une piste, un lien : je lis tout avant de l’accrocher.</p>
 <sc-if value="{{proposerOpen}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
 <p role="status" style="margin: 0; font-size: 17px">Reçue, merci. Je la lis avant de l’accrocher.</p>
@@ -135,7 +136,7 @@ input::placeholder{color:var(--doux);opacity:1}
 </section>
 </div>
 
-<div style="position: relative; z-index: 3; background: var(--papier); box-sizing: border-box; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px">
+<div class="barre-outils" style="position: sticky; top: var(--band-h, 0px); z-index: 20; background: var(--papier); box-sizing: border-box; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px">
 <div style="flex: 1 1 460px; max-width: 720px; min-width: 0; display: flex; align-items: stretch; border: 1px solid var(--encre)">
 <input id="recherche-mur" type="search" aria-label="Rechercher dans la bibliothèque (raccourci : /)" placeholder="Rechercher une œuvre, un artiste, un thème" title="Raccourci : /" value="{{q}}" onChange="{{search}}" style="flex: 1 1 auto; min-width: 0; box-sizing: border-box; min-height: 44px; padding: 0 12px; border: 0; border-radius: 0; background: transparent; color: inherit; font: inherit">
 <button onClick="{{toggleFiltres}}" aria-expanded="{{filtresOuverts}}" aria-controls="menu-filtres" style="flex: 0 0 auto; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 0; border-left: 1px solid var(--encre); background: {{filtresBg}}; color: {{filtresFg}}; font: inherit; text-transform: uppercase; cursor: pointer">Filtres{{filtresCompte}} <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform: rotate({{filtresRot}})"><path d="M2 4l4 4 4-4"/></svg></button>
@@ -144,6 +145,7 @@ input::placeholder{color:var(--doux);opacity:1}
 <button onClick="{{x.remove}}" aria-label="{{x.aria}}" style="min-height: 32px; padding: 0 10px; border: 0; background: var(--accent); color: var(--encre); font: inherit; font-size: 12px; cursor: pointer">{{x.label}} ×</button>
 </sc-for>
 <span role="status" style="margin-left: auto; font-size: 12px">{{addMsgBar}}</span>
+<button class="hasard" onClick="{{auHasard}}" title="Ouvrir une œuvre au hasard" style="min-height: 34px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer">[<span class="de" aria-hidden="true">⚄</span> Au hasard]</button>
 <a href="/admin/#/collections/oeuvres/new" title="Réservé à Chundi" style="min-height: 34px; display: inline-flex; align-items: center; color: inherit; text-decoration: none">[+ Ajouter une œuvre]</a>
 <sc-if value="{{filtresOuverts}}" hint-placeholder-val="{{ false }}">
 <div id="menu-filtres" role="region" aria-label="Filtres" style="position: absolute; left: 16px; right: 16px; top: calc(100% - 4px); background: var(--papier); border: 1px solid var(--encre); box-shadow: 0 0 0 8px var(--fond); box-sizing: border-box; padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 8px">
@@ -164,8 +166,13 @@ input::placeholder{color:var(--doux);opacity:1}
 </sc-for>
 <span aria-hidden="true">·</span>
 <button onClick="{{toggleFav}}" aria-pressed="{{favOnly}}" style="min-height: 34px; padding: 0; border: 0; background: transparent; color: {{favColor}}; font: inherit; text-decoration: {{favDeco}}; text-underline-offset: 3px; cursor: pointer">Favoris seulement</button>
+<span aria-hidden="true">·</span>
+<span>Note minimale :</span>
+<sc-for list="{{notes}}" as="n" hint-placeholder-count="6">
+<button onClick="{{n.pick}}" aria-pressed="{{n.on}}" aria-label="{{n.aria}}" style="min-height: 34px; padding: 0; border: 0; background: transparent; color: {{n.color}}; font: inherit; letter-spacing: 1px; text-decoration: {{n.deco}}; text-underline-offset: 3px; cursor: pointer">{{n.label}}</button>
+</sc-for>
 </div>
-<span title="/ : rechercher · ← → : œuvre précédente ou suivante · Échap : fermer">Clavier : / ← → Échap</span>
+
 </div>
 </div>
 </sc-if>
@@ -174,7 +181,7 @@ input::placeholder{color:var(--doux);opacity:1}
 <form onSubmit="{{addWork}}" aria-labelledby="ajout-titre" style="background: var(--papier); box-sizing: border-box; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px">
 <h2 id="ajout-titre" style="margin: 0; font-stretch: 62%; font-weight: 800; font-size: 26px; line-height: 1; text-transform: uppercase">Ajouter une œuvre</h2>
-<span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Réservé à Chundi · enregistré dans ce navigateur, à publier depuis l’engrenage de la page Chundi Alleyrat</span>
+<span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Réservé à Chundi · enregistré dans ce navigateur, à publier depuis l’engrenage du CV, sur la page d’accueil</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px 16px">
 <label style="display: flex; flex-direction: column; gap: 4px">Titre (ou nom de l’artiste, de la marque)
@@ -222,24 +229,27 @@ input::placeholder{color:var(--doux);opacity:1}
 
 <section class="mur" aria-label="Références" style="grid-template-columns: {{colsT}}; grid-template-rows: {{rowsT}}">
 <sc-for list="{{cards}}" as="r" hint-placeholder-count="11">
-<article id="{{r.dom}}" style="min-width: 0; overflow: {{r.overflow}}; scroll-margin-top: {{scrollTop}}; box-sizing: border-box; display: flex; flex-direction: column; background: {{r.bg}}">
+<article id="{{r.dom}}" data-hl="{{r.hl}}" data-vu="{{r.vu}}" onMouseEnter="{{r.enter}}" onMouseLeave="{{leave}}" style="position: relative; min-width: 0; overflow: {{r.overflow}}; scroll-margin-top: {{scrollTop}}; box-sizing: border-box; display: flex; flex-direction: column; align-self: {{r.align}}; background: {{r.bg}}">
 <h2 style="margin: 0; font: inherit">
 <button onClick="{{r.toggle}}" aria-expanded="{{r.open}}" style="width: 100%; box-sizing: border-box; padding: 12px 16px 8px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 4px">
 <span style="display: flex; justify-content: space-between; gap: 12px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">
-<span>{{r.cote}}</span>
+<span class="cote">{{r.cote}}</span>
 <span>{{r.typeLabel}}</span>
 </span>
 <span class="taille" style="font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-weight: 500; font-size: {{r.workSize}}; line-height: 1.04; overflow-wrap: anywhere">{{r.work}}</span>
 <span class="taille" style="font-stretch: 62%; font-weight: 700; font-size: {{r.artistSize}}; line-height: 1.15; text-transform: uppercase; letter-spacing: 0.02em; overflow-wrap: anywhere">{{r.artist}}</span>
-<span>{{r.date}}</span>
+<span style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 10px"><span>{{r.date}}</span><sc-if value="{{r.hasNote}}" hint-placeholder-val="{{ false }}"><span class="etoiles" role="img" aria-label="{{r.noteAria}}" title="{{r.noteAria}}" style="font-size: 15px; letter-spacing: 2px; color: var(--encre); white-space: nowrap">{{r.noteTxt}}</span></sc-if></span>
 </button>
 </h2>
 <sc-if value="{{r.open}}" hint-placeholder-val="{{ false }}">
 <div style="box-sizing: border-box; padding: 4px 16px 0; display: flex; flex-direction: column; gap: 12px">
+<sc-if value="{{r.hasAvis}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column">
 <h3 style="margin: 0; display: flex; justify-content: space-between; gap: 8px; padding: 6px 12px; background: var(--encre); color: var(--accent); font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em"><span>Avis personnel</span><span>{{r.avisLabel}}</span></h3>
 <p style="margin: 0; padding: 10px 12px 12px; background: var(--pale); font-family: Archivo, Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.45; text-wrap: pretty">{{r.avisText}}</p>
 </div>
+</sc-if>
+<sc-if value="{{r.hasPourquoiBloc}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--encre); padding-top: 10px">
 <h3 style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Pourquoi c’est ici</h3>
 <sc-if value="{{r.hasCitation}}" hint-placeholder-val="{{ false }}">
@@ -248,54 +258,57 @@ input::placeholder{color:var(--doux);opacity:1}
 <figcaption style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px">{{r.citationSrc}}</figcaption>
 </figure>
 </sc-if>
-<p style="margin: 0; font-size: 15px; line-height: 1.4">{{r.pourquoiText}}</p>
+<sc-if value="{{r.hasPourquoi}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 15px; line-height: 1.4">{{r.pourquoiText}}</p></sc-if>
 <sc-if value="{{r.hasBy}}" hint-placeholder-val="{{ false }}">
 <p style="margin: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Proposé par {{r.by}}</p>
 </sc-if>
 </div>
+</sc-if>
 <dl style="margin: 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 12px; font-size: 14px; border-top: 1px solid var(--encre); padding-top: 10px">
 <dt style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; padding-top: 1px">Disciplines</dt><dd style="margin: 0">{{r.tags}}</dd>
 </dl>
+<sc-if value="{{r.hasThemes}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column; border-top: 1px solid var(--encre)">
-<h3 style="margin: 0; padding-top: 10px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Thèmes de l’œuvre</h3>
+<h3 style="margin: 0; padding-top: 10px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; font-weight: 400">Thèmes</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 4px; padding-top: 6px">
 <sc-for list="{{r.themeLinks}}" as="t" hint-placeholder-count="3">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 12px; border-bottom: 1px solid var(--trait)">
-<button onClick="{{t.pick}}" style="min-height: 36px; padding: 0; border: 0; background: transparent; color: inherit; font-size: 14px; font-weight: 700; cursor: pointer">{{t.name}}</button>
-<sc-for list="{{t.works}}" as="w" hint-placeholder-count="2">
-<button onClick="{{w.pick}}" style="min-height: 36px; padding: 0; border: 0; background: transparent; color: inherit; font-family: 'Bodoni Moda', Didot, Georgia, serif; font-style: italic; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">{{w.label}}</button>
+<button onClick="{{t.pick}}" title="{{t.hint}}" style="min-height: 32px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font-size: 14px; font-weight: 700; cursor: pointer">{{t.name}} <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; font-weight: 400">{{t.count}}</span></button>
 </sc-for>
 </div>
-</sc-for>
-<sc-if value="{{r.noThemes}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 0; padding-top: 6px; font-size: 14px">Thèmes à écrire.</p>
+</div>
 </sc-if>
-</div>
 <sc-if value="{{r.hasInsp}}" hint-placeholder-val="{{ false }}">
 <p style="margin: 0; display: flex; flex-wrap: wrap; gap: 0 12px; font-size: 14px"><span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Inspirations liées</span><sc-for list="{{r.insp}}" as="i" hint-placeholder-count="1"><a href="/inspirations" onClick="{{i.go}}" style="color: inherit">{{i.title}}</a></sc-for></p>
 </sc-if>
-<a href="/explorer" onClick="{{r.explore}}" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; background: var(--encre); color: var(--accent); text-decoration: none; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">[Explorer depuis cette œuvre →]</a>
+<sc-if value="{{r.hasParcours}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; font-size: 14px"><span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">Dans les parcours guidés</span><sc-for list="{{r.parcours}}" as="p" hint-placeholder-count="1"><a href="/explorer" onClick="{{p.go}}" style="color: inherit">{{p.label}}</a></sc-for></p>
+</sc-if>
+<a href="/explorer" onClick="{{r.explore}}" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; background: var(--encre); color: var(--accent); text-decoration: none; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-transform: uppercase">[Rapprochements dans Explorer →]</a>
 </div>
 </sc-if>
-<label style="margin-top: auto; box-sizing: border-box; padding: 0 16px 4px; display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 13px; font-weight: 600; cursor: pointer">
-<input type="checkbox" checked="{{r.known}}" onChange="{{r.toggleKnown}}" style="width: 18px; height: 18px; margin: 0; accent-color: var(--encre)">
-Je connais
+<label class="connu" title="{{r.knownTitle}}" style="margin-top: auto; align-self: flex-end; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 40px; min-height: 40px; padding: 0 10px; font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; cursor: pointer">
+<span class="connu-txt">{{r.knownTxt}}</span>
+<input type="checkbox" checked="{{r.known}}" onChange="{{r.toggleKnown}}" aria-label="Je connais {{r.work}}" style="width: 16px; height: 16px; margin: 0; accent-color: var(--encre)">
 </label>
 </article>
 </sc-for>
 </section>
 
 <sc-if value="{{partitionOpen}}" hint-placeholder-val="{{ true }}">
-<aside aria-label="Partition des grandes disciplines" style="position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 25; background: var(--papier); box-sizing: border-box; padding: {{partPad}}; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 0 0 12px var(--fond)">
+<aside id="partition" aria-label="Partition des grandes disciplines" style="position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 25; background: var(--papier); box-sizing: border-box; padding: {{partPad}}; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 0 0 12px var(--fond)">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 18px">
 <h2 style="margin: 0; font-stretch: 62%; font-weight: 800; font-size: {{partTitle}}; line-height: 1; text-transform: uppercase">Partition</h2>
+<sc-if value="{{partMobile}}" hint-placeholder-val="{{ false }}"><button onClick="{{togglePartition}}" aria-controls="partition" style="order: 4; margin-left: auto; min-height: 32px; padding: 0 10px; border: 1px solid var(--encre); background: transparent; color: inherit; font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; cursor: pointer">Masquer</button></sc-if>
 <sc-if value="{{big}}" hint-placeholder-val="{{ false }}">
 <div role="group" aria-label="Zoom de la partition" style="order: 3; display: flex; gap: 4px">
 <button onClick="{{zoomOut}}" aria-label="Resserrer la partition" style="min-width: 32px; min-height: 28px; padding: 0; border: 1px solid var(--encre); background: transparent; color: inherit; font-size: 16px; line-height: 1; cursor: pointer">−</button>
 <button onClick="{{zoomIn}}" aria-label="Étirer la partition" style="min-width: 32px; min-height: 28px; padding: 0; border: 1px solid var(--encre); background: transparent; color: inherit; font-size: 16px; line-height: 1; cursor: pointer">+</button>
 </div>
 </sc-if>
+<button class="replier" onClick="{{replierPartition}}" aria-expanded="{{partDeplie}}" title="{{replierTitre}}" style="order: 5; min-width: 32px; min-height: 28px; padding: 0 8px; border: 1px solid var(--encre); background: transparent; color: inherit; font-family: 'DM Mono', ui-monospace, monospace; font-size: 14px; line-height: 1; cursor: pointer">{{replierSigne}}</button>
 <p aria-live="polite" style="margin: 0; flex: 1 1 260px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px">{{caption}}</p>
 </div>
+<sc-if value="{{partDeplie}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; align-items: flex-start">
 <div style="flex: 0 0 {{labW}}; padding-top: {{railTop}}; display: flex; flex-direction: column">
 <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
@@ -309,7 +322,7 @@ Je connais
 </sc-for>
 <sc-for list="{{eras}}" as="e" hint-placeholder-count="4">
 <span aria-hidden="true" style="position: absolute; left: {{e.x}}; top: 0; bottom: 0; width: 1px; background: {{e.line}}"></span>
-<span style="position: absolute; left: {{e.lx}}; top: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 10px; line-height: 14px; text-transform: uppercase; white-space: nowrap">{{e.label}}</span>
+<span style="position: absolute; left: {{e.lx}}; top: 0; font-family: 'DM Mono', ui-monospace, monospace; font-size: 10px; line-height: 14px; text-transform: uppercase; white-space: nowrap">{{e.text}}</span>
 </sc-for>
 <sc-for list="{{cols}}" as="c" hint-placeholder-count="11">
 <button id="{{c.dom}}" onClick="{{c.pick}}" onMouseEnter="{{c.enter}}" onMouseLeave="{{leave}}" onFocus="{{c.enter}}" onBlur="{{leave}}" aria-label="{{c.aria}}" aria-pressed="{{c.selected}}" style="position: absolute; left: {{c.left}}; top: 0; bottom: 0; width: {{chordW}}; padding: 0; border: 0; background: {{c.bg}}; color: {{c.color}}; cursor: pointer; opacity: {{c.op}}">
@@ -327,20 +340,25 @@ Je connais
 <sc-if value="{{needSlider}}" hint-placeholder-val="{{ true }}">
 <input id="curseur-frise" class="curseur" type="range" min="0" max="1000" step="1" value="0" onInput="{{slide}}" aria-label="Se déplacer dans la partition" style="margin-left: {{sliderLeft}}; width: calc(100% - {{sliderLeft}})">
 </sc-if>
+</sc-if>
 </aside>
+</sc-if>
+<sc-if value="{{showPartBtn}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{togglePartition}}" aria-expanded="false" aria-controls="partition" style="position: fixed; right: 16px; bottom: 16px; z-index: 25; min-height: 44px; padding: 0 16px; border: 0; background: var(--encre); color: var(--accent); font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; cursor: pointer">Afficher la partition</button>
 </sc-if>
 
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"cartelsTest":{"editor":"range","default":0,"min":0,"max":300,"step":10},"$preview":{"width":1440,"height":1900}}'>
 const DISC = ["Philosophie","Religions","Développement humain","Psychologie","Sociologie","Politique","Histoire et géopolitique","Économie","Finance","Marketing","Publicité","Écologie et consommation","Technologie et science","Littérature","Théâtre","Cinéma","Musique","Histoire de l’art","Design","Scénographie","Événementiel","Architecture","Rénovation","Bricolage","Immobilier","Horlogerie"];
+const PARCOURS = [];
 const FAMS = [
-{name:"Pensée",disc:["Philosophie","Religions","Psychologie","Développement humain"]},
-{name:"Société",disc:["Sociologie","Politique","Histoire et géopolitique"]},
-{name:"Économie",disc:["Économie","Finance","Marketing","Publicité","Écologie et consommation"]},
-{name:"Arts et lettres",disc:["Littérature","Théâtre","Cinéma","Musique","Histoire de l’art"]},
-{name:"Espace et design",disc:["Design","Scénographie","Événementiel","Architecture","Immobilier"]},
-{name:"Savoir-faire",disc:["Technologie et science","Horlogerie","Rénovation","Bricolage"]}
+{name:"Méditer",disc:["Philosophie","Religions","Psychologie","Développement humain"]},
+{name:"Comprendre",disc:["Sociologie","Politique","Histoire et géopolitique"]},
+{name:"Évaluer",disc:["Économie","Finance","Marketing","Publicité","Écologie et consommation","Immobilier"]},
+{name:"Interpréter",disc:["Littérature","Théâtre","Cinéma","Musique","Histoire de l’art"]},
+{name:"Concevoir",disc:["Design","Scénographie","Événementiel","Architecture"]},
+{name:"Expérimenter",disc:["Technologie et science","Horlogerie","Rénovation","Bricolage"]}
 ];
 const famOf = d => FAMS.findIndex(f => f.disc.includes(d));
 const CITED = [{"id":"siddhartha","artist":"Hermann Hesse","work":"Siddhartha","date":"1922","y":1922,"type":"Roman","themes":["Initiation","Quête spirituelle","Pensée orientale","Sagesse"],"disc":["Littérature","Philosophie","Religions","Développement humain"],"note":"Un roman d’initiation, un texte fondateur pour approcher la manière de penser bouddhiste et asiatique.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"tao","artist":"Lao Tseu","work":"Tao Te King","date":"Antiquité","y":-350,"type":"Texte fondateur","themes":["Texte fondateur","Quête spirituelle","Pensée orientale","Sagesse"],"disc":["Philosophie","Religions"],"note":"Un texte fondateur d’un courant de pensée civilisationnel et spirituel.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"bible","artist":"Auteurs multiples","work":"La Bible","date":"Antiquité","y":-1000,"type":"Texte fondateur","themes":["Texte fondateur","Quête spirituelle","Rédemption"],"disc":["Religions","Philosophie","Littérature","Histoire et géopolitique"],"note":"Un texte fondateur d’un courant de pensée civilisationnel et spirituel.","avisDate":"novembre 2026","citation":"Au commencement, Dieu créa les cieux et la terre.","citationSrc":"Genèse 1, 1 — trad. Louis Segond","pourquoi":"","by":""},{"id":"miserables","artist":"Victor Hugo","work":"Les Misérables","date":"1862","y":1862,"type":"Roman","themes":["Âme humaine","Justice sociale","Rédemption"],"disc":["Littérature","Histoire et géopolitique","Politique","Sociologie","Psychologie"],"note":"Un roman historique, particulièrement universel dans son approche de l’âme humaine, sa compréhension et son questionnement.","avisDate":"novembre 2026","citation":"Il n’y a ni mauvaises herbes ni mauvais hommes. Il n’y a que de mauvais cultivateurs.","citationSrc":"Victor Hugo, Les Misérables","pourquoi":"","by":""},{"id":"azur","artist":"Michel Ocelot","work":"Azur & Asmar","date":"2006","y":2006,"type":"Film d’animation","themes":["Innocence","Initiation","Altérité","Onirisme"],"disc":["Cinéma","Sociologie"],"note":"Une approche innocente mais juste, sans avoir peur des clichés.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"uniqlo","artist":"Marque japonaise","work":"Uniqlo","date":"Fondée en 1984","y":1984,"type":"Marque","themes":["Qualité perçue","Capitalisme","Minimalisme"],"disc":["Marketing","Économie","Écologie et consommation"],"note":"Sa stratégie commerciale et sa conquête par la qualité perçue.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"jlc","artist":"Manufacture horlogère","work":"Jaeger-LeCoultre","date":"Fondée en 1833","y":1833,"type":"Maison","themes":["Patrimoine","Aura","Image de marque"],"disc":["Horlogerie","Histoire de l’art","Marketing"],"note":"Son patrimoine et son aura.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"wilson","artist":"Œuvre phare : Einstein on the Beach","work":"Robert Wilson","date":"1976","y":1976,"type":"Metteur en scène","themes":["Lumière","Onirisme","Minimalisme"],"disc":["Théâtre","Scénographie","Histoire de l’art"],"note":"Son travail sur la lumière et les ambiances oniriques et minimalistes.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"evora","artist":"Œuvre phare : Miss Perfumado","work":"Cesária Évora","date":"1992","y":1992,"type":"Chanteuse","themes":["Exil","Mélancolie"],"disc":["Musique"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"stromae","artist":"Œuvre phare : Racine carrée","work":"Stromae","date":"2013","y":2013,"type":"Auteur-compositeur-interprète","themes":["Vision artistique","Image de marque","Humour"],"disc":["Musique","Design","Marketing"],"note":"Sa vision artistique, musicale et hors musicale.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"economix","artist":"Michael Goodwin, Dan E. Burr","work":"Economix","date":"2012","y":2012,"type":"Bande dessinée","themes":["Vulgarisation","Humour","Capitalisme"],"disc":["Économie","Politique","Histoire et géopolitique"],"note":"Une vulgarisation en BD, avec humour et consistance.","avisDate":"novembre 2026","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"freud","artist":"Sigmund Freud","work":"Cinq leçons sur la psychanalyse","date":"1910","y":1910,"type":"Essai","themes":["Inconscient","Âme humaine","Vulgarisation"],"disc":["Psychologie","Philosophie","Technologie et science"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"grimley","artist":"Chris Grimley, Mimi Love","work":"L’architecture d’intérieur","date":"2013","y":2013.1,"type":"Guide pratique","themes":["Aménagement de l’espace","Lumière"],"disc":["Architecture","Design","Rénovation","Bricolage"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"marron","artist":"Donald Marron","work":"3 minutes pour comprendre 50 notions fondamentales de la finance","date":"2020","y":2020,"type":"Essai illustré","themes":["Vulgarisation","Capitalisme"],"disc":["Finance","Économie"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"orwell","artist":"George Orwell","work":"La Ferme des animaux","date":"1945","y":1945,"type":"Fable","themes":["Pouvoir","Satire","Justice sociale"],"disc":["Littérature","Politique","Histoire et géopolitique"],"note":"","avisDate":"","citation":"Tous les animaux sont égaux, mais certains sont plus égaux que d’autres.","citationSrc":"George Orwell, La Ferme des animaux","pourquoi":"","by":""},{"id":"alain","artist":"Alain","work":"Propos sur le bonheur","date":"1925","y":1925,"type":"Essai","themes":["Bonheur","Sagesse"],"disc":["Philosophie","Développement humain","Psychologie"],"note":"","avisDate":"","citation":"Le pessimisme est d’humeur ; l’optimisme est de volonté.","citationSrc":"Alain, Propos sur le bonheur","pourquoi":"","by":""},{"id":"attali","artist":"Jacques Attali","work":"Le monde, modes d’emploi","date":"2024","y":2024,"type":"Essai","themes":["Mondialisation","Pouvoir","Vulgarisation"],"disc":["Économie","Politique","Histoire et géopolitique","Technologie et science"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"boniface","artist":"Pascal Boniface, Tommy","work":"Géostratégix, vol. 2","date":"2023","y":2023.5,"type":"Bande dessinée","themes":["Mondialisation","Pouvoir","Vulgarisation","Humour"],"disc":["Histoire et géopolitique","Politique"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"cigares","artist":"Hergé","work":"Les Cigares du pharaon","date":"1934","y":1934,"type":"Bande dessinée","themes":["Aventure","Altérité"],"disc":["Littérature","Histoire et géopolitique"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"lotus","artist":"Hergé","work":"Le Lotus bleu","date":"1936","y":1936,"type":"Bande dessinée","themes":["Aventure","Altérité","Pouvoir"],"disc":["Littérature","Histoire et géopolitique","Politique"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"debord","artist":"Guy Debord","work":"La Société du spectacle","date":"1967","y":1967,"type":"Essai","themes":["Société de consommation","Capitalisme","Aliénation"],"disc":["Philosophie","Sociologie","Politique","Publicité"],"note":"","avisDate":"","citation":"Le spectacle n’est pas un ensemble d’images, mais un rapport social entre des personnes, médiatisé par des images.","citationSrc":"Guy Debord, La Société du spectacle, thèse 4","pourquoi":"","by":""},{"id":"pouchkine","artist":"Alexandre Pouchkine","work":"Le Coup de pistolet","date":"1831","y":1831,"type":"Nouvelles","themes":["Destin","Honneur"],"disc":["Littérature"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"tchekhov","artist":"Anton Tchékhov","work":"Les Méfaits du tabac","date":"1886","y":1886,"type":"Théâtre","themes":["Humour","Absurde","Satire"],"disc":["Théâtre","Littérature"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"gary","artist":"Romain Gary","work":"La Promesse de l’aube","date":"1960","y":1960,"type":"Roman","fav":true,"themes":["Relation mère-fils","Enfance","Destin","Exil"],"disc":["Littérature","Psychologie","Histoire et géopolitique"],"note":"","avisDate":"","citation":"Avec l’amour maternel, la vie vous fait, à l’aube, une promesse qu’elle ne tient jamais.","citationSrc":"Romain Gary, La Promesse de l’aube","pourquoi":"","by":""},{"id":"larousse","artist":"Larousse","work":"L’économie en 101 infographies","date":"2024","y":2024.2,"type":"Guide illustré","themes":["Vulgarisation","Capitalisme"],"disc":["Économie","Design"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"camus","artist":"Albert Camus","work":"L’Étranger","date":"1942","y":1942,"type":"Roman","themes":["Absurde","Aliénation"],"disc":["Littérature","Philosophie"],"note":"","avisDate":"","citation":"Aujourd’hui, maman est morte.","citationSrc":"Albert Camus, L’Étranger, incipit","pourquoi":"","by":""},{"id":"kafka","artist":"Franz Kafka","work":"La Métamorphose","date":"1915","y":1915,"type":"Nouvelle","themes":["Absurde","Aliénation","Onirisme"],"disc":["Littérature","Psychologie","Philosophie"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"petitprince","artist":"Antoine de Saint-Exupéry","work":"Le Petit Prince","date":"1943","y":1943,"type":"Conte","themes":["Enfance","Innocence","Sagesse"],"disc":["Littérature","Philosophie","Développement humain"],"note":"","avisDate":"","citation":"On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux.","citationSrc":"Antoine de Saint-Exupéry, Le Petit Prince","pourquoi":"","by":""},{"id":"klapisch","artist":"Cédric Klapisch, d’après Mozart","work":"La Flûte enchantée","date":"2023","y":2023,"type":"Opéra, mise en scène","themes":["Initiation","Lumière","Onirisme"],"disc":["Musique","Théâtre","Scénographie"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""},{"id":"chollat","artist":"Ladislas Chollat, Théâtre du Châtelet","work":"Les Misérables","date":"2024","y":2024.8,"type":"Comédie musicale","themes":["Âme humaine","Justice sociale","Rédemption"],"disc":["Musique","Théâtre","Scénographie","Littérature"],"note":"","avisDate":"","citation":"","citationSrc":"","pourquoi":"","by":""}];
@@ -353,8 +371,8 @@ const test = n => Array.from({ length: n }, (_, i) => ({
   disc: [DISC[i % DISC.length], DISC[(i + 9) % DISC.length]],
   note: "Cartel fictif pour tester le mur à grande échelle."
 }));
-const ROW = 22, TOP = 34, BOTTOM = 40, CHORDS = [18, 26, 38], PART_H = 260, PART_S = 150, GAP = 12, CLOSED = "minmax(228px, auto)", OPEN = "minmax(560px, auto)";
-const WHITE = "var(--papier)", INK = "var(--encre)", BLUE = "var(--fond)", YELLOW = "var(--accent)";
+const ROW = 22, TOP = 34, BOTTOM = 40, CHORDS = [18, 26, 38], PART_H = 260, PART_S = 150, GAP = 12, CLOSED = "auto", OPEN = "auto";
+const WHITE = "var(--papier)", INK = "var(--encre)", BLUE = "var(--vif, var(--fond))", YELLOW = "var(--accent)";
 function montrerSousBandeau(id) {
   // Fait défiler le conteneur qui défile réellement (fenêtre ou bloc parent) pour que le haut
   // de l’élément arrive 12 px sous le bas réel du bandeau fixe. Corrigé une seconde fois au cas
@@ -369,8 +387,8 @@ function montrerSousBandeau(id) {
   const go = () => {
     const el = document.getElementById(id);
     if (!el) return;
-    const band = document.getElementById("bandeau");
-    const limit = (band ? band.getBoundingClientRect().bottom : 0) + 12;
+    const band = document.getElementById("bandeau"), barre = document.querySelector(".barre-outils");
+    const limit = Math.max(band ? band.getBoundingClientRect().bottom : 0, barre ? barre.getBoundingClientRect().bottom : 0) + 12;
     const delta = el.getBoundingClientRect().top - limit;
     if (Math.abs(delta) < 1) return;
     const sc = scroller(el);
@@ -444,7 +462,7 @@ class Component extends DCLogic {
     let on = true;
     try { on = localStorage.getItem("chundi-son") !== "coupe"; } catch (e) {}
     const pos = chundiLire("chundi-son-pos", {});
-    this.setState({ sonOn: on, sonPiste: pos.id || null });
+    this.setState({ sonOn: on, sonPiste: pos.id || null, amb: !!(window.chundiAmbiance && window.chundiAmbiance.voulu()) });
     // Relais : si une autre page jouait il y a un instant (changement de page), on reprend tout de suite.
     this.sonRelais = pos.at && Date.now() - pos.at < 6000 && pos.playing;
     const lancer = force => {
@@ -472,15 +490,15 @@ class Component extends DCLogic {
     this.setState({ sonPiste: id, sonOn: true }, () => requestAnimationFrame(() => { const a = document.getElementById("son-accueil"); if (a) { a.currentTime = 0; a.play().catch(() => {}); } }));
   }
   sonVals() {
-    const on = this.state.sonOn !== false;
+    const on = this.state.sonOn !== false, amb = !!this.state.amb;
     const liste = this.sonListe();
     const cur = liste.find(t => t.id === this.state.sonPiste) || liste[0] || null;
     return {
       theme: this.state.theme || "bleu",
-      sonOn: on, sonFichier: !!cur, sonSrc: cur ? (cur.fichier || "/_blob/" + cur.asset) : "", sonBoucle: liste.length === 1,
-      sonLabel: !cur ? "[Son : à venir]" : (on ? "[Son : on]" : "[Son : coupé]"),
-      sonTitre: cur ? "En cours : " + cur.title + " · cliquer pour couper ou remettre le son" : "Le son arrivera avec la playlist",
-      sonOp: cur ? "1" : "0.72",
+      sonOn: cur ? on : amb, sonBouton: true, sonFichier: !!cur, sonSrc: cur ? (cur.fichier || "/_blob/" + cur.asset) : "", sonBoucle: liste.length === 1,
+      sonLabel: !cur ? (amb ? "[Musique : on]" : "[Musique : off]") : (on ? "[Son : on]" : "[Son : coupé]"),
+      sonTitre: cur ? "En cours : " + cur.title + " · cliquer pour couper ou remettre le son" : (amb ? "Couper la musique d’ambiance" : "Lancer la musique d’ambiance"),
+      sonOp: "1",
       sonJoue: () => { try { localStorage.setItem("chundi-son-actif", this.sonMoi + ":" + Date.now()); } catch (e) {} },
       sonTemps: e => { const t = e.target; if (!this.sonDernier || Date.now() - this.sonDernier > 2000) { this.sonDernier = Date.now(); try { localStorage.setItem("chundi-son-pos", JSON.stringify({ id: cur && cur.id, t: t.currentTime, at: Date.now(), playing: !t.paused })); } catch (err) {} } },
       sonSuivant: () => {
@@ -489,6 +507,7 @@ class Component extends DCLogic {
         this.sonAller(liste[(k + 1) % liste.length].id);
       },
       sonBascule: () => {
+        if (!cur) { const v = !amb; if (window.chundiAmbiance) window.chundiAmbiance[v ? "on" : "off"](); this.setState({ amb: v }); return; }
         const next = !on;
         try { localStorage.setItem("chundi-son", next ? "on" : "coupe"); } catch (e) {}
         this.setState({ sonOn: next }, () => { const a = document.getElementById("son-accueil"); if (!a) return; if (next) a.play().catch(() => {}); else a.pause(); });
@@ -497,7 +516,7 @@ class Component extends DCLogic {
   }
   constructor(props) {
     super(props);
-    this.state = { sel: "siddhartha", hover: null, disc: null, q: "", known: {}, sent: false, vw: window.innerWidth, order: "date", seed: 1, favOnly: false, addOpen: false, added: [], newDisc: [], newThemes: [], newTheme: "", addMsg: "", zoom: 1 };
+    this.state = { sel: "siddhartha", hover: null, disc: null, q: "", known: chundiLire("chundi-connus", {}), vus: chundiLire("chundi-vus", {}), partRepli: chundiLire("chundi-partition-repliee", false), sent: false, vw: window.innerWidth, order: "date", seed: 1, favOnly: false, addOpen: false, added: [], newDisc: [], newThemes: [], newTheme: "", addMsg: "", zoom: 1 };
     this.onResize = () => this.setState({ vw: window.innerWidth });
   }
   measureBand() {
@@ -523,15 +542,25 @@ class Component extends DCLogic {
   componentWillUnmount() {
     this.sonGarder(); this.baseFin(); window.removeEventListener("resize", this.onResize); }
   componentDidUpdate(prevProps, prevState) {
+    if (prevState.known !== this.state.known) { try { localStorage.setItem("chundi-connus", JSON.stringify(this.state.known)); } catch (e) {} }
+    if (prevState.sel !== this.state.sel && this.state.sel && !this.state.vus[this.state.sel]) {
+      const vus = { ...this.state.vus, [this.state.sel]: 1 };
+      try { localStorage.setItem("chundi-vus", JSON.stringify(vus)); } catch (e) {}
+      this.setState({ vus });
+    }
     if (this.scrollTarget) {
       montrerSousBandeau("cartel-" + this.scrollTarget);
       this.scrollTarget = null;
     }
     this.measureBand();
     if (prevState.sel !== this.state.sel && this.state.sel) {
+      // Le cartel ouvert amène son point au centre de la partition
       const el = document.getElementById("accord-" + this.state.sel);
-      if (el && el.parentElement && el.parentElement.parentElement) {
-        el.parentElement.parentElement.scrollLeft = Math.max(0, el.offsetLeft - 90);
+      const rail = document.getElementById("rail-frise");
+      if (el && rail) {
+        const cible = Math.max(0, el.offsetLeft - rail.clientWidth / 2);
+        const doux = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (rail.scrollTo) rail.scrollTo({ left: cible, behavior: doux ? "smooth" : "auto" }); else rail.scrollLeft = cible;
       }
     }
   }
@@ -550,11 +579,12 @@ class Component extends DCLogic {
     const matchesSearch = r => !needle || fold([r.artist, r.work, r.type, r.date, ...r.themes, ...r.disc].join(" ")).includes(needle);
     const searched = wall.filter(matchesSearch);
     const fam = this.state.fam ?? null;
-    const shown = searched.filter(r => (!disc || r.disc.includes(disc)) && (fam === null || r.disc.some(d => famOf(d) === fam)) && (!this.state.favOnly || r.fav));
+    const shown = searched.filter(r => (!disc || r.disc.includes(disc)) && (fam === null || r.disc.some(d => famOf(d) === fam)) && (!this.state.favOnly || r.fav) && (!this.state.minNote || (r.etoiles || 0) >= this.state.minNote));
     const order = this.state.order;
     const ordered = shown.slice();
     if (order === "alpha") ordered.sort((a, b) => a.work.localeCompare(b.work, "fr"));
     if (order === "type") ordered.sort((a, b) => a.type.localeCompare(b.type, "fr") || a.y - b.y);
+    if (order === "note") ordered.sort((a, b) => (b.etoiles || 0) - (a.etoiles || 0) || a.y - b.y);
     if (order === "hasard") {
       let x = this.state.seed * 9301 + 49297;
       const rnd = () => { x = (x * 9301 + 49297) % 233280; return x / 233280; };
@@ -579,25 +609,37 @@ class Component extends DCLogic {
 
     const cards = ordered.map(r => {
       const open = r.id === sel;
-      const themeLinks = r.themes.map(name => ({
-        name,
-        pick: () => this.setState({ q: name, disc: null }),
-        works: wall.filter(o => o.id !== r.id && o.themes.includes(name)).slice(0, 4).map(o => ({ label: o.work, pick: openIt(o.id) }))
-      }));
+      const themeLinks = r.themes.map(name => {
+        const n = wall.filter(o => o.themes.includes(name)).length;
+        return { name, count: n, hint: "Afficher les " + n + " œuvres du thème « " + name + " »", pick: () => this.setState({ q: name, disc: null }) };
+      });
+      const inParcours = PARCOURS.map(p => ({ p, k: p.etapes.findIndex(e => e.oeuvre === r.id) })).filter(x => x.k >= 0);
       return {
         ...r, open, known: !!known[r.id], themeLinks, noThemes: themeLinks.length === 0,
         cote: r.disc[0].slice(0, 3).toUpperCase() + " " + num(r),
         typeLabel: r.fav ? "Favori · " + r.type : r.type,
         avisLabel: r.note && r.avisDate ? "Écrit en " + r.avisDate : "",
-        avisText: r.note || "À écrire.",
+        avisText: r.note || "",
         hasCitation: !!r.citation,
-        pourquoiText: r.pourquoi || "Ce que cette œuvre m’a apporté : à écrire.",
+        pourquoiText: r.pourquoi || "",
+        hasPourquoi: !!r.pourquoi, hasPourquoiBloc: !!(r.pourquoi || r.citation), hasAvis: !!r.note, hasThemes: themeLinks.length > 0,
         hasBy: !!r.by,
         insp: INSP.filter(i => i.oeuvre === r.id).map(i => ({ title: i.title, go: () => { try { localStorage.setItem("chundi-inspiration", i.id); } catch (e) {} } })),
         hasInsp: INSP.some(i => i.oeuvre === r.id),
         explore: () => { try { localStorage.setItem("chundi-explorer", r.id); } catch (e) {} },
+        hasParcours: inParcours.length > 0,
+        parcours: inParcours.map(({ p, k }) => ({ label: p.titre + " (étape " + (k + 1) + ")", go: () => { try { localStorage.setItem("chundi-parcours-ouvrir", p.id + "@" + k); } catch (e) {} } })),
         tags: r.disc.join(", "),
+        hasNote: (r.etoiles || 0) > 0,
+        noteTxt: "★".repeat(r.etoiles || 0) + "☆".repeat(5 - (r.etoiles || 0)),
+        noteAria: "Note : " + (r.etoiles || 0) + " sur 5",
         bg: known[r.id] ? YELLOW : WHITE,
+        hl: hover === r.id && !open ? "1" : "0",
+        align: !open && pos >= 0 && !single && Math.floor(ordered.indexOf(r) / nCols) === Math.floor(pos / nCols) ? "start" : "stretch",
+        vu: this.state.vus[r.id] && !open ? "1" : "0",
+        knownTxt: known[r.id] ? "connu" : "",
+        knownTitle: known[r.id] ? "Vous connaissez (décocher)" : "Je connais",
+        enter: () => { if (this.state.hover !== r.id) this.setState({ hover: r.id }); },
         overflow: "visible",
         artistSize: open ? "22px" : "14px",
         workSize: open ? "56px" : "30px",
@@ -643,9 +685,9 @@ class Component extends DCLogic {
         aria: r.work + ", " + r.artist + ", " + r.date,
         left: (i * CH) + "px",
         year: r.date.startsWith("Fondée en ") ? r.date.slice(10) : r.date === "Antiquité" ? "Ant." : r.date,
-        bg: selected ? "rgba(20,40,216,0.1)" : "transparent",
+        bg: selected ? "color-mix(in srgb, var(--vif, var(--fond)) 14%, transparent)" : hover === r.id ? "color-mix(in srgb, var(--accent) 55%, transparent)" : "transparent",
         color: selected ? BLUE : INK,
-        op: !selRef || selected || linked ? "1" : "0.32",
+        op: !selRef || selected || linked || hover === r.id ? "1" : "0.32",
         stemTop: y(min) + "px",
         stemH: (y(max) - y(min)) + "px",
         dots: idx.map(v => ({ top: y(v) + "px", size: (big ? 7 + 3 * Math.min(per[v], 3) : 7) + "px" })),
@@ -657,15 +699,19 @@ class Component extends DCLogic {
     const hoverRef = wall.find(r => r.id === hover) || selRef;
     let caption;
     if (hoverRef) caption = num(hoverRef) + " · " + hoverRef.work + " · " + hoverRef.date;
-    else caption = fam !== null ? FAMS[fam].name + " : " + FAMS[fam].disc.join(", ") + ". Recliquez pour tout afficher." : "De gauche à droite, par ordre de parution. Cliquez une grande discipline pour filtrer le mur.";
-    if (!big && !this.state.hover && fam === null) caption = "Par ordre de parution · cliquez une œuvre pour l’ouvrir";
+    else caption = fam !== null ? FAMS[fam].name + " : " + FAMS[fam].disc.join(", ") : "";
 
     const roman = n => ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"][n] || String(n);
     const eraOf = r => r.y < 0 ? "Antiq." : roman(Math.floor(r.y / 100) + 1) + "e s.";
     const eras = [];
+    let finTexte = -1e9;
     list.forEach((r, i) => {
       const e = eraOf(r);
-      if (!eras.length || eras[eras.length - 1].label !== e) eras.push({ label: e, x: (i * CH) + "px", lx: (i * CH + 3) + "px", line: i === 0 ? "transparent" : "color-mix(in srgb, var(--encre) 45%, transparent)" });
+      if (!eras.length || eras[eras.length - 1].label !== e) {
+        const x0 = i * CH + 3, lisible = x0 >= finTexte + 6;
+        if (lisible) finTexte = x0 + e.length * 6.4;
+        eras.push({ label: e, text: lisible ? e : "", x: (i * CH) + "px", lx: x0 + "px", line: i === 0 ? "transparent" : "color-mix(in srgb, var(--encre) 45%, transparent)" });
+      }
     });
     const allThemes = [...new Set(all.flatMap(r => r.themes))].sort((a, b) => a.localeCompare(b, "fr"));
     const commitTheme = () => {
@@ -693,12 +739,12 @@ class Component extends DCLogic {
         if (i >= 0 && j >= 0 && j < o.length) { e.preventDefault(); this.scrollTarget = o[j].id; this.setState({ sel: o[j].id }); }
       }
     };
-    const ORDERS = [["date", "Parution"], ["alpha", "Titre A → Z"], ["type", "Type"], ["hasard", "Hasard"]];
+    const ORDERS = [["date", "Parution"], ["note", "Note ★"], ["alpha", "Titre A → Z"], ["type", "Type"], ["hasard", "Hasard"]];
     const count = Object.values(known).filter(Boolean).length;
-    const commonLabel = count === 0 ? "Cochez ce que vous connaissez : aucune référence commune, pour l’instant." : count === 1 ? "1 référence en commun." : count + " références en commun.";
+    const commonLabel = count >= 20 ? count + " références en commun. À ce stade, c’est un café qu’il nous faut." : count >= 10 ? count + " références en commun. On a de quoi parler longtemps." : count >= 5 ? count + " références en commun : la conversation est lancée." : count === 1 ? "1 référence en commun." : count + " références en commun.";
     const proposerOpen = !!this.state.propose;
     return {
-      q, cards, filters, rows, cols, caption, commonLabel, colsT, rowsT,
+      q, cards, filters, rows, cols, caption, commonLabel, hasCommon: count > 0, colsT, rowsT,
       onKey, eras, chordW: CH + "px", railTop: TOPv + "px",
       zoomIn: () => this.setState({ zoom: Math.min(2, this.state.zoom + 1) }),
       zoomOut: () => this.setState({ zoom: Math.max(0, this.state.zoom - 1) }),
@@ -707,6 +753,10 @@ class Component extends DCLogic {
         return { label, on, color: on ? BLUE : INK, deco: on ? "underline" : "none", pick: () => this.setState({ order: v, seed: v === "hasard" ? this.state.seed + 1 : this.state.seed }) };
       }),
       favOnly: this.state.favOnly,
+      notes: [0, 1, 2, 3, 4, 5].map(v => {
+        const on = (this.state.minNote || 0) === v;
+        return { label: v ? "★".repeat(v) : "Toutes", aria: v ? "Afficher les œuvres notées " + v + (v < 5 ? " étoiles ou plus" : " étoiles") : "Toutes les notes", on, color: on ? BLUE : INK, deco: on ? "underline" : "none", pick: () => this.setState({ minNote: v }) };
+      }),
       favColor: this.state.favOnly ? BLUE : INK,
       favDeco: this.state.favOnly ? "underline" : "none",
       toggleFav: () => this.setState({ favOnly: !this.state.favOnly }),
@@ -714,9 +764,10 @@ class Component extends DCLogic {
       toggleFiltres: () => this.setState({ filtresOuverts: !this.state.filtresOuverts }),
       filtresBg: this.state.filtresOuverts ? "var(--encre)" : "transparent", filtresFg: this.state.filtresOuverts ? "var(--accent)" : "var(--encre)",
       filtresRot: this.state.filtresOuverts ? "180deg" : "0deg",
-      filtresCompte: (disc ? 1 : 0) + (this.state.favOnly ? 1 : 0) ? " (" + ((disc ? 1 : 0) + (this.state.favOnly ? 1 : 0)) + ")" : "",
+      filtresCompte: (() => { const k = (disc ? 1 : 0) + (this.state.favOnly ? 1 : 0) + (this.state.minNote ? 1 : 0); return k ? " (" + k + ")" : ""; })(),
       actifs: [
         ...(disc ? [{ label: disc, aria: "Retirer le filtre " + disc, remove: () => this.setState({ disc: null }) }] : []),
+        ...(this.state.minNote ? [{ label: "★".repeat(this.state.minNote) + (this.state.minNote < 5 ? " et +" : ""), aria: "Retirer le filtre de note", remove: () => this.setState({ minNote: 0 }) }] : []),
         ...(this.state.favOnly ? [{ label: "Favoris", aria: "Retirer le filtre Favoris", remove: () => this.setState({ favOnly: false }) }] : [])
       ],
       addOpen: this.state.addOpen,
@@ -750,10 +801,26 @@ class Component extends DCLogic {
         this.setState({ newDisc: [], newThemes: [], newTheme: "", addMsg: "", addOpen: false, filtresOuverts: false, sel: id, disc: null, q: "", favOnly: false });
       },
       search: e => this.setState({ q: e.target.value }),
+      auHasard: () => {
+        const o = (this.ordered || []).filter(r => r.id !== this.state.sel);
+        if (!o.length) return;
+        const pas = o.filter(r => !this.state.vus[r.id]);
+        const pool = pas.length ? pas : o;
+        const r = pool[Math.floor(Math.random() * pool.length)];
+        this.scrollTarget = r.id;
+        this.setState({ sel: r.id });
+      },
+      partDeplie: !this.state.partRepli || vw < 700,
+      replierSigne: this.state.partRepli ? "+" : "−",
+      replierTitre: this.state.partRepli ? "Déplier la partition" : "Replier la partition",
+      replierPartition: () => { const v = !this.state.partRepli; try { localStorage.setItem("chundi-partition-repliee", JSON.stringify(v)); } catch (e) {} this.setState({ partRepli: v }); },
       pagePad: "12px",
       scrollTop: ((this.state.bandH || 64) + 12) + "px",
-      partitionOpen: true,
-      pageBottom: (PART_S + 24) + "px",
+      partitionOpen: vw >= 700 || !!this.state.partOn,
+      partMobile: vw < 700,
+      showPartBtn: vw < 700 && !this.state.partOn,
+      togglePartition: () => this.setState({ partOn: !this.state.partOn }),
+      pageBottom: (vw < 700 && !this.state.partOn ? 76 : PART_S + 24) + "px",
       big, labDisp: big ? "block" : "none",
       labW: big ? "150px" : "112px", rowH: big ? "22px" : "13px", labFs: big ? "15px" : "12px",
       partPad: big ? "10px 14px 8px" : "6px 14px 4px", partTitle: big ? "24px" : "15px",
@@ -771,7 +838,7 @@ class Component extends DCLogic {
       railH: (TOPv + FAMS.length * ROWv + BOTv) + "px",
       leave: () => this.setState({ hover: null }),
       proposerOpen,
-      proposerHint: proposerOpen ? "Fermer" : "Ouvrir",
+      proposerHint: proposerOpen ? "−" : "+",
       toggleProposer: () => this.setState({ propose: !this.state.propose }),
       sendErr: !!this.state.sendErr,
       sent: this.state.sent, notSent: !this.state.sent,

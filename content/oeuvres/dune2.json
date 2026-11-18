@@ -1,0 +1,29 @@
+{
+  "artist": "Denis Villeneuve, d’après Frank Herbert",
+  "work": "Dune : deuxième partie",
+  "date": "2024",
+  "y": 2024.15,
+  "type": "Film",
+  "themes": [
+    "Destin",
+    "Pouvoir",
+    "Manipulation"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature",
+    "Religions"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Suite et fin de l’adaptation du premier roman de Frank Herbert, sortie en 2024.",
+    "recap": "Paul s’allie aux Fremen du désert, qui voient en lui un messie. Le film interroge la {manipulation|Manipulation} des croyances et le prix du {pouvoir|Pouvoir} quand on accepte son {destin|Destin}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 98,
+  "etoiles": 4
+}

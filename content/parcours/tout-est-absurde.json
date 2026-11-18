@@ -1,0 +1,27 @@
+{
+  "titre": "Tout est absurde ?",
+  "accroche": "De l’éclat de rire au malaise : cinq façons de regarder une vie qui n’a pas de sens donné.",
+  "ordre": 2,
+  "etapes": [
+    {
+      "oeuvre": "tchekhov",
+      "liaison": "On commence par en rire : un conférencier censé parler du tabac finit par parler de sa vie ratée."
+    },
+    {
+      "oeuvre": "funerailles",
+      "liaison": "Le rire devient noir : chez Hanokh Levin, un enterrement et un mariage tombent le même jour, et rien ne se passe comme prévu."
+    },
+    {
+      "oeuvre": "kafka",
+      "liaison": "Le rire se fige : Gregor Samsa se réveille changé en insecte, et sa famille ne voit plus en lui qu’un fardeau."
+    },
+    {
+      "oeuvre": "camus",
+      "liaison": "L’absurde devient une manière de penser : Meursault traverse sa propre vie sans y adhérer."
+    },
+    {
+      "oeuvre": "debord",
+      "liaison": "Pour finir, l’aliénation à l’échelle d’une société : quand l’image prend la place de la vie."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "artist": "George Miller",
+  "work": "Mad Max : Fury Road",
+  "date": "2015",
+  "y": 2015.4,
+  "type": "Film",
+  "themes": [
+    "Survie",
+    "Liberté"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Quatrième Mad Max, trente ans après le précédent ; le film remporte six Oscars techniques.",
+    "recap": "Dans un désert sans eau, Max et l’Impératrice Furiosa fuient le tyran Immortan Joe avec les femmes qu’il retient captives. Deux heures de course-poursuite, de {survie|Survie} et de {liberté|Liberté}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 84,
+  "etoiles": 4
+}

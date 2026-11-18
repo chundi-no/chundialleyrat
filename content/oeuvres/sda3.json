@@ -1,0 +1,28 @@
+{
+  "artist": "Peter Jackson, d’après J. R. R. Tolkien",
+  "work": "Le Seigneur des anneaux : le Retour du roi",
+  "date": "2003",
+  "y": 2003.95,
+  "type": "Film",
+  "themes": [
+    "Rédemption",
+    "Amitié",
+    "Pouvoir"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Dernier volet de la trilogie, onze Oscars en 2004, dont celui du meilleur film, un record partagé avec Ben-Hur et Titanic.",
+    "recap": "Aragorn accepte enfin d’être roi pendant que Frodon, épuisé, gravit la Montagne du Destin. Une histoire de {rédemption|Rédemption} et de renoncement au {pouvoir|Pouvoir}, où l’{amitié|Amitié} de Sam porte littéralement le héros."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 127,
+  "etoiles": 2
+}

@@ -1,0 +1,31 @@
+{
+  "titre": "Grandir, pour de vrai",
+  "accroche": "Six récits sur le moment où l’enfance s’arrête, du Mississippi à la tête d’une enfant de 11 ans.",
+  "ordre": 6,
+  "etapes": [
+    {
+      "oeuvre": "tomsawyer",
+      "liaison": "Le point de départ : l’enfance comme terrain de jeu sans limites, jusqu’au jour où l’on voit ce qu’on n’aurait pas dû voir."
+    },
+    {
+      "oeuvre": "standbyme",
+      "liaison": "Un siècle plus tard, quatre garçons partent voir un cadavre et reviennent un peu moins enfants."
+    },
+    {
+      "oeuvre": "naruto",
+      "liaison": "Grandir, c’est aussi se faire accepter : l’orphelin que tout le village rejette veut devenir le meilleur."
+    },
+    {
+      "oeuvre": "erased",
+      "liaison": "Et si on pouvait revenir à 10 ans pour réparer ce qui s’est mal passé ?"
+    },
+    {
+      "oeuvre": "viceversa",
+      "liaison": "Ce qui se passe à l’intérieur : quand Joie doit laisser de la place à Tristesse."
+    },
+    {
+      "oeuvre": "fabelmans",
+      "liaison": "Pour finir, Spielberg raconte sa propre enfance : c’est en filmant sa famille qu’il comprend ce qu’elle cache."
+    }
+  ]
+}

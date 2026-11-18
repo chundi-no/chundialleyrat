@@ -1,0 +1,27 @@
+{
+  "artist": "Steven Spielberg",
+  "work": "Jurassic Park",
+  "date": "1993",
+  "y": 1993.45,
+  "type": "Film",
+  "themes": [
+    "Technologie",
+    "Aventure"
+  ],
+  "disc": [
+    "Cinéma",
+    "Technologie et science"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de Michael Crichton (1990), le film de 1993 change les effets spéciaux en faisant entrer les images de synthèse.",
+    "recap": "Un milliardaire ressuscite des dinosaures pour un parc d’attractions, jusqu’à ce que tout lui échappe. Une {aventure|Aventure} qui interroge les limites de la {technologie|Technologie}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 103,
+  "etoiles": 4
+}

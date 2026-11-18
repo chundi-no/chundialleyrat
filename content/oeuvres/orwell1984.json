@@ -1,0 +1,28 @@
+{
+  "artist": "George Orwell",
+  "work": "1984",
+  "date": "1949",
+  "y": 1949,
+  "type": "Roman",
+  "themes": [
+    "Pouvoir",
+    "Manipulation",
+    "Liberté"
+  ],
+  "disc": [
+    "Littérature",
+    "Politique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Dernier roman de George Orwell, publié en 1949, quatre ans après La Ferme des animaux.",
+    "recap": "En Océania, Big Brother surveille tout, le passé est réécrit chaque jour et la novlangue réduit ce qu’on peut penser. Winston Smith tente de résister : un roman sur le {pouvoir|Pouvoir} total, la {manipulation|Manipulation} et la {liberté|Liberté} intérieure."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 80,
+  "etoiles": 1
+}

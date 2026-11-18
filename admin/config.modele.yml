@@ -51,6 +51,17 @@ collections:
 __DISCIPLINES__
       - { label: "Thèmes", name: themes, widget: list, allow_add: true, hint: "Séparés par des virgules. Les œuvres qui partagent un thème sont reliées dans Explorer.", required: false }
       - { label: "Favori", name: fav, widget: boolean, default: false, required: false }
+      - label: "Note"
+        name: etoiles
+        widget: select
+        required: false
+        hint: "De une à cinq étoiles. Laisser vide si l’œuvre n’est pas encore notée. Sert au tri « Note » et au filtre « Note minimale » de la bibliothèque."
+        options:
+          - { label: "★☆☆☆☆  1 / 5", value: 1 }
+          - { label: "★★☆☆☆  2 / 5", value: 2 }
+          - { label: "★★★☆☆  3 / 5", value: 3 }
+          - { label: "★★★★☆  4 / 5", value: 4 }
+          - { label: "★★★★★  5 / 5", value: 5 }
       - { label: "Avis personnel", name: avis, widget: text, required: false }
       - { label: "Date de l’avis", name: avisDate, widget: string, required: false, hint: "Ex. novembre 2026" }
       - { label: "Pourquoi c’est ici", name: pourquoi, widget: text, required: false }
@@ -88,6 +99,31 @@ __DISCIPLINES__
       - { label: "Image d’illustration", name: img, widget: image, required: false }
       - { label: "Fichier audio (MP3)", name: media, widget: file, required: false, hint: "Seulement pour le type Audio." }
       - { label: "Œuvre liée", name: oeuvre, widget: relation, collection: oeuvres, value_field: "{{slug}}", search_fields: ["work", "artist"], display_fields: ["{{work}} — {{artist}}"], required: false }
+      - { label: "Ordre d’affichage", name: ordre, widget: number, value_type: int, required: false }
+
+  - name: parcours
+    label: Parcours guidés
+    label_singular: parcours
+    description: "Les parcours de la page Explorer : une suite d’œuvres de la bibliothèque, chacune avec une phrase de liaison. Deux étapes au moins."
+    folder: content/parcours
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: titre
+    slug: "{{titre}}"
+    summary: "{{titre}}"
+    fields:
+      - { label: "Titre du parcours", name: titre, widget: string }
+      - { label: "Accroche · une phrase", name: accroche, widget: string, required: false }
+      - label: "Étapes, dans l’ordre"
+        name: etapes
+        widget: list
+        min: 2
+        summary: "{{fields.oeuvre}}"
+        fields:
+          - { label: "Œuvre", name: oeuvre, widget: relation, collection: oeuvres, value_field: "{{slug}}", search_fields: ["work", "artist"], display_fields: ["{{work}} — {{artist}}"] }
+          - { label: "Liaison · pourquoi cette œuvre ici", name: liaison, widget: text, required: false }
       - { label: "Ordre d’affichage", name: ordre, widget: number, value_type: int, required: false }
 
   - name: projets

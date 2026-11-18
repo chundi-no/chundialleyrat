@@ -1,0 +1,27 @@
+{
+  "artist": "Jonathan Demme",
+  "work": "Le Silence des agneaux",
+  "date": "1991",
+  "y": 1991.1,
+  "type": "Film",
+  "themes": [
+    "Enquête",
+    "Manipulation"
+  ],
+  "disc": [
+    "Cinéma",
+    "Psychologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de Thomas Harris, le film remporte en 1992 les cinq Oscars principaux, dont celui du meilleur film.",
+    "recap": "Clarice Starling, jeune recrue du FBI, sollicite le docteur Hannibal Lecter, psychiatre cannibale, pour traquer un tueur en série. Une {enquête|Enquête} qui est surtout un duel de {manipulation|Manipulation}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 87,
+  "etoiles": 4
+}

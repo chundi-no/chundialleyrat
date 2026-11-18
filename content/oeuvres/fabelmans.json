@@ -1,0 +1,27 @@
+{
+  "artist": "Steven Spielberg",
+  "work": "The Fabelmans",
+  "date": "2022",
+  "y": 2022.9,
+  "type": "Film",
+  "themes": [
+    "Vocation",
+    "Famille",
+    "Enfance"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film le plus personnel de Steven Spielberg, inspiré de sa propre jeunesse, sorti en 2022.",
+    "recap": "Sammy découvre le cinéma enfant et filme sa famille, jusqu’à voir à travers sa caméra ce que personne ne voit. Une {vocation|Vocation} qui naît de l’{enfance|Enfance} et d’une {famille|Famille} qui se défait."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 86,
+  "etoiles": 3
+}

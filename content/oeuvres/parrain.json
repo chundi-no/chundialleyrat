@@ -1,0 +1,28 @@
+{
+  "artist": "Francis Ford Coppola",
+  "work": "Le Parrain",
+  "date": "1972",
+  "y": 1972,
+  "type": "Film",
+  "themes": [
+    "Pouvoir",
+    "Famille",
+    "Honneur"
+  ],
+  "disc": [
+    "Cinéma",
+    "Sociologie"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté du roman de Mario Puzo, le film sort en 1972 et remporte l’Oscar du meilleur film.",
+    "recap": "Michael, le fils qui voulait rester à l’écart, prend peu à peu la tête de la famille Corleone. Une tragédie du {pouvoir|Pouvoir}, où la {famille|Famille} et l’{honneur|Honneur} justifient tout."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 46,
+  "etoiles": 4
+}

@@ -1,0 +1,27 @@
+{
+  "artist": "John Lasseter, Pixar",
+  "work": "Cars 2",
+  "date": "2011",
+  "y": 2011.5,
+  "type": "Film d’animation",
+  "themes": [
+    "Amitié",
+    "Aventure",
+    "Humour"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Suite de Cars, sortie en 2011.",
+    "recap": "Flash McQueen part disputer un grand prix mondial ; Martin, la dépanneuse, se retrouve pris pour un espion. Une {aventure|Aventure} d’{humour|Humour} et d’{amitié|Amitié}, entre Tokyo, Paris et Londres."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 94,
+  "etoiles": 5
+}

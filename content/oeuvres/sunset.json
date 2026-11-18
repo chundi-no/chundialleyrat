@@ -1,0 +1,26 @@
+{
+  "artist": "Concert au Sunset, rue des Lombards",
+  "work": "Angelo Debarre, Adrien Moignard, William Brunard",
+  "date": "2026",
+  "y": 2026.05,
+  "type": "Concert",
+  "themes": [
+    "Improvisation",
+    "Patrimoine"
+  ],
+  "disc": [
+    "Musique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Le Sunset, fondé au début des années 1980, est le premier club de jazz de la rue des Lombards, à Châtelet ; le trio y joue un répertoire de jazz manouche en hommage à Django Reinhardt.",
+    "recap": "Deux guitares, Angelo Debarre et Adrien Moignard, et la contrebasse de William Brunard : le swing manouche joué de près, dans une cave voûtée. Une musique d’{improvisation|Improvisation} qui fait vivre un {patrimoine|Patrimoine} né dans les années 1930."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 33,
+  "etoiles": 3
+}

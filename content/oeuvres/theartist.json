@@ -1,0 +1,27 @@
+{
+  "artist": "Michel Hazanavicius",
+  "work": "The Artist",
+  "date": "2011",
+  "y": 2011.8,
+  "type": "Film",
+  "themes": [
+    "Vision artistique",
+    "Mélancolie"
+  ],
+  "disc": [
+    "Cinéma",
+    "Histoire de l’art"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film muet en noir et blanc, avec Jean Dujardin ; cinq Oscars en 2012, dont celui du meilleur film.",
+    "recap": "Hollywood, 1927 : George Valentin, star du muet, est balayé par l’arrivée du parlant. Une {vision artistique|Vision artistique} qui rend hommage au cinéma de l’époque, avec beaucoup de {mélancolie|Mélancolie}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 101,
+  "etoiles": 4
+}

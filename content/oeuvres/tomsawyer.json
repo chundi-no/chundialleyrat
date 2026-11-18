@@ -1,0 +1,27 @@
+{
+  "artist": "Mark Twain",
+  "work": "Les Aventures de Tom Sawyer",
+  "date": "1876",
+  "y": 1876,
+  "type": "Roman",
+  "themes": [
+    "Enfance",
+    "Aventure",
+    "Liberté"
+  ],
+  "disc": [
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Roman de Mark Twain publié en 1876 ; son ami Huckleberry Finn aura droit à son propre livre en 1884.",
+    "recap": "Sur les bords du Mississippi, Tom Sawyer, gamin malin et menteur, fait l’école buissonnière, cherche un trésor et assiste par hasard à un meurtre. L’{enfance|Enfance} comme terrain d’{aventure|Aventure} et de {liberté|Liberté}, avec une pointe de satire de l’Amérique sudiste."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 120,
+  "etoiles": 1
+}

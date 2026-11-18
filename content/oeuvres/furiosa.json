@@ -1,0 +1,26 @@
+{
+  "artist": "George Miller",
+  "work": "Furiosa : une saga Mad Max",
+  "date": "2024",
+  "y": 2024.4,
+  "type": "Film",
+  "themes": [
+    "Vengeance",
+    "Survie"
+  ],
+  "disc": [
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Préquelle de Fury Road, sortie en 2024, avec Anya Taylor-Joy et Chris Hemsworth.",
+    "recap": "Enlevée enfant à sa terre verte, Furiosa grandit dans le désert avec une seule idée : rentrer et se venger. L’histoire d’une {vengeance|Vengeance} patiente et d’une {survie|Survie}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 85,
+  "etoiles": 5
+}

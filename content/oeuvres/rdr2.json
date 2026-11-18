@@ -1,0 +1,28 @@
+{
+  "artist": "Rockstar Games",
+  "work": "Red Dead Redemption 2",
+  "date": "2018",
+  "y": 2018.8,
+  "type": "Jeu vidéo",
+  "themes": [
+    "Rédemption",
+    "Honneur",
+    "Mélancolie"
+  ],
+  "disc": [
+    "Jeu vidéo",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Sorti en octobre 2018, le jeu de Rockstar raconte la fin de l’Ouest sauvage, en 1899.",
+    "recap": "Arthur Morgan, hors-la-loi du gang de Dutch van der Linde, voit son monde disparaître sous l’avancée de la civilisation. Une quête de {rédemption|Rédemption} sur le code de l’{honneur|Honneur}, d’une {mélancolie|Mélancolie} rare."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 61,
+  "etoiles": 4
+}

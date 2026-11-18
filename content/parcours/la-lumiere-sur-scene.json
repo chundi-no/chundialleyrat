@@ -1,0 +1,31 @@
+{
+  "titre": "La lumière sur scène",
+  "accroche": "Du théâtre d’images à l’intérieur d’une pièce : la lumière comme matière première de l’espace.",
+  "ordre": 3,
+  "etapes": [
+    {
+      "oeuvre": "wilson",
+      "liaison": "Le point de départ : un théâtre d’images, lent et minimaliste, où la lumière écrit autant que le texte."
+    },
+    {
+      "oeuvre": "turandot",
+      "liaison": "Wilson en pratique : sa Turandot à Bastille, où les murs de lumière jouent autant que les chanteurs."
+    },
+    {
+      "oeuvre": "cendrillon",
+      "liaison": "Autre maison, autre ballet : chez Maguy Marin, la scène devient une maison de poupée éclairée comme un rêve d’enfant."
+    },
+    {
+      "oeuvre": "klapisch",
+      "liaison": "Un cinéaste passe à l’opéra : La Flûte enchantée, un conte qui va de la nuit vers la lumière."
+    },
+    {
+      "oeuvre": "chollat",
+      "liaison": "Changement d’échelle : une grande comédie musicale au Châtelet, la scénographie au service d’un récit populaire."
+    },
+    {
+      "oeuvre": "grimley",
+      "liaison": "Retour à la maison : comment la lumière et l’aménagement transforment une pièce."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "artist": "James Cameron",
+  "work": "Avatar",
+  "date": "2009",
+  "y": 2009.95,
+  "type": "Film",
+  "themes": [
+    "Altérité",
+    "Écologie"
+  ],
+  "disc": [
+    "Cinéma",
+    "Écologie et consommation",
+    "Technologie et science"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Sorti en 2009, le film relance la 3D au cinéma et devient le plus gros succès de l’histoire du box-office.",
+    "recap": "Sur Pandora, Jake Sully, soldat paraplégique, pilote le corps d’un Na’vi et finit par épouser la cause du peuple qu’il devait chasser. Une fable sur l’{altérité|Altérité} et l’{écologie|Écologie}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 105,
+  "etoiles": 5
+}

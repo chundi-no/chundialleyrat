@@ -1,0 +1,31 @@
+{
+  "titre": "Partir pour se trouver",
+  "accroche": "Six récits où l’on quitte son monde pour comprendre qui l’on est.",
+  "ordre": 1,
+  "etapes": [
+    {
+      "oeuvre": "siddhartha",
+      "liaison": "Le point de départ : le fils d’un brahmane quitte tout pour chercher la sagesse par lui-même."
+    },
+    {
+      "oeuvre": "alchimiste",
+      "liaison": "Même quête, en conte : un berger andalou traverse le désert pour suivre son rêve, et découvre que le trésor était ailleurs."
+    },
+    {
+      "oeuvre": "petitprince",
+      "liaison": "Même voyage, autre voix : un enfant venu d’une autre planète apprend ce qui compte en rencontrant les adultes."
+    },
+    {
+      "oeuvre": "azur",
+      "liaison": "L’initiation devient rencontre de l’autre : deux frères de lait traversent la mer et changent de regard."
+    },
+    {
+      "oeuvre": "klapisch",
+      "liaison": "Dernière étape, sur scène : chez Mozart, Tamino traverse des épreuves pour passer de la nuit à la lumière."
+    },
+    {
+      "oeuvre": "odyssee",
+      "liaison": "Le voyage d’origine, revu par Nolan : Ulysse met dix ans à rentrer chez lui, et ne revient pas tel qu’il est parti."
+    }
+  ]
+}

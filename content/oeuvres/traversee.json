@@ -1,0 +1,27 @@
+{
+  "artist": "Claude Autant-Lara",
+  "work": "La Traversée de Paris",
+  "date": "1956",
+  "y": 1956,
+  "type": "Film",
+  "themes": [
+    "Satire",
+    "Humour"
+  ],
+  "disc": [
+    "Cinéma",
+    "Histoire et géopolitique"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adapté d’une nouvelle de Marcel Aymé, avec Jean Gabin, Bourvil et Louis de Funès, sorti en 1956.",
+    "recap": "Sous l’Occupation, deux hommes traversent Paris la nuit avec des valises de porc destinées au marché noir. Une {satire|Satire} mordante de la France de l’époque, pleine d’{humour|Humour} noir."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 114,
+  "etoiles": 4
+}

@@ -1,0 +1,29 @@
+{
+  "artist": "Fiodor Dostoïevski",
+  "work": "Les Frères Karamazov",
+  "date": "1880",
+  "y": 1880,
+  "type": "Roman",
+  "themes": [
+    "Famille",
+    "Quête spirituelle",
+    "Liberté"
+  ],
+  "disc": [
+    "Littérature",
+    "Philosophie",
+    "Religions"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Dernier roman de Dostoïevski, publié en 1879-1880.",
+    "recap": "Trois frères, le passionné Dmitri, l’intellectuel Ivan et le pieux Aliocha, face au meurtre de leur père. Un roman de {famille|Famille} qui pose les grandes questions de la {quête spirituelle|Quête spirituelle} et de la {liberté|Liberté}, notamment dans la célèbre légende du Grand Inquisiteur."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 81,
+  "etoiles": 3
+}

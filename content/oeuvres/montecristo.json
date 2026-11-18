@@ -1,0 +1,27 @@
+{
+  "artist": "Alexandre de La Patellière et Matthieu Delaporte",
+  "work": "Le Comte de Monte-Cristo",
+  "date": "2024",
+  "y": 2024.5,
+  "type": "Film",
+  "themes": [
+    "Vengeance",
+    "Rédemption"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adaptation du roman d’Alexandre Dumas, sortie en 2024, avec Pierre Niney.",
+    "recap": "Edmond Dantès, emprisonné à tort pendant quatorze ans, s’évade et revient sous l’identité du comte de Monte-Cristo pour se venger. Une {vengeance|Vengeance} minutieuse qui pose la question de la {rédemption|Rédemption}."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 107,
+  "etoiles": 3
+}

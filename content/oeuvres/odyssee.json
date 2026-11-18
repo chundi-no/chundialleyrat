@@ -1,0 +1,28 @@
+{
+  "artist": "Christopher Nolan, d’après Homère",
+  "work": "L’Odyssée",
+  "date": "2026",
+  "y": 2026.55,
+  "type": "Film",
+  "themes": [
+    "Aventure",
+    "Exil",
+    "Destin"
+  ],
+  "disc": [
+    "Cinéma",
+    "Littérature"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Adaptation de l’épopée d’Homère, premier film entièrement tourné en caméras IMAX, sortie en France le 15 juillet 2026, avec Matt Damon en Ulysse.",
+    "recap": "Après la guerre de Troie, Ulysse met dix ans à rentrer à Ithaque, où l’attendent Pénélope et Télémaque. Une {aventure|Aventure} fondatrice, récit d’{exil|Exil} et de retour face au {destin|Destin} fixé par les dieux."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 51,
+  "etoiles": 4
+}

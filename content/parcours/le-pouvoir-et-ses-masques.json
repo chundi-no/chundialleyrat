@@ -1,0 +1,31 @@
+{
+  "titre": "Le pouvoir et ses masques",
+  "accroche": "Comment on le prend, comment on le garde, ce qu’il coûte : de Stendhal au Kremlin.",
+  "ordre": 7,
+  "etapes": [
+    {
+      "oeuvre": "rougenoir",
+      "liaison": "Le point de départ : Julien Sorel veut monter, et apprend à porter un masque pour y arriver."
+    },
+    {
+      "oeuvre": "parrain",
+      "liaison": "Le pouvoir comme affaire de famille : Michael Corleone ne voulait pas en être."
+    },
+    {
+      "oeuvre": "orwell1984",
+      "liaison": "Le pouvoir total, celui qui veut contrôler jusqu’aux pensées."
+    },
+    {
+      "oeuvre": "got",
+      "liaison": "Tout le monde veut le trône, et la série rappelle à chaque saison ce que coûte l’ambition."
+    },
+    {
+      "oeuvre": "mage",
+      "liaison": "Retour au réel : le conseiller de l’ombre qui fabrique un tsar, et l’image qui va avec."
+    },
+    {
+      "oeuvre": "oppenheimer",
+      "liaison": "Dernière étape : le savant qui donne au pouvoir une arme qu’il ne pourra plus reprendre."
+    }
+  ]
+}

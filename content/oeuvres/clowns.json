@@ -1,0 +1,28 @@
+{
+  "artist": "Federico Fellini",
+  "work": "Les Clowns",
+  "date": "1970",
+  "y": 1970,
+  "type": "Film",
+  "themes": [
+    "Enfance",
+    "Mélancolie",
+    "Humour"
+  ],
+  "disc": [
+    "Cinéma",
+    "Théâtre"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Film réalisé par Fellini pour la télévision italienne en 1970, entre documentaire et fiction.",
+    "recap": "Fellini part à la recherche des grands clowns de cirque, ceux qui l’ont fasciné et effrayé dans son {enfance|Enfance}. Un hommage plein d’{humour|Humour} et de {mélancolie|Mélancolie} à un art qui disparaît."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 83,
+  "etoiles": 5
+}

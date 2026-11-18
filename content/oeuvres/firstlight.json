@@ -1,0 +1,27 @@
+{
+  "artist": "IO Interactive",
+  "work": "007 First Light",
+  "date": "2026",
+  "y": 2026.4,
+  "type": "Jeu vidéo",
+  "themes": [
+    "Initiation",
+    "Image de marque"
+  ],
+  "disc": [
+    "Jeu vidéo",
+    "Cinéma"
+  ],
+  "avis": "",
+  "resume": {
+    "ctx": "Premier jeu James Bond du studio de Hitman, sorti le 27 mai 2026 après un report de deux mois ; il dépasse les 4 millions d’exemplaires vendus.",
+    "recap": "Le jeune James Bond, bien avant d’être 007, fait ses premières armes face à Bawma, joué par Lenny Kravitz. Un récit d’{initiation|Initiation} qui réinvente une {image de marque|Image de marque} vieille de soixante-dix ans."
+  },
+  "citation": "",
+  "citationSrc": "",
+  "pourquoi": "",
+  "avisDate": "",
+  "by": "",
+  "ordre": 64,
+  "etoiles": 4
+}
